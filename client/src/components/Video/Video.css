@@ -1,0 +1,19 @@
+.video {
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.video__title {
+    border-bottom: 3px solid var(--color-words-detail-movie);
+    margin: 2rem 0 4rem 0;
+    width: 80%;
+}
+
+.video__pleer {
+    width: 85%;
+    height: 30rem;
+}

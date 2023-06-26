@@ -1,0 +1,91 @@
+.center-max-size {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+.poster {
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    min-height: 35rem;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 3.15rem;
+    position: relative;
+}
+
+
+.poster-content {
+    width: 80%;
+}
+
+.poster-content h1 {
+    color: #ffffff;
+    font-size: 4rem;
+    line-height: 1;
+    margin :0.95rem 0;
+
+}
+.poster-content p{
+    color: #ffffff;
+    margin-bottom:1.25rem ;
+}
+
+.btn {
+    border: 4px solid transparent;
+    background-color: red;
+    color:white;
+    border-radius: 16px;
+    padding: 0.5rem 1.8rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 0 7px 8px #ff00004d;
+    transition: box-shadow 0.3s ease;
+    position: relative;
+}
+
+.btn:hover {
+    box-shadow: 0 0 7px 15px #ff00004d;
+}
+
+
+
+
+.control-btn button {
+    background: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/*Слайдер*/
+.swiper-button-next{
+    color: white;
+}
+
+
+.swiper-button-prev{
+    color: white;
+}
+
+.swiper-pagination span{
+   background: white;
+    width: 0.7rem;
+    height: 0.7rem;
+}
+
+
+
+
+
+
+
+
+
+
+

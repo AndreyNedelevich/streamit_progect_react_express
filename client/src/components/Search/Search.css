@@ -1,0 +1,19 @@
+.movie__search {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+}
+
+
+.input{
+    width: 100%;
+    border: 2px solid var(--color-for-words);
+    background-color: var(--background--color-input);
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 1.5rem;
+    color: var(--color-for-words);
+    height: 3rem;
+
+}

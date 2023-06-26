@@ -1,0 +1,27 @@
+
+.footer {
+    width: 100%;
+    min-height: 22rem;
+    margin: auto;
+    padding: 6rem 2rem;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 3rem;
+}
+
+.footer__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.footer__logo > img {
+    width: 15rem;
+
+}
+
+
+
+

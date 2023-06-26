@@ -1,24 +1,25 @@
-import React,{useState} from 'react';
+import React from 'react';
+
 import {EActionTokenModal} from "../../enums";
-import {useAppDispatch, useAppSelector} from "../../hooks";
+import { useAppSelector} from "../../hooks";
+import {RegistrationForm} from "../RegistrationForm";
+import {LoginForm} from "../LoginForm/LoginForm";
 
 
 const AuthModal = () => {
 
     const {showModal,isloading} = useAppSelector((state) => state.authReducer)
-    const dispatch = useAppDispatch()
 
 
-    useEffect(() => {
-        if (authModalOpen) setAction(actionState.signin);
-    }, [showModal]);
 
 
     return (
-        <div>
-
-        < /div>
+        <>
+            {showModal === EActionTokenModal.Login && <LoginForm />}
+            {showModal === EActionTokenModal.REGISTRATION &&<RegistrationForm /> }
+        </>
     );
 };
+
 
 export {AuthModal};

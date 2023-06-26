@@ -3,61 +3,76 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import { joiResolver} from '@hookform/resolvers/joi';
 import CloseIcon from '@mui/icons-material/Close';
 
-import {IAuth} from "../../interfaces";
+import {IRegistr} from "../../interfaces";
 import {authActions} from "../../redux";
 import {useAppDispatch} from "../../hooks";
-import './loginForm.css'
-import {authValidator} from "../../validators";
+import './RegistrationForm.css'
+import {registrationValidator} from "../../validators";
 import logo from "../../assets/imeges/logo.png";
+import {EActionTokenModal} from "../../enums";
 
 
 
-const LoginForm = () => {
+const RegistrationForm = () => {
     const dispatch = useAppDispatch();
 
 
 
 
     const {handleSubmit, register, reset,
-        formState: {isValid, errors}} = useForm<IAuth>({mode: 'all', resolver: joiResolver(authValidator)});
+        formState: {isValid, errors}} = useForm<IRegistr>({mode: 'all', resolver: joiResolver(registrationValidator)});
 
-    const login: SubmitHandler<IAuth> = (user) => {
+    const registration: SubmitHandler<IRegistr> = (user) => {
         console.log(user);
-        dispatch(authActions.getAuthUser(user))
+        //dispatch(authActions.getAuthUser(user))
         reset();
-
     }
 
     const closeModalWindow=()=>{
-        dispatch(authActions.shownModalLogIn(false))
+        dispatch(authActions.shownModalRegister(EActionTokenModal.NONE))
     }
 
 
     return (
         <div  className={'backdrop'}>
-            <div className={'wrapper'}>
+            <div className={'wrapper_register'}>
                 <div className={'logo__form'}>
                     <img src={logo} alt='logo '/>
                 </div>
-                <form className={'form'} onSubmit={handleSubmit(login)}>
+                <form className={'form'} onSubmit={handleSubmit(registration)}>
                     <CloseIcon onClick={closeModalWindow}/>
                     <input
                         type="text"
-                        placeholder={"username"}
+                        placeholder={"email"}
+                        {...register("email")}
+                    />
+                    {errors.email && <span className="error1">{errors.email.message}</span>}
+                    <input
+                        type="text"
+                        placeholder={"user name"}
                         {...register("username")}
                     />
                     {errors.username && <span className="error1">{errors.username.message}</span>}
                     <input
                         type="text"
-                        placeholder={"pasword"}
+                        placeholder={"password"}
                         {...register("password")}
                     />
-                    {errors.password && <span className="error2" >{errors.password.message}</span>}
-                    <button style={{width:'100%',height:'2.5rem',margin:'7px 0'}} className='button_slider' disabled={!isValid} >SIGN IN</button>
+                    {errors.password && <span className="error3" >{errors.password.message}</span>}
+                    <input
+                        type="text"
+                        placeholder={"confirm pasword"}
+                        {...register("confirmPassword")}
+                    />
+                    {errors.password && <span className="error4" >{errors.password.message}</span>}
+                    <button style={{width:'100%',height:'2.5rem',margin:'7px 0'}} className='button_slider' disabled={!isValid} >SIGN UP</button>
+                    <div className='register' >У тебя уже есть аккаунт?
+                        <button onClick={()=>dispatch(authActions.shownModalLogIn(EActionTokenModal.Login))}>SIGN IN</button>
+                    </div>
                 </form>
             </div>
         </div>
     );
 };
 
-export {LoginForm};
+export {RegistrationForm};

@@ -1,0 +1,151 @@
+@import "normalize.css";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html,body {
+    font-size: 100%;
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--main-bg-color);
+    width: 100%;
+    overflow-x:hidden ;
+}
+
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+ul {
+    list-style-type: none;
+}
+
+:root[data-theme="darks"] {
+    --main-bg-color: rgba(0, 0, 0, 0.9);
+    --color-titles: white;
+
+    --color-arrow: white;
+
+    --color-loader: none;
+    --background-color: none;
+    --color-havior: #380505;
+    --color-for-words: white;
+
+    --color-pagination: white;
+    --background--color-input: black;
+
+    --main-colar-modal: rgba(20, 19, 19, 0.96);
+    --color-words-detail-movie: white;
+
+}
+
+
+:root[data-theme="lights"] {
+    --main-bg-color: rgb(240, 240, 240);
+    --color-titles: rgba(56, 53, 53, 0.73);
+
+    --color-arrow: rgb(168, 166, 166);
+
+    --color-loader: none;
+    --background-color: black;
+    --color-havior: black;
+    --color-for-words: black;
+
+    --color-pagination: #6d6868;
+
+    --background--color-input: rgb(234, 234, 234);
+
+    --main-colar-modal: rgba(34, 33, 33, 0.91);
+    --color-words-detail-movie: #000000;
+}
+
+
+
+
+@media (max-width: 1200px) {
+    /*!*Large*!*/
+    /*@media screen and (min-width: 992px ) and (max-width: 1200px) {} */
+    /*  // Адаптацию проводим при 993px*/
+    html {
+        font-size: 80%;
+    }
+}
+
+@media (max-width: 992px) {
+    /*!*Medium*!*/
+    /*@media screen and (min-width: 768px ) and (max-width: 992px) {}*/
+    /*Адаптацию проводим при 769px*/
+    html {
+        font-size: 62.3%;
+    }
+}
+
+@media (max-width: 768px) {
+    /*!*Small*!*/
+    /*@media screen and (min-width: 576px ) and (max-width: 768px) {}*/
+    /* Адаптацию проводим при 577px*/
+
+    .container {
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+    }
+
+    .swiper-button-next {
+        visibility: hidden;
+    }
+
+    .swiper-button-prev {
+        visibility: hidden;
+    }
+
+    .logo img {
+        display: none;
+    }
+
+    .button__load {
+        width: 20rem;
+    }
+
+}
+
+@media (max-width: 576px) {
+    /*XS size*/
+    /*@media screen and (min-width: 0 ) and (max-width: 575px) {}*/
+    /*Адаптацию проводим при 320px*/
+
+
+
+    html {
+        font-size: 44%;
+    }
+
+
+    .genres__card {
+        margin: 0;
+    }
+
+    .button__load {
+        font-size: 1.3rem;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    html {
+        font-size: 31.5%;
+    }
+}
+
+
+
+

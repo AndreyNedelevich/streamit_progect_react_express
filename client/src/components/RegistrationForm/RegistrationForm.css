@@ -10,21 +10,20 @@
     background: rgba(34, 32, 32, 0.45);
 }
 
-.wrapper {
+.wrapper_register{
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     background: var(--main-colar-modal);
-    width: 35rem;
-    height: 22rem;
-    margin: 9.5rem auto;
+    width: 29rem;
+    height: 28rem;
+    margin:6.5rem auto;
     border: 2px solid black;
     padding: 1rem 1rem 1rem 1rem;
     border-radius: 10px;
     transition: background 2s ease-in;
 }
 
-.wrapper svg {
+.wrapper_register svg {
     position: absolute;
     color: rgba(247, 242, 242, 0.79);
     font-size: 3rem;
@@ -33,8 +32,7 @@
 
 }
 
-
-.wrapper h1 {
+.wrapper_register  h1 {
     text-align: center;
     font-weight: 700;
     font-size: 2.18rem;
@@ -53,10 +51,10 @@
 .form input {
     width: 100%;
     color: white;
-    height: 3rem;
+    height: 2rem;
     display: block;
     border: 1px solid white;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     background-color: black;
     font-size: 1.3rem;
     padding: 0 1rem;

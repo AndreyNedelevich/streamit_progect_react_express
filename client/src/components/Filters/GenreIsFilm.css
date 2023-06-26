@@ -1,0 +1,29 @@
+.genres__card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+    /*????*/
+    margin: 1.5rem 0.4rem 1rem 0.4rem;
+}
+
+
+
+
+.genres__card div {
+    min-width: 7rem;
+    height: 2.4rem;
+    font-size: 1rem;
+    border: 0.19rem solid var(--color-words-detail-movie);
+    padding: 0.1rem;
+    font-weight: 500;
+}
+
+
+.genres__card  span {
+    color: var(--color-words-detail-movie);
+    font-size: 1.2rem;
+}
+
+
+
