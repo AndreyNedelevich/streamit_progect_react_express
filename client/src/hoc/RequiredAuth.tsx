@@ -2,7 +2,7 @@ import {FC, ReactElement} from 'react';
 import {Navigate} from 'react-router-dom';
 
 import {useAppDispatch} from "../hooks";
-import {authActions} from "../redux";
+import {modalActions} from "../redux";
 
 
 interface IProps {
@@ -15,7 +15,7 @@ const RequiredAuth: FC<IProps> = ({children}) => {
 const dispatch=useAppDispatch()
 
     if (!auth) {
-        dispatch(authActions.shownModalLogIn(true))
+        dispatch(modalActions.shownModal(true))
         return <Navigate to={'/home'}/>
     }
 

@@ -22,7 +22,7 @@ class AuthService {
       const user = await User.create({ ...data, password: hashedPassword });
 
       const actionToken = tokenService.generateActionToken(
-        { _id: user._id },
+        { _id: user._id, userName: user.userName },
         EActionTokenTypes.Activate
       );
       await Promise.all([
@@ -32,7 +32,7 @@ class AuthService {
           _userId: user._id,
         }),
         emailService.sendMail(data.email, EEmailActions.WELCOME, {
-          name: data.name,
+          email: data.email,
           actionToken,
         }),
       ]);
@@ -70,7 +70,7 @@ class AuthService {
 
       const tokensPair = await tokenService.generateTokenPair({
         _id: user._id,
-        name: user.name,
+        email: user.email,
       });
 
       await Token.create({

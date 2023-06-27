@@ -54,7 +54,7 @@ class AuthMiddleware {
       }
 
       req.res.locals.oldTokenPair = entity;
-      req.res.locals.tokenPayload = { name: payload.name, _id: payload._id };
+      req.res.locals.tokenPayload = { email: payload.email, _id: payload._id };
       next();
     } catch (e) {
       next(e);

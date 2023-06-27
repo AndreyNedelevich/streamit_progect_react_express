@@ -10,12 +10,12 @@ import './Header.css'
 import logo from '../../assets/imeges/logo.png';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {ThemeContext, themes} from "../../context";
-import {authActions} from "../../redux";
+import {modalActions} from "../../redux";
 import {EActionTokenModal} from "../../enums";
 
 
 const Header = () => {
- const {showModal}= useAppSelector(state=>state.authReducer)
+ const {showModal}= useAppSelector(state=>state.modalReducer)
    const dispatch= useAppDispatch()
    const navigate=useNavigate()
 
@@ -53,13 +53,13 @@ const Header = () => {
 
     const login=()=>{
         navigate('/home')
-        dispatch(authActions.shownModalLogIn(EActionTokenModal.Login))
+        dispatch(modalActions.shownModal(EActionTokenModal.LOGIN))
     }
 
 
     const register=()=>{
         navigate('/home')
-        dispatch(authActions.shownModalLogIn(EActionTokenModal.REGISTRATION))
+        dispatch(modalActions.shownModal(EActionTokenModal.REGISTRATION))
     }
 
 

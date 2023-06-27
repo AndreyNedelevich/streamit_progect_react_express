@@ -1,10 +1,11 @@
 import React from 'react';
 import {Routes, Route, Navigate} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import {RequiredAuth} from "../hoc";
 import { HomePage, UpcomingPage, TrendingPage, TopRatedPage, MoviesPage,SearchPage} from "../pages";
 import {PosterPreview} from "../components/PosterPreview";
-
+import "react-toastify/dist/ReactToastify.css";
 
 
 enum RouteNames {
@@ -20,6 +21,16 @@ enum RouteNames {
 
 const RoutesConfig = () => {
     return (
+        <>
+            <ToastContainer
+                position="bottom-left"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                pauseOnFocusLoss
+                pauseOnHover
+            />
         <Routes>
             <Route index element={<Navigate to={RouteNames.HOME}/>}/>
             <Route  path={RouteNames.HOME} element={<HomePage/>}/>
@@ -49,8 +60,8 @@ const RoutesConfig = () => {
                 </RequiredAuth>
             }/>
             <Route path={RouteNames.IDMOVIE} element={<PosterPreview/>}/>
-
         </Routes>
+        </>
     );
 };
 

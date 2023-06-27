@@ -1,5 +1,5 @@
 export enum EActionTokenModal {
-    Login = "login",
+    LOGIN = "login",
     REGISTRATION = "registration",
     NONE="none"
 }

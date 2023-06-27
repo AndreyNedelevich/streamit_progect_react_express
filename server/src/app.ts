@@ -1,3 +1,4 @@
+import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import * as mongoose from "mongoose";
 
@@ -11,13 +12,20 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(
+  cors({
+    credentials: true,
+    origin: configs.FRONT_URL,
+  })
+);
+
 // CRUD - create, read, update, delete
 
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
 
 app.use((err: ApiError, req: Request, res: Response, next: NextFunction) => {
-  const status = err.status || 500;
+  const status = err.status || 5100;
 
   return res.status(status).json({
     message: err.message,

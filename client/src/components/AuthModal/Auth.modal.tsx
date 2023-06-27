@@ -8,14 +8,13 @@ import {LoginForm} from "../LoginForm/LoginForm";
 
 const AuthModal = () => {
 
-    const {showModal,isloading} = useAppSelector((state) => state.authReducer)
-
+    const {showModal,isloading} = useAppSelector((state) => state.modalReducer)
 
 
 
     return (
         <>
-            {showModal === EActionTokenModal.Login && <LoginForm />}
+            {showModal === EActionTokenModal.LOGIN && <LoginForm />}
             {showModal === EActionTokenModal.REGISTRATION &&<RegistrationForm /> }
         </>
     );

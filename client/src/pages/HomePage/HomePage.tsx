@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 
 import '../PageStyle.css'
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {authActions, moviesActions} from "../../redux";
+import {modalActions, moviesActions} from "../../redux";
 import {AppArrow, Footer, MovieListWithoutFilter, SliderMovie} from "../../components";
 import {Loader} from "../../components";
 import {LoginForm} from "../../components/LoginForm/LoginForm";
@@ -12,7 +12,7 @@ import {AuthModal} from "../../components/AuthModal";
 
 const HomePage = () => {
 
-   // const {isShowModalLogIn, isAuth, errorAuth,} = useAppSelector(state => state.authReducer)
+   // const {isShowModalLogIn, isAuth, errorAuth,} = useAppSelector(state => state.modalReducer)
 
 
 
@@ -27,7 +27,7 @@ const HomePage = () => {
         //         username: localStorage.getItem('username' || ''),
         //         password: localStorage.getItem('password' || '')
         //     }
-        //     dispatch(authActions.getAuthUser(user))
+        //     dispatch(modalActions.getAuthUser(user))
         // }
     }, [dispatch])
 

@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 
-const authValidator = Joi.object({
+const loginValidator = Joi.object({
    email: Joi.string().email({tlds:false})
         .required().messages({
             'string.empty': 'Це поле обов\'язкове',
@@ -12,5 +12,5 @@ const authValidator = Joi.object({
     }),
 });
 export {
-    authValidator
+    loginValidator
 }

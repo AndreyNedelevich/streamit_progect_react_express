@@ -4,10 +4,10 @@ import { joiResolver} from '@hookform/resolvers/joi';
 import CloseIcon from '@mui/icons-material/Close';
 
 import {IUser} from "../../interfaces";
-import {authActions} from "../../redux";
+import {modalActions} from "../../redux";
 import {useAppDispatch} from "../../hooks";
 import './loginForm.css'
-import {authValidator} from "../../validators";
+import {loginValidator} from "../../validators";
 import logo from "../../assets/imeges/logo.png";
 import {EActionTokenModal} from "../../enums";
 
@@ -19,17 +19,17 @@ const LoginForm = () => {
 
 
     const {handleSubmit, register, reset,
-        formState: {isValid, errors}} = useForm<IUser>({mode: 'all', resolver: joiResolver(authValidator)});
+        formState: {isValid, errors}} = useForm<IUser>({mode: 'all', resolver: joiResolver(loginValidator)});
 
-    const login: SubmitHandler<IUser> = (user) => {
-        console.log(user);
-        //dispatch(authActions.getAuthUser(user))
+    const login: SubmitHandler<IUser> = (userLogin:IUser) => {
+        console.log(userLogin);
+        //dispatch(modalActions.getAuthUser(userLogin))
+        dispatch(modalActions.shownModal(EActionTokenModal.NONE))
         reset();
-
     }
 
     const closeModalWindow=()=>{
-        dispatch(authActions.shownModalLogIn(EActionTokenModal.NONE))
+        dispatch(modalActions.shownModal(EActionTokenModal.NONE))
     }
 
 
@@ -46,18 +46,19 @@ const LoginForm = () => {
                         placeholder={"email"}
                         {...register("email")}
                     />
-                    {errors.email && <span className="error1">{errors.email.message}</span>}
+                    {errors.email && <span className="error_login_1">{errors.email.message}</span>}
                     <input
                         type="text"
                         placeholder={"password"}
                         {...register("password")}
                     />
-                    {errors.password && <span className="error2" >{errors.password.message}</span>}
+                    {errors.password && <span className="error_login_2" >{errors.password.message}</span>}
                     <button style={{width:'100%',height:'2.5rem',margin:'7px 0'}} className='button_slider' disabled={!isValid} >SIGN IN</button>
-                    <div className='register' >Ты еще не с нами? Регистрируйся!
-                        <button onClick={()=>dispatch(authActions.shownModalRegister(EActionTokenModal.REGISTRATION))}>REGISTRATION</button>
+                    <div className='register_form' >Ты еще не с нами? Регистрируйся!
+                        <button onClick={()=>dispatch(modalActions.shownModal(EActionTokenModal.REGISTRATION))}>REGISTRATION</button>
                     </div>
                 </form>
+
             </div>
         </div>
     );
