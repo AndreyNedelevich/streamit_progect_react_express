@@ -11,7 +11,7 @@ const publicClient = axios.create({
     }
 });
 
-// @ts-ignore
+//@ts-ignore
 publicClient.interceptors.request.use( config => {
     return {
         ...config,
@@ -26,10 +26,12 @@ publicClient.interceptors.request.use( config => {
 
 
 publicClient.interceptors.response.use((response) => {
-    if (response && response.data) return response.data;
+    console.log(response);
+    if (response&&response.data) return response.data;
     return response;
 }, (err) => {
-    throw err.response.data;
+    console.log(err);
+    throw err.response.data
 });
 
 export  {publicClient};

@@ -1,7 +1,7 @@
 const user = '/user'
 
 const urls_user = {
-    userById: `${user}/:userId`
+    userById: (userId: string) => `${user}/${userId}`
 }
 
 export {

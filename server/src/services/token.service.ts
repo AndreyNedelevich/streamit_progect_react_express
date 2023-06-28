@@ -4,12 +4,16 @@ import { configs } from "../configs/config";
 import { EActionTokenTypes } from "../enums/action-token-type.enum";
 import { ETokenType } from "../enums/token-type.enum";
 import { ApiError } from "../errors";
-import {IActionTokenPayload, ITokenPayload, ITokensPair} from "../types/token.types";
+import {
+  IActionTokenPayload,
+  ITokenPayload,
+  ITokensPair,
+} from "../types/token.types";
 
 class TokenService {
   public generateTokenPair(payload: ITokenPayload): ITokensPair {
     const accessToken = jwt.sign(payload, configs.JWT_ACCESS_SECRET, {
-      expiresIn: "200s",
+      expiresIn: "300s",
     });
     const refreshToken = jwt.sign(payload, configs.JWT_REFRESH_SECRET, {
       expiresIn: "30d",

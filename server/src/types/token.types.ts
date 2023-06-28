@@ -5,6 +5,11 @@ export interface ITokensPair {
   refreshToken: string;
 }
 
+export interface ITokensPairWithIdUser {
+  id: string;
+  tokens: ITokensPair;
+}
+
 export type ICredentials = Pick<IUser, "email" | "password">;
 
 export type ITokenPayload = Pick<IUser, "email" | "_id">;

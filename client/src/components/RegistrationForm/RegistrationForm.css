@@ -1,5 +1,5 @@
 
-.backdrop {
+.backdrop_register {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     background: var(--main-colar-modal);
-    width: 29rem;
+    width: 28rem;
     height: 31.5rem;
     margin:6.5rem auto;
     border: 2px solid black;
@@ -26,9 +26,8 @@
     position: absolute;
     color: rgba(247, 242, 242, 0.79);
     font-size: 3rem;
-    top: -5rem;
+    top: -4rem;
     right: -2.2rem;
-
 }
 
 .wrapper_register  h1 {
@@ -40,14 +39,15 @@
 }
 
 
-.form {
+.forms {
     position: relative;
     height: 85%;
     margin: 0 1.4rem;
 }
 
 
-.form input {
+
+.forms input {
     width: 100%;
     color: white;
     height: 2rem;
@@ -59,13 +59,13 @@
     padding: 0 1rem;
 }
 
-.form input:-webkit-autofill,
+.forms input:-webkit-autofill,
 input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
 
 
-.button_slider {
+.button_register {
     font-size: 1.1rem;
     margin: 20px 0;
     background-color: red;
@@ -78,18 +78,18 @@ input:-webkit-autofill:focus {
     transition: box-shadow 0.3s ease;
     border: 1px solid gray;
 }
-.button_slider:hover {
+.button_register:hover {
     box-shadow: 0 7px 9px rgba(243, 4, 4, 0.5);
 }
 
 
 
-.logo__form {
+.logo__form_register{
     position: relative;
     margin: 0 auto;
 }
 
-.logo__form > img {
+.logo__form_register > img {
     width: 12rem;
     height: 3rem;
  }
@@ -129,10 +129,17 @@ input:-webkit-autofill:focus {
 }
 
 .register_form{
+    position: relative;
     cursor: pointer;
     font-size: 0.7rem;
     color: white;
     margin-bottom: 0.4rem;
+}
+
+.register_form svg{
+    position: absolute;
+    top: 2rem;
+    right: 12rem;
 }
 
 .register_form>button{
@@ -151,5 +158,4 @@ input:-webkit-autofill:focus {
     font-size: 1rem;
     border-radius: 8px;
     padding: 0.7rem;
-
 }

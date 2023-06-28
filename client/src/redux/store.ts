@@ -1,6 +1,6 @@
 import {combineReducers,configureStore} from "@reduxjs/toolkit";
 
-import {movieReducer,movieInformreducer,genresReducer,pageReducer,searchReducer,modalReducer,authReducer} from "./slice";
+import {movieReducer,movieInformreducer,genresReducer,pageReducer,searchReducer,modalReducer,userReducer} from "./slice";
 
 
 const rootReducer=combineReducers({
@@ -10,7 +10,7 @@ const rootReducer=combineReducers({
     pageReducer,
     searchReducer,
     modalReducer,
-    authReducer
+    userReducer
 })
 
 

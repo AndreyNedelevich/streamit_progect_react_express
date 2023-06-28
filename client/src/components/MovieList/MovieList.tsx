@@ -36,7 +36,6 @@ const MovieList:FC<IProps> = ({movies}) => {
                             ))
                         }
                     </div>
-                    {/*<PaginationMovies/>*/}
                 </div>
             </div>
         </Fragment>

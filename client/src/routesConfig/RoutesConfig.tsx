@@ -24,12 +24,13 @@ const RoutesConfig = () => {
         <>
             <ToastContainer
                 position="bottom-left"
-                autoClose={5000}
+                autoClose={4000}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
                 pauseOnFocusLoss
                 pauseOnHover
+                theme="dark"
             />
         <Routes>
             <Route index element={<Navigate to={RouteNames.HOME}/>}/>

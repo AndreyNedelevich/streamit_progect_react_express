@@ -8,7 +8,11 @@ import { Action } from "../models/Action.model";
 import { OldPassword } from "../models/OldPassword.model";
 import { Token } from "../models/Token.model";
 import { User } from "../models/User.mode";
-import { ICredentials, ITokenPayload, ITokensPair } from "../types/token.types";
+import {
+  ICredentials,
+  ITokenPayload,
+  ITokensPair,
+} from "../types/token.types";
 import { IUser } from "../types/user.type";
 import { emailService } from "./email.service";
 import { passwordService } from "./password.service";

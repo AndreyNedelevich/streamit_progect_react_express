@@ -1,14 +1,19 @@
 import { NextFunction, Request, Response } from "express";
 
 import { authService } from "../services/auth.service";
-import { ITokenPayload, ITokensPair } from "../types/token.types";
+import {
+  ITokenPayload,
+  ITokensPair,
+  ITokensPairWithIdUser,
+} from "../types/token.types";
+import { IUser } from "../types/user.type";
 
 class AuthController {
   public async register(
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<Response<void>> {
+  ): Promise<Response<IUser>> {
     try {
       await authService.register(req.body);
 
@@ -38,13 +43,13 @@ class AuthController {
     req: Request,
     res: Response,
     next: NextFunction
-  ): Promise<Response<ITokensPair>> {
+  ): Promise<Response<ITokensPairWithIdUser>> {
     try {
       const tokensPair = await authService.login(req.body, req.res.locals.user);
 
-      return res.status(200).json({
-        ...tokensPair,
-      });
+      return res
+        .status(200)
+        .json({ tokens: tokensPair, id: req.res.locals.user._id });
     } catch (e) {
       next(e);
     }

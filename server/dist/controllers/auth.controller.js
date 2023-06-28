@@ -25,9 +25,9 @@ class AuthController {
     async login(req, res, next) {
         try {
             const tokensPair = await auth_service_1.authService.login(req.body, req.res.locals.user);
-            return res.status(200).json({
-                ...tokensPair,
-            });
+            return res
+                .status(200)
+                .json({ tokens: tokensPair, id: req.res.locals.user._id });
         }
         catch (e) {
             next(e);

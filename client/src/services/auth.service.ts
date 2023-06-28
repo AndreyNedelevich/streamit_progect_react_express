@@ -1,8 +1,8 @@
-import {IRegistr, ITokens, IUser} from "../interfaces";
-import {IRes} from "../types";
+import { IRegistr, ITokens, IUser} from "../interfaces";
 import {publicClient, privateClient} from "./client";
 import {urls_auth} from "../constans";
-import {AxiosResponse} from "axios";
+import { AxiosResponse} from "axios";
+import {IRes} from "../types";
 
 
 class AuthService {
@@ -16,9 +16,11 @@ class AuthService {
     }
 
 
-    async login({email, password}: IUser): Promise<any> {
-        const {data} = await privateClient.post(urls_auth.login, {email, password});
-        this.setTokens(data)
+    async login({email, password}: IUser): Promise<AxiosResponse<ITokens>> {
+        const response = await publicClient.post(urls_auth.login, {email, password});
+        // @ts-ignore
+        this.setTokens(response)
+        return response
     }
 
 
@@ -28,21 +30,19 @@ class AuthService {
             throw new Error("Refresh token isn't exists")
         }
         const {data}: AxiosResponse<ITokens> = await privateClient.post(urls_auth.refresh, {refresh: refreshToken});
-        console.log(data);
         this.setTokens(data)
     }
 
 
-    // me(): IRes<any> {
-    //     return privateClient.get(urls_auth.me)
-    // }
 
-    private setTokens({access, refresh}: ITokens): void {
-        localStorage.setItem(this.accessKey, access)
-        localStorage.setItem(this.refreshKey, refresh)
-
+    private setTokens({accessToken, refreshToken}: ITokens): void {
+        localStorage.setItem(this.accessKey, accessToken)
+        localStorage.setItem(this.refreshKey, refreshToken)
     }
 
+    setTokensfromMovieDB(access:string ): void {
+        localStorage.setItem('accessforMovie', access)
+    }
 
     getAccessToken(): string {
         return localStorage.getItem(this.accessKey)

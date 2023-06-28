@@ -1,23 +1,29 @@
-import React from "react";
+import React, {useState} from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {joiResolver} from '@hookform/resolvers/joi';
 import CloseIcon from '@mui/icons-material/Close';
 import {toast} from "react-toastify";
+import {AxiosError} from "axios";
 
-import {IRegistr} from "../../interfaces";
-import {authActions, modalActions} from "../../redux";
-import {useAppDispatch, useAppSelector} from "../../hooks";
+import { IRegistr} from "../../interfaces";
+import {modalActions} from "../../redux";
 import './RegistrationForm.css'
 import {registrationValidator} from "../../validators";
 import logo from "../../assets/imeges/logo.png";
 import {EActionTokenModal} from "../../enums";
+import {authService} from "../../services";
+import {useAppDispatch} from "../../hooks";
+import {LoaderForm} from "../UI";
+
 
 
 const RegistrationForm = () => {
 
 
-    const {loading, error} = useAppSelector((state) => state.authReducer)
     const dispatch = useAppDispatch();
+
+    const [isRegistrRequest, setIsRegistrRequest] = useState(false);
+    const [error, setError] = useState(null);
 
 
     const {
@@ -25,16 +31,23 @@ const RegistrationForm = () => {
         formState: {isValid, errors}
     } = useForm<IRegistr>({mode: 'all', resolver: joiResolver(registrationValidator)});
 
-    const registration: SubmitHandler<IRegistr> = async (user: IRegistr) => {
 
-      const response=await  dispatch(authActions.register(user))
-        if (response.meta.requestStatus==='fulfilled') {
+    const registration: SubmitHandler<IRegistr> = async (user: IRegistr) => {
+        setError(null);
+        try {
+            setIsRegistrRequest(true);
+            await authService.register(user)
             dispatch(modalActions.shownModal(EActionTokenModal.NONE))
             toast.success("Sign up success");
+        } catch (e) {
+            const err = e as AxiosError
+            setError(err);
+        } finally {
+            setIsRegistrRequest(false);
+            reset();
         }
-        console.log(error);
-        reset();
     }
+
 
     const closeModalWindow = () => {
         dispatch(modalActions.shownModal(EActionTokenModal.NONE))
@@ -42,12 +55,12 @@ const RegistrationForm = () => {
 
 
     return (
-        <div className={'backdrop'}>
-            <div className={'wrapper_register'}>
-                <div className={'logo__form'}>
+        <div className='backdrop_register'>
+            <div className='wrapper_register'>
+                <div className='logo__form_register'>
                     <img src={logo} alt='logo '/>
                 </div>
-                <form className={'form'} onSubmit={handleSubmit(registration)}>
+                <form className='forms' onSubmit={handleSubmit(registration)}>
                     <CloseIcon onClick={closeModalWindow}/>
                     <input
                         type="text"
@@ -81,11 +94,12 @@ const RegistrationForm = () => {
                     />
                     {errors.confirmPassword &&
                         <span className="error_register_5">{errors.confirmPassword.message}</span>}
-                    <button style={{width: '100%', height: '2.5rem', margin: '7px 0'}} className='button_slider'
-                            disabled={!isValid}>SIGN UP
+                    <button style={{width: '100%', height: '2.5rem', margin: '7px 0'}} className='button_register'>SIGN UP
                     </button>
+
                     <div className='register_form'>У тебя уже есть аккаунт?
-                        <button onClick={() => dispatch(modalActions.shownModal(EActionTokenModal.LOGIN))}>SIGN IN</button>
+                        <button type='button' onClick={() => dispatch(modalActions.shownModal(EActionTokenModal.LOGIN))}>SIGN IN</button>
+                        {isRegistrRequest&&  <LoaderForm/>}
                     </div>
                 </form>
                 {error &&
