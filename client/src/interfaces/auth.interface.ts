@@ -8,6 +8,7 @@ export interface IRegistr {
 
 export type IUser = Pick<IRegistr, "email" | "password">;
 
+
 export interface IUserFromDB extends IRegistr {
     _id: string;
     status: string;
@@ -19,4 +20,7 @@ export interface ITokens {
 }
 
 
-
+export interface IUserIdWithITokens {
+    tokens: ITokens;
+    id: string;
+}

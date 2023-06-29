@@ -1,4 +1,4 @@
-import { IRegistr, ITokens, IUser} from "../interfaces";
+import {IRegistr, ITokens, IUser, IUserIdWithITokens} from "../interfaces";
 import {publicClient, privateClient} from "./client";
 import {urls_auth} from "../constans";
 import { AxiosResponse} from "axios";
@@ -8,6 +8,7 @@ import {IRes} from "../types";
 class AuthService {
     private readonly accessKey = 'access'
     private readonly refreshKey = 'refresh'
+    private readonly accessKeyforMovieDB = 'accessforMovie'
 
 
     register({email, password, age, userName}: IRegistr): IRes<any> {
@@ -16,13 +17,15 @@ class AuthService {
     }
 
 
-    async login({email, password}: IUser): Promise<AxiosResponse<ITokens>> {
+    async login({email, password}: IUser): Promise<AxiosResponse<IUserIdWithITokens>> {
         const response = await publicClient.post(urls_auth.login, {email, password});
-        // @ts-ignore
-        this.setTokens(response)
+        this.setTokens(response.data.tokens)
         return response
     }
 
+    async forotPassword(email: string):  Promise<void>{
+        await publicClient.post(urls_auth.forgot, {email});
+    }
 
     async refresh(): Promise<void> {
         const refreshToken = this.getRefreshToken();
@@ -42,6 +45,10 @@ class AuthService {
 
     setTokensfromMovieDB(access:string ): void {
         localStorage.setItem('accessforMovie', access)
+    }
+
+    getAccessTokenforMovieDB(): string {
+        return localStorage.getItem(this.accessKeyforMovieDB)
     }
 
     getAccessToken(): string {

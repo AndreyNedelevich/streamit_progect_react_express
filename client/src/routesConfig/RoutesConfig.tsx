@@ -1,11 +1,13 @@
 import React from 'react';
 import {Routes, Route, Navigate} from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+
 
 import {RequiredAuth} from "../hoc";
 import { HomePage, UpcomingPage, TrendingPage, TopRatedPage, MoviesPage,SearchPage} from "../pages";
 import {PosterPreview} from "../components/PosterPreview";
-import "react-toastify/dist/ReactToastify.css";
+import {Notification} from "../components";
+import {ShowModal} from "../components/ShowModal";
+import {ForgotPassword} from "../components/ForgotPassword";
 
 
 enum RouteNames {
@@ -15,23 +17,16 @@ enum RouteNames {
     TOP_RATED = 'top_rated',
     UPCOMING = 'upcoming',
     SEARCH = 'search',
-    IDMOVIE='movie/:id'
+    IDMOVIE='movie/:id',
+    RESTORE_PASSWORD='restore-password/:actionToken'
 }
 
 
 const RoutesConfig = () => {
     return (
         <>
-            <ToastContainer
-                position="bottom-left"
-                autoClose={4000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                pauseOnFocusLoss
-                pauseOnHover
-                theme="dark"
-            />
+            <Notification/>
+            <ShowModal/>
         <Routes>
             <Route index element={<Navigate to={RouteNames.HOME}/>}/>
             <Route  path={RouteNames.HOME} element={<HomePage/>}/>
@@ -61,6 +56,8 @@ const RoutesConfig = () => {
                 </RequiredAuth>
             }/>
             <Route path={RouteNames.IDMOVIE} element={<PosterPreview/>}/>
+            <Route path={RouteNames.RESTORE_PASSWORD} element={<ForgotPassword/>}/>
+
         </Routes>
         </>
     );

@@ -7,7 +7,7 @@ const axiosService = axios.create({baseURL:baseUrl});
 
 
 axiosService.interceptors.request.use(config=>{
-    const access=authService.getAccessToken();
+    const access=authService.getAccessTokenforMovieDB();
     if(access) {
         config.headers.Authorization = `Bearer ${access}`
 

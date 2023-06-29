@@ -2,17 +2,13 @@ import React, {useEffect} from 'react';
 
 import '../PageStyle.css'
 import {useAppDispatch, useAppSelector} from "../../hooks";
-import {modalActions, moviesActions} from "../../redux";
+import { moviesActions} from "../../redux";
 import {AppArrow, Footer, MovieListWithoutFilter, SliderMovie} from "../../components";
 import {Loader} from "../../components";
-import {LoginForm} from "../../components/LoginForm/LoginForm";
-import {IUser} from "../../interfaces";
-import {AuthModal} from "../../components/AuthModal";
+
 
 
 const HomePage = () => {
-
-   // const {isShowModalLogIn, isAuth, errorAuth,} = useAppSelector(state => state.modalReducer)
 
 
 
@@ -21,14 +17,6 @@ const HomePage = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
         dispatch(moviesActions.getNowPlaying())
-
-        // if (localStorage.getItem('auth') && localStorage.getItem('password')) {
-        //     const user: IUser = {
-        //         username: localStorage.getItem('username' || ''),
-        //         password: localStorage.getItem('password' || '')
-        //     }
-        //     dispatch(modalActions.getAuthUser(user))
-        // }
     }, [dispatch])
 
 
@@ -45,7 +33,6 @@ const HomePage = () => {
                 <h2 className="list__title">New Films</h2>
                 <MovieListWithoutFilter movies={now_playining}/>
             </>
-            <AuthModal/>
             <AppArrow/>
             <Footer/>
         </div>

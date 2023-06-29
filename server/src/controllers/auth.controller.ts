@@ -46,10 +46,9 @@ class AuthController {
   ): Promise<Response<ITokensPairWithIdUser>> {
     try {
       const tokensPair = await authService.login(req.body, req.res.locals.user);
+      const id = req.res.locals.user._id;
 
-      return res
-        .status(200)
-        .json({ tokens: tokensPair, id: req.res.locals.user._id });
+      return res.status(200).json({ tokens: tokensPair, id: id });
     } catch (e) {
       next(e);
     }

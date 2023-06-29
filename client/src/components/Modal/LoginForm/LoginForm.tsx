@@ -3,17 +3,17 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {joiResolver} from '@hookform/resolvers/joi';
 import CloseIcon from '@mui/icons-material/Close';
 
-import {IUser} from "../../interfaces";
-import {modalActions} from "../../redux";
-import {useAppDispatch} from "../../hooks";
+import {IUser} from "../../../interfaces";
+import {modalActions, userActions} from "../../../redux";
+import {useAppDispatch} from "../../../hooks";
 import './loginForm.css'
-import {loginValidator} from "../../validators";
-import logo from "../../assets/imeges/logo.png";
-import {EActionTokenModal} from "../../enums";
-import {authService} from "../../services";
+import {loginValidator} from "../../../validators";
+import logo from "../../../assets/imeges/logo.png";
+import {EActionTokenModal} from "../../../enums";
+import {authService} from "../../../services";
 import {toast} from "react-toastify";
 import {AxiosError} from "axios";
-import {LoaderForm} from "../UI";
+import {LoaderForm} from "../../UI";
 
 
 const LoginForm = () => {
@@ -32,10 +32,17 @@ const LoginForm = () => {
         setError(null);
         try {
             setIsLoginRequest(true);
-            const response = await authService.login(user)
-            console.log(response);
-            dispatch(modalActions.shownModal(EActionTokenModal.NONE))
-            toast.success("Sign in success");
+            const {data} = await authService.login(user)
+            console.log(data);
+            if (data) {
+                dispatch(userActions.getUser(data.id))
+                dispatch(modalActions.shownModal(EActionTokenModal.NONE))
+                toast.success("Sign in success", {
+                    // autoClose: false,
+                    // progress: undefined,
+                    autoClose: 1500,
+                });
+            }
         } catch (e) {
             const err = e as AxiosError
             setError(err);
@@ -73,18 +80,22 @@ const LoginForm = () => {
                     <button style={{width: '100%', height: '2.5rem', margin: '7px 0'}} className='button_login'>SIGN
                         IN
                     </button>
-                    <div className='login_form'>Ты еще не с нами? Регистрируйся!
+                    <div className='login_form'>
+                        Are you not with us yet? Register!!
                         <button
-                            onClick={() => dispatch(modalActions.shownModal(EActionTokenModal.REGISTRATION))}>REGISTRATION</button>
+                          type="button"  onClick={() => dispatch(modalActions.shownModal(EActionTokenModal.REGISTRATION))}>REGISTRATION</button>
                         {isLoginRequest && <LoaderForm/>}
+                    </div>
+                    <div className='login_form'>Forgot your password!!!
+                        <button style={{marginLeft:"2.3rem"}}
+                            type="button"  onClick={() => dispatch(modalActions.shownModal(EActionTokenModal.FORGOTPASSWORD))}>FORGOT PASSWORD</button>
                     </div>
                 </form>
                 {error &&
-                    <div className="error_register">{error.message}</div>
+                    <div className="error_login">{error.message}</div>
                 }
             </div>
         </div>
-    );
-};
+    );};
 
 export {LoginForm};

@@ -5,15 +5,15 @@ import CloseIcon from '@mui/icons-material/Close';
 import {toast} from "react-toastify";
 import {AxiosError} from "axios";
 
-import { IRegistr} from "../../interfaces";
-import {modalActions} from "../../redux";
+import { IRegistr} from "../../../interfaces";
+import {modalActions} from "../../../redux";
 import './RegistrationForm.css'
-import {registrationValidator} from "../../validators";
-import logo from "../../assets/imeges/logo.png";
-import {EActionTokenModal} from "../../enums";
-import {authService} from "../../services";
-import {useAppDispatch} from "../../hooks";
-import {LoaderForm} from "../UI";
+import {registrationValidator} from "../../../validators";
+import logo from "../../../assets/imeges/logo.png";
+import {EActionTokenModal} from "../../../enums";
+import {authService} from "../../../services";
+import {useAppDispatch} from "../../../hooks";
+import {LoaderForm} from "../../UI";
 
 
 
@@ -38,7 +38,11 @@ const RegistrationForm = () => {
             setIsRegistrRequest(true);
             await authService.register(user)
             dispatch(modalActions.shownModal(EActionTokenModal.NONE))
-            toast.success("Sign up success");
+            toast.success("Sign up success",{
+                // autoClose: false,
+                // progress: undefined,
+                autoClose: 1500,
+            });
         } catch (e) {
             const err = e as AxiosError
             setError(err);

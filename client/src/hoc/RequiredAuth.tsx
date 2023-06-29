@@ -1,8 +1,9 @@
 import {FC, ReactElement} from 'react';
 import {Navigate} from 'react-router-dom';
 
-import {useAppDispatch} from "../hooks";
+import {useAppDispatch, useAppSelector} from "../hooks";
 import {modalActions} from "../redux";
+import {EActionTokenModal} from "../enums";
 
 
 interface IProps {
@@ -11,11 +12,11 @@ interface IProps {
 
 const RequiredAuth: FC<IProps> = ({children}) => {
 
-   const auth= localStorage.getItem('auth')&&localStorage.getItem('username')
+const {user} = useAppSelector((state) => state.userReducer)
 const dispatch=useAppDispatch()
 
-    if (!auth) {
-        dispatch(modalActions.shownModal(true))
+    if (!user) {
+        dispatch(modalActions.shownModal(EActionTokenModal.LOGIN))
         return <Navigate to={'/home'}/>
     }
 

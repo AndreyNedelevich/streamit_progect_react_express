@@ -10,4 +10,4 @@ export * from './StarsRating'
 export * from './Search'
 export * from './Video'
 export * from './Footer'
-export * from './RegistrationForm'
+

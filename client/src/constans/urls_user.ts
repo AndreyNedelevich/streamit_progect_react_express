@@ -1,4 +1,4 @@
-const user = '/user'
+const user = '/users'
 
 const urls_user = {
     userById: (userId: string) => `${user}/${userId}`

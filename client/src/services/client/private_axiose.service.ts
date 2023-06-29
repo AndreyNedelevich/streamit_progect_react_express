@@ -2,15 +2,9 @@ import axios, {AxiosError} from 'axios';
 import {authService} from "../auth.service";
 import {IWaitListCB} from "../../types/waitList.type";
 import {urls_auth,baseURL} from "../../constans";
-import queryString from "query-string";
 
 
-const privateClient = axios.create({
-    baseURL,
-    paramsSerializer: {
-        encode: params => queryString.stringify(params)
-    }
-});
+const privateClient = axios.create({baseURL});
 
 
 let isRefreshing = false
@@ -21,7 +15,7 @@ const weitList: IWaitListCB[] = [];
 privateClient.interceptors.request.use(config => {
     const access = authService.getAccessToken();
     if (access) {
-        config.headers.Authorization = `Bearer ${access}`
+        config.headers.Authorization = `${access}`
     }
     return config
 })

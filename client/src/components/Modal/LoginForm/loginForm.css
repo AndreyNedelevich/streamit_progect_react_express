@@ -15,7 +15,7 @@
     flex-direction: column;
     background: var(--main-colar-modal);
     width: 28rem;
-    height: 21rem;
+    height: 23rem;
     margin: 6.5rem auto;
     border: 2px solid black;
     padding: 1rem 1rem 1rem 1rem;
@@ -85,7 +85,6 @@ input:-webkit-autofill:focus {
 }
 
 
-
 .logo__form {
     position: relative;
     margin: 0 auto;
@@ -118,9 +117,17 @@ input:-webkit-autofill:focus {
     color: white;
     margin-bottom: 0.4rem;
 }
+.login_form>button{
+    margin-left: 1rem;
+}
 
-.login_form svg{
-    position: absolute;
-    top: 2rem;
-    right: 12rem;
+
+.error_login{
+    margin: 0.3rem auto;
+    width: 90%;
+    color: #eb1717;
+    border:2px solid rgba(221, 18, 18, 0.51);
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0.7rem;
 }

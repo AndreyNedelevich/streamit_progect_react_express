@@ -12,20 +12,19 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {ThemeContext, themes} from "../../context";
 import {modalActions} from "../../redux";
 import {EActionTokenModal} from "../../enums";
+import {Profile} from "./Profile";
 
 
 const Header = () => {
- const {showModal}= useAppSelector(state=>state.modalReducer)
-   const dispatch= useAppDispatch()
-   const navigate=useNavigate()
+    const {user} = useAppSelector(state => state.userReducer)
+    const dispatch = useAppDispatch()
+    const navigate = useNavigate()
 
     const header = useRef(null);
 
     const context: any = useContext(ThemeContext);
 
     const {theme, setTheme} = context
-
-
 
 
     const switcTheme = () => {
@@ -51,13 +50,13 @@ const Header = () => {
     }, [])
 
 
-    const login=()=>{
+    const login = () => {
         navigate('/home')
         dispatch(modalActions.shownModal(EActionTokenModal.LOGIN))
     }
 
 
-    const register=()=>{
+    const register = () => {
         navigate('/home')
         dispatch(modalActions.shownModal(EActionTokenModal.REGISTRATION))
     }
@@ -100,10 +99,11 @@ const Header = () => {
                             {theme === 'lights' && <WbSunnyOutlined fontSize="large"/>}
                             {theme === 'darks' && <DarkModeOutlined fontSize="large"/>}
                         </IconButton>
-                        <div  className='wrapper_register_login'>
-                            <button onClick={login} className='button'>SINGL IN</button>
-                            <div className='register' onClick={register} >REGISTRATION</div>
-                        </div>
+                        {user ? <Profile/> :
+                            <div className='wrapper_register_login'>
+                                <button onClick={login} className='button'>SINGL IN</button>
+                                <div className='register' onClick={register}>REGISTRATION</div>
+                            </div>}
                     </div>
                 </div>
             </header>

@@ -1,0 +1,131 @@
+
+.backdrop_forgot {
+    position: fixed;
+    /* ПРи позиционировании fixed оно имеет релативное позиционирование */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    background: rgba(34, 32, 32, 0.45);
+}
+
+.wrapper_forgot{
+    display: flex;
+    flex-direction: column;
+    background: var(--main-colar-modal);
+    width: 27rem;
+    height: 16.5rem;
+    margin: 6.5rem auto;
+    border: 2px solid black;
+    padding: 1rem 1rem 1rem 1rem;
+    border-radius: 10px;
+    transition: background 2s ease-in;
+}
+
+.wrapper_forgot svg {
+    position: absolute;
+    color: rgba(247, 242, 242, 0.79);
+    font-size: 3rem;
+    top: -4rem;
+    right: -2.2rem;
+
+}
+
+
+.wrapper_forgot h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.18rem;
+    color: red;
+    margin: 15px 0;
+}
+
+
+.form_forgot {
+    position: relative;
+    height: 85%;
+    margin: 0 1.4rem;
+}
+
+
+.form_forgot input {
+    width: 100%;
+    color: white;
+    height: 2.4rem;
+    display: block;
+    border: 1px solid white;
+    margin: 1rem 0 1rem 0;
+    background-color: black;
+    font-size: 1.2rem;
+    padding: 0 1rem;
+}
+
+.form_forgot input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+
+.button_forgot {
+    font-size: 1.1rem;
+    margin: 20px 0;
+    background-color: red;
+    color:white;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: box-shadow 0.3s ease;
+    border: 1px solid gray;
+}
+.button_forgot:hover {
+    box-shadow: 0 7px 9px rgba(243, 4, 4, 0.5);
+}
+
+
+
+.logo__form_forgot {
+    position: relative;
+    margin: 0 auto;
+}
+
+.logo__form_forgot > img {
+    width: 12rem;
+    height: 3rem;
+}
+
+
+.error_forgot_1 {
+    position: absolute;
+    color: white;
+    top: 3.5rem;
+    font-size: 0.9rem;
+}
+
+
+.forgot_loader{
+    position: relative;
+    cursor: pointer;
+    font-size: 0.7rem;
+    color: white;
+    margin-bottom: 0.4rem;
+}
+
+.forgot_loader svg{
+    position: absolute;
+    top: -1rem;
+    right: 12rem;
+}
+
+
+.error_forgot{
+    margin: 0rem auto;
+    width: 90%;
+    color: #eb1717;
+    border:2px solid rgba(221, 18, 18, 0.51);
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 0.7rem;
+}

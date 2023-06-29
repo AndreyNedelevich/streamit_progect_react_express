@@ -19,9 +19,9 @@ const initialState: IState = {
 
 const getUser = createAsyncThunk<IUserFromDB, string>(
     'userSlice/getUser',
-    async (userId, {rejectWithValue}) => {
+    async (id, {rejectWithValue}) => {
         try {
-            const {data} = await userService.getUserById(userId)
+            const {data} = await userService.getUserById(id)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -35,6 +35,10 @@ const slice = createSlice({
     initialState,
     reducers: {
         signOut: (state, action) => {
+            if (action.payload === null) {
+                localStorage.removeItem("access");
+                localStorage.removeItem("refresh");
+            }
             state.user = action.payload
         },
     },
