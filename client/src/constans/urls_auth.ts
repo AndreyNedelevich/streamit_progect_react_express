@@ -6,6 +6,8 @@ const urls_auth = {
         login: `${auth}/login`,
         refresh: `${auth}/refresh`,
         forgot:`${auth}/forgot`,
+        forgotPassword:(token:string):string =>`${auth}/forgot/${token}`
+
 }
 
 export {

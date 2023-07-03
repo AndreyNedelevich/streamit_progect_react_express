@@ -65,7 +65,6 @@ const UpcomingPage = () => {
                     </div>
                 </>
             <AppArrow/>
-            <Footer/>
         </>
 
     );

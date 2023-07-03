@@ -71,7 +71,6 @@ const TrendingPage = () => {
                 </div>
             </>
             <AppArrow/>
-            <Footer/>
         </>
     );
 };

@@ -36,6 +36,10 @@ class AuthService {
         this.setTokens(data)
     }
 
+    async putForgotPassword(token:string,password:string):Promise<void>{
+        await publicClient.put(urls_auth.forgotPassword(token),{password})
+    }
+
 
 
     private setTokens({accessToken, refreshToken}: ITokens): void {

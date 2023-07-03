@@ -74,7 +74,6 @@ const TopRatedPage = () => {
                 </div>
             </>
             <AppArrow/>
-            <Footer/>
         </div>
     );
 };

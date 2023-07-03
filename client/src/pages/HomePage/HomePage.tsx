@@ -34,7 +34,6 @@ const HomePage = () => {
                 <MovieListWithoutFilter movies={now_playining}/>
             </>
             <AppArrow/>
-            <Footer/>
         </div>
     );
 };

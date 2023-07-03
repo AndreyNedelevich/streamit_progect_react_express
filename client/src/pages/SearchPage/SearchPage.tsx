@@ -68,7 +68,6 @@ const SearchPage = () => {
                 </div>
             </>
             <AppArrow/>
-            <Footer/>
         </Fragment>
     );
 };

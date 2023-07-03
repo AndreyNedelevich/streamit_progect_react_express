@@ -2,10 +2,16 @@ import axios, {AxiosError} from 'axios';
 import {authService} from "../auth.service";
 import {IWaitListCB} from "../../types/waitList.type";
 import {urls_auth,baseURL} from "../../constans";
+import queryString from "query-string";
 
 
-const privateClient = axios.create({baseURL});
-
+//const privateClient = axios.create({baseURL});
+const privateClient = axios.create({
+    baseURL,
+    paramsSerializer: {
+        encode: params => queryString.stringify(params)
+    }
+});
 
 let isRefreshing = false
 const weitList: IWaitListCB[] = [];

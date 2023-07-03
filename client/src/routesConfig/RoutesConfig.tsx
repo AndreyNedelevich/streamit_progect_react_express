@@ -24,7 +24,7 @@ enum RouteNames {
 
 const RoutesConfig = () => {
     return (
-        <>
+        <div className='main_container'>
             <Notification/>
             <ShowModal/>
         <Routes>
@@ -59,7 +59,7 @@ const RoutesConfig = () => {
             <Route path={RouteNames.RESTORE_PASSWORD} element={<ForgotPassword/>}/>
 
         </Routes>
-        </>
+        </div>
     );
 };
 

@@ -7,11 +7,14 @@
     scroll-behavior: smooth;
 }
 
+.main_container{
+    min-height:100%;
+}
+
 html,body {
     font-size: 100%;
     font-family: "Montserrat", sans-serif;
     background-color: var(--main-bg-color);
-    width: 100%;
     overflow-x:hidden ;
 }
 
@@ -26,7 +29,7 @@ ul {
 }
 
 :root[data-theme="darks"] {
-    --main-bg-color: rgba(0, 0, 0, 0.9);
+    --main-bg-color: #09161c;
     --color-titles: white;
 
     --color-arrow: white;
@@ -38,6 +41,7 @@ ul {
 
     --color-pagination: white;
     --background--color-input: black;
+    --background--color-input_forgot_password:#09161c;
 
     --main-colar-modal: rgba(20, 19, 19, 0.96);
     --color-words-detail-movie: white;
@@ -57,8 +61,8 @@ ul {
     --color-for-words: black;
 
     --color-pagination: #6d6868;
-
     --background--color-input: rgb(234, 234, 234);
+    --background--color-input_forgot_password:rgb(234, 234, 234);
 
     --main-colar-modal: rgba(34, 33, 33, 0.91);
     --color-words-detail-movie: #000000;

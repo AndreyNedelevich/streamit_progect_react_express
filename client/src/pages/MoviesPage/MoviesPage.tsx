@@ -50,7 +50,6 @@ const MoviesPage = () => {
                 <MovieList movies={movies}/>
             <PaginationMovies/>
             <AppArrow/>
-            <Footer/>
         </div>
     );
 };

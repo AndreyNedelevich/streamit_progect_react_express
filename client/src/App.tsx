@@ -3,7 +3,7 @@ import React from 'react';
 import {authService} from "./services";
 import {authorization} from "./constans";
 import './App.css';
-import {Header} from "./components";
+import {Footer, Header} from "./components";
 import {RoutesConfig} from "./routesConfig";
 
 
@@ -14,6 +14,7 @@ function App() {
         <div>
             <Header/>
             <RoutesConfig/>
+            <Footer/>
         </div>
     );
 }
