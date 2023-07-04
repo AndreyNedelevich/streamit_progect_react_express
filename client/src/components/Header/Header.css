@@ -113,11 +113,16 @@
     box-shadow: 0 5px 15px -3px;
 }
 
+.block_userName{
+    margin: 0 0 0.9rem 0.4rem;
+}
+
+
 .userName{
-    font-size:1.7rem;
-    margin-left: 0.3rem;
-    font-weight: 500;
-    margin-bottom: 1rem;}
+    color: red;
+    font-size:1.3rem;
+    font-weight: 700;
+}
 
 
 

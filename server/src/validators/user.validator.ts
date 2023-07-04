@@ -2,7 +2,6 @@ import Joi from "joi";
 
 import { regexConstants } from "../constants";
 
-
 export class UserValidator {
   static userName = Joi.string().min(3).max(30).trim();
   static age = Joi.number().min(1).max(199);

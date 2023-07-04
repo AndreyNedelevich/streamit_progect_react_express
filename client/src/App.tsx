@@ -5,10 +5,12 @@ import {authorization} from "./constans";
 import './App.css';
 import {Footer, Header} from "./components";
 import {RoutesConfig} from "./routesConfig";
+import {useAppSelector} from "./hooks";
 
 
 function App() {
-    authService.setTokensfromMovieDB(authorization)
+
+
 
     return (
         <div>

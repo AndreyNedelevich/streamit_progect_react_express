@@ -57,4 +57,5 @@ router.put(
   authController.setForgotPassword
 );
 
+
 export const authRouter = router;

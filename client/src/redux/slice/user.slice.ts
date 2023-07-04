@@ -1,19 +1,17 @@
 import {createAsyncThunk, createSlice, isFulfilled, isPending, isRejectedWithValue} from '@reduxjs/toolkit';
 import {AxiosError} from 'axios';
 
-import {IErrorAuth, IErrorMovie, IRegistr, IUser, IUserFromDB} from '../../interfaces';
+import {IErrorAuth, IUserFromDB} from '../../interfaces';
 import {userService} from "../../services/user.service";
 
 
 interface IState {
     user: IUserFromDB;
-    //isAuth: boolean;
     error: IErrorAuth
 }
 
 const initialState: IState = {
     user: null,
-    //isAuth: false,
     error: null
 }
 
@@ -22,6 +20,20 @@ const getUser = createAsyncThunk<IUserFromDB, string>(
     async (id, {rejectWithValue}) => {
         try {
             const {data} = await userService.getUserById(id)
+            return data
+        } catch (e) {
+            const err = e as AxiosError
+            return rejectWithValue(err)
+        }
+    }
+)
+
+const getUserByToken = createAsyncThunk<IUserFromDB, void>(
+    'userSlice/getUserByToken',
+    async (_, {rejectWithValue}) => {
+        try {
+            const {data} = await userService.getUserByToken()
+            console.log(data);
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -47,6 +59,9 @@ const slice = createSlice({
             .addCase(getUser.fulfilled, (state, action) => {
                 state.user = action.payload;
             })
+            .addCase(getUserByToken.fulfilled, (state, action) => {
+                state.user = action.payload;
+            })
             .addMatcher(isPending(), (state) => {
                 state.error = null
             })
@@ -62,7 +77,9 @@ const {actions, reducer: userReducer} = slice;
 
 const userActions = {
     ...actions,
-    getUser
+    getUser,
+    getUserByToken,
+
 
 }
 

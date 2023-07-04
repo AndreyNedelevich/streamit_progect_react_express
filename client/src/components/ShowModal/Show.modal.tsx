@@ -4,19 +4,20 @@ import {EActionTokenModal} from "../../enums";
 import { useAppSelector} from "../../hooks";
 import {RegistrationForm} from "../Modal";
 import {LoginForm} from "../Modal";
-import {ForgotForm} from "../Modal/ForgotForm/ForgotForm";
+import {ForgotForm} from "../Modal";
+import {ActivatedAccaunt} from "../Modal";
 
 
 const ShowModal = () => {
 
     const {showModal} = useAppSelector((state) => state.modalReducer)
 
-
     return (
         <>
             {showModal === EActionTokenModal.LOGIN && <LoginForm />}
             {showModal === EActionTokenModal.REGISTRATION &&<RegistrationForm /> }
             {showModal === EActionTokenModal.FORGOTPASSWORD &&<ForgotForm /> }
+            {showModal === EActionTokenModal.ACTIVATED &&<ActivatedAccaunt /> }
         </>
     );
 };

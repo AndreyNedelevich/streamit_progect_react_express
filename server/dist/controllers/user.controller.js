@@ -22,6 +22,16 @@ class UserController {
             next(e);
         }
     }
+    async findByToken(req, res, next) {
+        try {
+            const dataFromToken = req.res.locals.tokenPayload;
+            const user = await user_service_1.userService.findById(dataFromToken._id);
+            return res.json(user);
+        }
+        catch (e) {
+            next(e);
+        }
+    }
     async updateById(req, res, next) {
         try {
             const { userId } = req.params;

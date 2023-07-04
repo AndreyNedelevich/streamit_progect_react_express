@@ -30,14 +30,6 @@
     right: -2.2rem;
 }
 
-.wrapper_register  h1 {
-    text-align: center;
-    font-weight: 700;
-    font-size: 2.18rem;
-    color: red;
-    margin: 15px 0;
-}
-
 
 .forms {
     position: relative;
@@ -154,8 +146,9 @@ input:-webkit-autofill:focus {
     margin: 0.3rem auto;
     width: 90%;
     color: #eb1717;
-    border:2px solid rgba(221, 18, 18, 0.51);
+    border:2px solid rgba(221, 18, 18, 0.9);
     font-size: 1rem;
     border-radius: 8px;
     padding: 0.7rem;
+    font-weight: 700;
 }

@@ -1,7 +1,8 @@
-const user = '/users'
+const users = '/users'
 
 const urls_user = {
-    userById: (userId: string) => `${user}/${userId}`
+    userById: (userId: string) => `${users}/${userId}`,
+    userByToken:`${users}/user/info`
 }
 
 export {

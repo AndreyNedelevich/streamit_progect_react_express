@@ -77,10 +77,8 @@ const PosterPreview = () => {
                         <Video id={+id}/>
                     </div>
                 </>
-
             }
             <AppArrow/>
-            <Footer/>
         </>
     )
 }

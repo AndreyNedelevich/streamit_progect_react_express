@@ -9,18 +9,18 @@ const registrationValidator = Joi.object({
             'string.pattern.base': "Email is invalid format!",
         }),
     userName: Joi.string()
-        .min(3)
-        .max(20)
+        .min(5)
+        .max(18)
         .required().messages({
             'string.empty': 'This field is required!',
             "string.max":'"userName" length must be less than to 16 characters long'
         }),
     age: Joi.number()
-        .min(3)
-        .max(100)
+        .min(1)
+        .max(120)
         .required().messages({
             'number.empty': 'This field is required!',
-            "number.max":'"age"  must be less than to 100 years',
+            "number.max":'"age"  must be less than to 120 years',
             "number.min":'"age"  must be more than  3 years'
         }),
     password: Joi.string().regex(regexConstants.PASSWORD).trim().required().label('Password').messages({

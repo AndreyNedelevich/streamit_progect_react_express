@@ -42,6 +42,7 @@ const RegistrationForm = () => {
                 // autoClose: false,
                 // progress: undefined,
                 autoClose: 1500,
+                theme:"light",
             });
         } catch (e) {
             const err = e as AxiosError

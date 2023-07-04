@@ -34,6 +34,22 @@ class UserController {
     }
   }
 
+  public async findByToken(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response<IUser>> {
+    try {
+      const dataFromToken = req.res.locals.tokenPayload;
+
+      const user = await userService.findById(dataFromToken._id);
+
+      return res.json(user);
+    } catch (e) {
+      next(e);
+    }
+  }
+
   public async updateById(
     req: Request,
     res: Response,

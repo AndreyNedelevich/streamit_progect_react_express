@@ -11,9 +11,13 @@ class AuthService {
     private readonly accessKeyforMovieDB = 'accessforMovie'
 
 
-    register({email, password, age, userName}: IRegistr): IRes<any> {
+    register({email, password, age, userName}: IRegistr): IRes<void> {
         return publicClient.post(urls_auth.register,
             {email, password, age, userName})
+    }
+
+    activateAccaunt(token:string): IRes<any> {
+        return publicClient.post(urls_auth.activateAccaunt(token))
     }
 
 
@@ -36,8 +40,12 @@ class AuthService {
         this.setTokens(data)
     }
 
-    async putForgotPassword(token:string,password:string):Promise<void>{
+    async setNewPassword(token:string,password:string):Promise<void>{
         await publicClient.put(urls_auth.forgotPassword(token),{password})
+    }
+
+    async chengePassword(oldPassword:string,newPassword:string):Promise<void>{
+        await privateClient.post(urls_auth.changePassword,{oldPassword,newPassword})
     }
 
 

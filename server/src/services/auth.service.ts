@@ -128,7 +128,7 @@ class AuthService {
           );
           if (isMatched) {
             throw new ApiError(
-              "Данный пароль уже использовался ранее. Ведите пароль который не будет совпадать.",
+              "This password has already been used before. Enter a password that has not been used for 1 year!",
               400
             );
           }

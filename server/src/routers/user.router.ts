@@ -15,6 +15,13 @@ router.get(
   authMiddleware.checkAccessToken,
   userController.findById
 );
+
+router.get(
+  "/user/info",
+  authMiddleware.checkAccessToken,
+  userController.findByToken
+);
+
 router.put(
   "/:userId",
   commonMiddleware.isIdValid("userId"),

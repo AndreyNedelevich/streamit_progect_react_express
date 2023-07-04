@@ -38,6 +38,7 @@ const ForgotForm = () => {
             dispatch(modalActions.shownModal(EActionTokenModal.NONE))
             toast.success("On the  email will be sent to the Email, you provided during registration. This letter  will contain a link to follow!", {
                 autoClose: 6000,
+                theme:"light",
             });
         } catch (e) {
             const err = e as AxiosError

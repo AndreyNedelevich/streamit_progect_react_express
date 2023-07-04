@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:5120';
+const baseURL = 'http://localhost:5110';
 const auth = '/auth'
 
 const urls_auth = {
@@ -6,8 +6,9 @@ const urls_auth = {
         login: `${auth}/login`,
         refresh: `${auth}/refresh`,
         forgot:`${auth}/forgot`,
-        forgotPassword:(token:string):string =>`${auth}/forgot/${token}`
-
+        changePassword:`${auth}/changePassword`,
+        forgotPassword:(token:string):string =>`${auth}/forgot/${token}`,
+        activateAccaunt:(token:string):string =>`${auth}//register/${token}`
 }
 
 export {

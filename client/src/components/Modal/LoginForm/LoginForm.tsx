@@ -40,6 +40,7 @@ const LoginForm = () => {
                 toast.success("Sign in success", {
                     // autoClose: false,
                     // progress: undefined,
+                    theme:"light",
                     autoClose: 1500,
                 });
             }

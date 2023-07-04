@@ -1,38 +1,29 @@
-import React, {FC, useState} from 'react';
-import {useParams} from "react-router-dom";
+import React, { useState} from 'react';
+import {Navigate,useNavigate, useParams} from "react-router-dom";
 
-import {useAppDispatch} from "../../hooks";
 import './ForgotPassword.css'
-import {ISetState} from "../../types/setState.type";
+
 import {SubmitHandler, useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {forgotPasswordValidator} from "../../validators";
-import {IRegistr} from "../../interfaces";
 import {authService} from "../../services";
-import {modalActions} from "../../redux";
-import {EActionTokenModal} from "../../enums";
 import {toast} from "react-toastify";
-import {AxiosError} from "axios/index";
-import {Footer} from "../Footer";
-import {useSelector} from "react-redux";
+import {AxiosError} from "axios";
+import {Loader} from "../UI";
 
-
-interface IProps {
-    setQuery: ISetState<string>
-}
 
 const ForgotPassword = () => {
+
+    const navigate=useNavigate()
 
     let {actionToken} = useParams();
 
 
-
     type IPassword = { password: string, confirmPassword: string }
 
-    const dispatch = useAppDispatch();
 
-    //const [error, setError] = useState(null);
-    console.log('forgotPassword');
+    const [error, setError] = useState(null);
+    const [isLoginRequest, setIsLoginRequest] = useState(false);
 
     const {
         handleSubmit, register, reset,
@@ -41,20 +32,22 @@ const ForgotPassword = () => {
 
 
     const forgotFunction: SubmitHandler<IPassword> = async (data: IPassword) => {
-        //setError(null);
+        setError(null);
         try {
-            //await authService.register(data)
-            dispatch(modalActions.shownModal(EActionTokenModal.NONE))
-            toast.success("Sign up success", {
-                autoClose: 3500,
+            setIsLoginRequest(true)
+            await authService.setNewPassword(actionToken, data.password)
+            navigate('/home')
+            toast.success("New password successfully set", {
+                    autoClose: 1000,
             });
         } catch (e) {
             const err = e as AxiosError
-            //setError(err);
-            toast.success(`${err}`, {
-                autoClose: 3500,
+            setError(err);
+            toast.error(`${err.message}`, {
+                autoClose: 1000,
             });
         } finally {
+            setIsLoginRequest(false)
             reset();
         }
     }
@@ -62,6 +55,7 @@ const ForgotPassword = () => {
     return (
         <>
             <div className='dark'></div>
+            {isLoginRequest && <Loader/>}
             <div className="container_forgot_password">
                 <form className="forgot_password_form" onSubmit={handleSubmit(forgotFunction)}>
                     <h2 className="title_forgot_password">Enter a new password</h2>
@@ -80,9 +74,12 @@ const ForgotPassword = () => {
                     />
                     {errors.confirmPassword &&
                         <span className="error_forgot_password_2">{errors.confirmPassword.message}</span>}
-                    <button style={{width: '100%', height: '2.5rem', margin: '7px 0'}} className='button_forgot_password'>SEND
+                    <button style={{width: '100%', height: '3.2rem', margin: '7px 0'}} className='button_forgot_password'>SEND
                     </button>
                 </form>
+                {error &&
+                    <div className="error_forgot_password">{error.message}</div>
+                }
             </div>
         </>
     );

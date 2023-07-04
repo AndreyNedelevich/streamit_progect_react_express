@@ -21,6 +21,7 @@ const weitList: IWaitListCB[] = [];
 privateClient.interceptors.request.use(config => {
     const access = authService.getAccessToken();
     if (access) {
+        config.headers['Content-Type'] = "application/json"
         config.headers.Authorization = `${access}`
     }
     return config
@@ -47,11 +48,13 @@ privateClient.interceptors.response.use(
                 } catch (e) {
                     authService.deleteTokens();
                     isRefreshing = false;
-                    return Promise.reject(error)
+                    throw error.response.data
+                    //return Promise.reject(error)
                 }
             }
             if (originalRequest.url === urls_auth.refresh) {
-                return Promise.reject(error)
+                throw error.response.data
+                //return Promise.reject(error)
             }
             return new Promise(resolve => {
                     subscriveToWaitList(() => {
@@ -60,7 +63,8 @@ privateClient.interceptors.response.use(
                 }
             )
         }
-        return Promise.reject(error)
+        throw error.response.data
+        //return Promise.reject(error)
     }
 )
 
