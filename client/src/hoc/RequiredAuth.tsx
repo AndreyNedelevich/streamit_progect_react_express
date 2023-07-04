@@ -16,7 +16,6 @@ const {user} = useAppSelector((state) => state.userReducer)
 const dispatch=useAppDispatch()
 
     if (!user) {
-        dispatch(modalActions.shownModal(EActionTokenModal.LOGIN))
         return <Navigate to={'/home'}/>
     }
 
