@@ -4,7 +4,6 @@ import styles from './Card.module.css'
 
 interface IProps {
     children: any
-//     ????
 }
 
 const Card:FC<IProps> = (props) => {

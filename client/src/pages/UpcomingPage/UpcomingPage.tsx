@@ -4,7 +4,7 @@ import {useEffect} from "react";
 
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {moviesActions} from "../../redux";
-import {AppArrow, Footer, Loader, MovieListWithoutFilter, SliderMovie} from "../../components";
+import {AppArrow,GlobalLoading,MovieListWithoutFilter, SliderMovie} from "../../components";
 import {IParams} from "../../interfaces";
 
 const UpcomingPage = () => {
@@ -13,7 +13,7 @@ const UpcomingPage = () => {
     const {numPageAll, numOfPagesForAll} = useAppSelector((state) => state.movieReducer)
 
     const dispatch = useAppDispatch()
-    const {upcomingMovies, loading, errors} = useAppSelector((state) => state.movieReducer)
+    const {upcomingMovies,errors} = useAppSelector((state) => state.movieReducer)
 
     const params: IParams = {
         page: numPageAll.pageUpcoming,
@@ -41,9 +41,8 @@ const UpcomingPage = () => {
 
     return (
         <>
+            <GlobalLoading/>
             <SliderMovie nowPlayining={sliderUpcoming}/>
-            {loading &&<Loader/>}
-                <>
                     <h2 className="list__title">Upcoming films</h2>
                     {errors && <h1 style={{color: 'red', textAlign: 'center'}}>{errors.status_message}</h1>}
                     <MovieListWithoutFilter movies={upcomingMovies}/>
@@ -63,10 +62,8 @@ const UpcomingPage = () => {
                             ) : null
                         }
                     </div>
-                </>
             <AppArrow/>
         </>
-
     );
 };
 

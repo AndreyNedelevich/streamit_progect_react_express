@@ -26,9 +26,10 @@
 .wrapper_login svg {
     position: absolute;
     color: rgba(247, 242, 242, 0.79);
-    font-size: 3rem;
+    font-size: 2.5rem;
     top: -4rem;
     right: -2.2rem;
+    cursor: pointer;
 }
 
 
@@ -77,12 +78,12 @@ input:-webkit-autofill:focus {
 }
 
 
-.logo__form {
+.logo_form {
     position: relative;
     margin: 0 auto;
 }
 
-.logo__form > img {
+.logo_form > img {
     width: 12rem;
     height: 3rem;
 }
@@ -109,8 +110,17 @@ input:-webkit-autofill:focus {
     color: white;
     margin-bottom: 0.4rem;
 }
+
 .login_form>button{
     margin-left: 1rem;
+    padding: 0 0.5rem;
+    border-radius: 3px;
+}
+
+.login_form svg{
+    position: absolute;
+    top: 4rem;
+    right: 12rem;
 }
 
 

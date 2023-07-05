@@ -17,10 +17,17 @@ router.post(
   authController.register
 );
 
-router.post(
+router.get(
   "/register/:token",
   authMiddleware.checkActionToken(EActionTokenTypes.Activate),
   authController.activate
+);
+
+router.post(
+  "/activate",
+  authMiddleware.checkAccessToken,
+  userMiddleware.findUser("email"),
+  authController.sendActivationEmail
 );
 
 router.post(
@@ -56,6 +63,5 @@ router.put(
   authMiddleware.checkActionToken(EActionTokenTypes.Forgot),
   authController.setForgotPassword
 );
-
 
 export const authRouter = router;

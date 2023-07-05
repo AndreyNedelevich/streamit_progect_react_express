@@ -9,7 +9,7 @@ import {forgotPasswordValidator} from "../../validators";
 import {authService} from "../../services";
 import {toast} from "react-toastify";
 import {AxiosError} from "axios";
-import {Loader} from "../UI";
+import {LinearLoader} from "../UI/Loader/LinearLoader";
 
 
 const ForgotPassword = () => {
@@ -55,7 +55,7 @@ const ForgotPassword = () => {
     return (
         <>
             <div className='dark'></div>
-            {isLoginRequest && <Loader/>}
+            {isLoginRequest && <LinearLoader/>}
             <div className="container_forgot_password">
                 <form className="forgot_password_form" onSubmit={handleSubmit(forgotFunction)}>
                     <h2 className="title_forgot_password">Enter a new password</h2>

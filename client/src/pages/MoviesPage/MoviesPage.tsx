@@ -5,9 +5,10 @@ import '../PageStyle.css'
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import { moviesActions} from "../../redux";
 import {IParams} from "../../interfaces";
-import {AppArrow, Footer, Loader, MovieList} from "../../components";
+import {AppArrow, Footer, GlobalLoading, MovieList} from "../../components";
 import {GenreString} from "../../utils";
 import {PaginationMovies} from "../../components";
+import {LinearLoader} from "../../components/UI/Loader/LinearLoader";
 
 
 const MoviesPage = () => {
@@ -42,15 +43,15 @@ const MoviesPage = () => {
 
 
     return (
-        <div>
+        <>
             <div className='dark'></div>
-            {loading && <Loader/>}
+            {loading && <LinearLoader/>}
             {errors && <h1 style={{color:'red', textAlign:'center'}}>{errors.status_message}</h1> }
                 <h2 className="list__title">All Films</h2>
                 <MovieList movies={movies}/>
             <PaginationMovies/>
             <AppArrow/>
-        </div>
+        </>
     );
 };
 

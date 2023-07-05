@@ -5,16 +5,15 @@ import {Routes, Route, Navigate} from "react-router-dom";
 import {RequiredAuth} from "../hoc";
 import {HomePage, UpcomingPage, TrendingPage, TopRatedPage, MoviesPage, SearchPage} from "../pages";
 import {PosterPreview} from "../components/PosterPreview";
-import {Notification, PasswordUpdate} from "../components";
+import { Notification, PasswordUpdate} from "../components";
 import {ShowModal} from "../components";
 import {ForgotPassword} from "../components/ForgotPassword";
 import {Activate} from "../components";
 import {useAppDispatch} from "../hooks";
 import {authService} from "../services";
-import {modalActions, userActions} from "../redux";
-import {EActionTokenModal} from "../enums";
-import {userService} from "../services/user.service";
+import { userActions} from "../redux";
 import {authorization} from "../constans";
+import {Profile} from "../components/Header/Profile";
 
 
 enum RouteNames {
@@ -27,7 +26,8 @@ enum RouteNames {
     SEARCH = 'search',
     IDMOVIE = 'movie/:id',
     RESTORE_PASSWORD = 'restore-password/:actionToken',
-    CHANGE_PASSWORD = 'password-update'
+    CHANGE_PASSWORD = 'password-update',
+    Profile='profile'
 }
 
 
@@ -47,7 +47,7 @@ const RoutesConfig = () => {
             <Routes>
                 <Route index element={<Navigate to={RouteNames.HOME}/>}/>
                 <Route path={RouteNames.HOME} element={<HomePage/>}>
-                    <Route path={'activate/:actionToken'} element={<Activate/>} />
+                    <Route path={RouteNames.HOME_ACTIVATED} element={<Activate/>} />
                 </Route>
                 <Route path={RouteNames.TRENDING} element={
                     <RequiredAuth>
@@ -81,7 +81,11 @@ const RoutesConfig = () => {
                         <PasswordUpdate/>
                     </RequiredAuth>
                 }/>
-
+                <Route path={RouteNames.Profile} element={
+                    <RequiredAuth>
+                        <Profile/>
+                    </RequiredAuth>
+                }/>
             </Routes>
         </div>
     );

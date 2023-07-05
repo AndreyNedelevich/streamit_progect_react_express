@@ -63,7 +63,7 @@ const Header = () => {
 
 
     return (
-        <Fragment>
+        <>
             <header ref={header} className='header'>
                 <div className='container'>
                     <nav className='flexSB'>
@@ -107,7 +107,7 @@ const Header = () => {
                     </div>
                 </div>
             </header>
-        </Fragment>
+        </>
     )
 }
 

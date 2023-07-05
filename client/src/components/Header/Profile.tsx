@@ -21,7 +21,7 @@ const Profile = () => {
     return (
         <>
             <div onClick={toggleMenu} className='wrapper_profile'>
-                PROFILE
+                {user.userName}
             </div>
                 <Menu
                     className='menu'
@@ -30,11 +30,9 @@ const Profile = () => {
                     onClose={() => setAnchorEl(null)}
                     PaperProps={{sx: {padding: 0, mt: '1.6rem', background: 'rgba(20,19,19,0.6)', color: 'white'}}}
                 >
-                    <div className="block_userName"> <i className='userName'>{user.userName}</i></div>
-
                     {userMenu.map((item, index) => (
                         <ListItemButton
-                            sx={{border: '0.1rem solid white', margin: '0.3rem'}}
+                            sx={{border: '0.1rem solid white', margin: '0.7rem'}}
                             component={Link}
                             to={item.path}
                             key={index}
@@ -46,7 +44,7 @@ const Profile = () => {
                         </ListItemButton>
                     ))}
                     <ListItemButton
-                        sx={{ border: '0.1rem solid white', margin: '0.3rem'}}
+                        sx={{ border: '0.1rem solid white', margin: '0.7rem'}}
                         onClick={() => dispatch(modalActions.shownModal(EActionTokenModal.ACTIVATED))}
                     >
                         <ListItemText disableTypography primary={
@@ -54,7 +52,7 @@ const Profile = () => {
                         }/>
                     </ListItemButton>
                     <ListItemButton
-                        sx={{ border: '0.1rem solid white', margin: '0.3rem'}}
+                        sx={{ border: '0.1rem solid white', margin: '0.7rem'}}
                         onClick={() =>{
                             dispatch(userActions.signOut(null))
                             dispatch(modalActions.shownModal(EActionTokenModal.NONE))

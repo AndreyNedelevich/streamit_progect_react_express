@@ -32,7 +32,8 @@ class AuthService {
           _userId: user._id,
         }),
         emailService.sendMail(data.email, EEmailActions.WELCOME, {
-          email: data.email,
+          email: user.email,
+          userName: user.userName,
           actionToken,
         }),
       ]);
@@ -53,6 +54,25 @@ class AuthService {
     } catch (e) {
       throw new ApiError(e.message, e.status);
     }
+  }
+
+  public async sendActivationEmail(user: IUser) {
+    const actionToken = tokenService.generateActionToken(
+      { _id: user._id, userName: user.userName },
+      EActionTokenTypes.Activate
+    );
+    await Promise.all([
+      Action.create({
+        actionToken,
+        tokenType: EActionTokenTypes.Activate,
+        _userId: user._id,
+      }),
+      emailService.sendMail(user.email, EEmailActions.WELCOME, {
+        email: user.email,
+        userName: user.userName,
+        actionToken,
+      }),
+    ]);
   }
 
   public async login(

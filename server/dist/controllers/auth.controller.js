@@ -22,6 +22,16 @@ class AuthController {
             next(e);
         }
     }
+    async sendActivationEmail(req, res, next) {
+        try {
+            const { user } = res.locals;
+            await auth_service_1.authService.sendActivationEmail(user);
+            return res.sendStatus(201);
+        }
+        catch (e) {
+            next(e);
+        }
+    }
     async login(req, res, next) {
         try {
             const tokensPair = await auth_service_1.authService.login(req.body, req.res.locals.user);

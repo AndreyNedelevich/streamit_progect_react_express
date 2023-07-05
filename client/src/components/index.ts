@@ -13,4 +13,5 @@ export * from './Footer'
 export * from './ShowModal'
 export * from './PasswordUpdate'
 export * from './Activate'
+export * from './UI/Loader/GlobalLoading'
 

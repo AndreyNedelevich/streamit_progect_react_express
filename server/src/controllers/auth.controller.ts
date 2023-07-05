@@ -39,6 +39,22 @@ class AuthController {
     }
   }
 
+  public async sendActivationEmail(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response<void>> {
+    try {
+      const { user } = res.locals;
+
+      await authService.sendActivationEmail(user);
+
+      return res.sendStatus(201);
+    } catch (e) {
+      next(e);
+    }
+  }
+
   public async login(
     req: Request,
     res: Response,

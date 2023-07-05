@@ -1,5 +1,5 @@
 import Joi from "joi";
-import {regexConstants} from '../constans'
+import {regexConstants} from "../configs";
 
 
 const registrationValidator = Joi.object({

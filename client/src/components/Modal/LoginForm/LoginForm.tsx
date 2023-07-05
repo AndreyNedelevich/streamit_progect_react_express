@@ -61,7 +61,7 @@ const LoginForm = () => {
     return (
         <div className='backdrop_login'>
             <div className='wrapper_login'>
-                <div className={'logo__form'}>
+                <div className={'logo_form'}>
                     <img src={logo} alt='logo '/>
                 </div>
                 <form className={'form'} onSubmit={handleSubmit(login)}>

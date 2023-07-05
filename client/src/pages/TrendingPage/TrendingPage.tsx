@@ -5,7 +5,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 
 import {moviesActions} from "../../redux";
 import '../PageStyle.css'
-import {AppArrow, Footer, Loader, MovieListWithoutFilter, SliderMovie} from "../../components";
+import {AppArrow, GlobalLoading, MovieListWithoutFilter, SliderMovie} from "../../components";
 import {IParams} from "../../interfaces";
 
 
@@ -47,9 +47,8 @@ const TrendingPage = () => {
 
     return (
         <>
+            <GlobalLoading/>
             <SliderMovie nowPlayining={sliderTrending}/>
-            {loading && <Loader/>}
-            <>
                 <h2 className="list__title">Trending Films</h2>
                 {errors && <h1 style={{color: 'red', textAlign: 'center'}}>{errors.status_message}</h1>}
                 <MovieListWithoutFilter movies={trendingMovies}/>
@@ -69,7 +68,6 @@ const TrendingPage = () => {
                         ) : null
                     }
                 </div>
-            </>
             <AppArrow/>
         </>
     );

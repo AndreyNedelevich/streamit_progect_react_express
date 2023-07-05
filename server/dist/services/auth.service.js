@@ -25,7 +25,8 @@ class AuthService {
                     _userId: user._id,
                 }),
                 email_service_1.emailService.sendMail(data.email, email_enum_1.EEmailActions.WELCOME, {
-                    email: data.email,
+                    email: user.email,
+                    userName: user.userName,
                     actionToken,
                 }),
             ]);
@@ -47,6 +48,21 @@ class AuthService {
         catch (e) {
             throw new errors_1.ApiError(e.message, e.status);
         }
+    }
+    async sendActivationEmail(user) {
+        const actionToken = token_service_1.tokenService.generateActionToken({ _id: user._id, userName: user.userName }, action_token_type_enum_1.EActionTokenTypes.Activate);
+        await Promise.all([
+            Action_model_1.Action.create({
+                actionToken,
+                tokenType: action_token_type_enum_1.EActionTokenTypes.Activate,
+                _userId: user._id,
+            }),
+            email_service_1.emailService.sendMail(user.email, email_enum_1.EEmailActions.WELCOME, {
+                email: user.email,
+                userName: user.userName,
+                actionToken,
+            }),
+        ]);
     }
     async login(credentials, user) {
         try {

@@ -2,9 +2,9 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import LinearProgress from '@mui/material/LinearProgress';
 
-import  './Loader.css'
+import  './LinearLoader.css'
 
- const Loader=() =>{
+const LinearLoader=() =>{
 
     return (
         <div className='loader'>
@@ -16,4 +16,4 @@ import  './Loader.css'
     );
 }
 
-export { Loader}
+export { LinearLoader}

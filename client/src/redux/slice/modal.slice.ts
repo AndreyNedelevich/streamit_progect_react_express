@@ -4,15 +4,11 @@ import {EActionTokenModal} from "../../enums";
 
 interface IState {
     showModal:EActionTokenModal
-    errorAuth: string,
-    isloading: boolean,
 }
 
 
 const initialState: IState = {
     showModal: EActionTokenModal.NONE,
-    errorAuth: '',
-    isloading: false,
 }
 
 

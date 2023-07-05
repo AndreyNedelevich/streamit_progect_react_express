@@ -9,7 +9,7 @@ import {passwordUpdateValidator} from "../../validators";
 import {authService} from "../../services";
 import {toast} from "react-toastify";
 import {AxiosError} from "axios";
-import {Loader} from "../UI";
+import {LinearLoader} from "../UI/Loader/LinearLoader";
 
 
 const PasswordUpdate = () => {
@@ -58,7 +58,7 @@ const PasswordUpdate = () => {
     return (
         <>
             <div className='dark'></div>
-            {isLoginRequest && <Loader/>}
+            {isLoginRequest && <LinearLoader/>}
             <div className="container_update_password">
                 <form className="form_password_update" onSubmit={handleSubmit(submitFunction)}>
                     <h2 className="title_update_password  ">Change password</h2>

@@ -1,0 +1,32 @@
+.globalLoading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(29, 29, 36);
+    z-index: 100;
+    transition: background-color 0.3s ease-out .5s;
+}
+
+.visibility_hidden{
+    visibility: hidden;
+
+}
+
+.visibility_visible{
+    visibility: visible;
+
+}
+
+.globalLoading>div{
+    margin-top: 4.6rem;
+}
+
+
+.globalLoading_logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+

@@ -5,7 +5,7 @@ import '../PageStyle.css'
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {moviesActions} from "../../redux";
 import {IParams} from "../../interfaces";
-import {AppArrow, Footer, Loader, MovieListWithoutFilter, SliderMovie} from "../../components";
+import {AppArrow, GlobalLoading,MovieListWithoutFilter, SliderMovie} from "../../components";
 
 
 const TopRatedPage = () => {
@@ -16,7 +16,6 @@ const TopRatedPage = () => {
         topRatedMovies,
         numOfPagesForAll,
         numPageAll,
-        loading,
         errors
     } = useAppSelector((state) => state.movieReducer)
 
@@ -49,10 +48,9 @@ const TopRatedPage = () => {
 
 
     return (
-        <div>
+        <>
+            <GlobalLoading/>
             <SliderMovie nowPlayining={sliderTrending}/>
-            {loading && <Loader/>}
-            <>
                 <h2 className="list__title">Top Rated Films</h2>
                 {errors && <h1 style={{color: 'red', textAlign: 'center'}}>{errors.status_message}</h1>}
                 <MovieListWithoutFilter movies={topRatedMovies}/>
@@ -72,9 +70,8 @@ const TopRatedPage = () => {
                         ) : null
                     }
                 </div>
-            </>
             <AppArrow/>
-        </div>
+        </>
     );
 };
 

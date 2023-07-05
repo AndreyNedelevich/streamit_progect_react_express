@@ -1,2 +1,2 @@
-export * from './Loader'
-export * from './LoaderForm'
+export * from './LoaderForModal'
+export * from './GlobalLoading'

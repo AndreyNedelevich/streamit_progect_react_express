@@ -5,6 +5,7 @@ import {authService} from "../../services";
 import {AxiosError} from "axios";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {userActions} from "../../redux";
+import {EUserStatus} from "../../enums";
 
 const Activate = () => {
 
@@ -19,23 +20,18 @@ const Activate = () => {
     useEffect( ()=>{
         const ActivateFunction: any = async (actionToken:string) => {
             try {
-                if(user?.status==="active"){
-                    toast.info('This account has already been activated!', {
-                        autoClose: 2000,
-                        theme:"light",
-                    });
-                }
                 await authService.activateAccaunt(actionToken)
+                if(user){
+                    dispatch(userActions.getUserByToken())
+                }
                 toast.success("Your account is activated!", {
                     autoClose: 2000,
                     theme:"light",
                 });
-                if(user){
-                    dispatch(userActions.getUser(user._id))
-                }
+
             } catch (e) {
                 const err = e as AxiosError
-                toast.error(`${err.message}!`, {
+                toast.error("Account activation error!", {
                     autoClose: 2000,
                     theme:"light",
                 });
@@ -43,7 +39,7 @@ const Activate = () => {
         }
 
         ActivateFunction(actionToken)
-    },[actionToken])
+    },[])
 
 
     return (

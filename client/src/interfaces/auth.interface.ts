@@ -1,3 +1,5 @@
+import {EUserStatus} from "../enums";
+
 export interface IRegistr {
     email: string;
     userName: string;
@@ -11,7 +13,7 @@ export type IUser = Pick<IRegistr, "email" | "password">;
 
 export interface IUserFromDB extends IRegistr {
     _id: string;
-    status: string;
+    status: EUserStatus;
 }
 
 export interface ITokens {

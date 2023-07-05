@@ -16,8 +16,12 @@ class AuthService {
             {email, password, age, userName})
     }
 
-    activateAccaunt(token:string): IRes<any> {
-        return publicClient.post(urls_auth.activateAccaunt(token))
+    activateAccaunt(token:string): IRes<void> {
+        return publicClient.get(urls_auth.activateAccaunt(token))
+    }
+
+    sendActivationEmail(email:string): IRes<void> {
+        return privateClient.post(urls_auth.sendActivationEmail,{email})
     }
 
 

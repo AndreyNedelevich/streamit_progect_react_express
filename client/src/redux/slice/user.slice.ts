@@ -5,6 +5,7 @@ import {IErrorAuth, IUserFromDB} from '../../interfaces';
 import {userService} from "../../services/user.service";
 
 
+
 interface IState {
     user: IUserFromDB;
     error: IErrorAuth
@@ -52,6 +53,12 @@ const slice = createSlice({
                 localStorage.removeItem("refresh");
             }
             state.user = action.payload
+        },
+        chengeUserStatus: (state, action) => {
+            if (state.user !== null) {
+                state.user.status=action.payload
+            }
+
         },
     },
     extraReducers: builder =>

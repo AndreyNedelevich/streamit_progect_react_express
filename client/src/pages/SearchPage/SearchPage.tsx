@@ -4,7 +4,8 @@ import React, {Fragment, useState, useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {ISearchParams} from "../../interfaces";
 import {searchActions} from "../../redux";
-import {AppArrow, Footer, Loader, MovieListWithoutFilter, Search} from "../../components";
+import {AppArrow,MovieListWithoutFilter, Search} from "../../components";
+import {LinearLoader} from "../../components/UI/Loader/LinearLoader";
 
 
 const SearchPage = () => {
@@ -49,7 +50,7 @@ const SearchPage = () => {
     return (
         <Fragment>
             <div className='dark'></div>
-            {loading && <Loader/>}
+            {loading && <LinearLoader/>}
             <>
                 <div className='conteiner__search'>
                     <h2 className="list__title">Search movies</h2>

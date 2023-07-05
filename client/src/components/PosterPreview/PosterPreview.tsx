@@ -8,8 +8,9 @@ import {StarsReting} from "../StarsRating";
 import {Video} from "../Video";
 import {GenresisFilm} from "../Filters";
 import './PosterPreview.css'
-import {AppArrow, Loader} from "../UI";
-import {Footer} from "../Footer";
+import {AppArrow, GlobalLoading} from "../UI";
+
+
 
 const PosterPreview = () => {
     const {id} = useParams()
@@ -28,8 +29,8 @@ const PosterPreview = () => {
         <>
             {movieInfo &&
                 <>
+                    <GlobalLoading/>
                     {<span className='loading__movie'>
-                        {loading && <Loader/>}
                     </span>}
                     <div className="poster heignt__poster"
                          style={{
