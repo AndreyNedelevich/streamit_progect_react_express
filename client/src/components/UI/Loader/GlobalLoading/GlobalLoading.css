@@ -4,17 +4,16 @@
     height: 100%;
     background-color: rgb(29, 29, 36);
     z-index: 100;
-    transition: background-color 0.3s ease-out .5s;
+    pointer-events: none;
 }
 
-.visibility_hidden{
-    visibility: hidden;
-
+.opacity_hidden{
+    opacity: 0;
 }
 
-.visibility_visible{
-    visibility: visible;
-
+.opacity_visible{
+    opacity: 1;
+    transition: all 0.3s ease;
 }
 
 .globalLoading>div{

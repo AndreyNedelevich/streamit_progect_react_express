@@ -1,5 +1,5 @@
 import React, {useRef, useEffect, Fragment} from "react"
-import {NavLink, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 import {WbSunnyOutlined} from "@mui/icons-material";
@@ -13,6 +13,7 @@ import {ThemeContext, themes} from "../../context";
 import {modalActions} from "../../redux";
 import {EActionTokenModal} from "../../enums";
 import {Profile} from "./Profile";
+import {DelayedLink} from "./DelaydLink";
 
 
 const Header = () => {
@@ -61,6 +62,7 @@ const Header = () => {
         dispatch(modalActions.shownModal(EActionTokenModal.REGISTRATION))
     }
 
+    const delay:number=350;
 
     return (
         <>
@@ -72,22 +74,22 @@ const Header = () => {
                         </div>
                         <ul className='flexSB'>
                             <li>
-                                <NavLink to={'home'}>Home</NavLink>
+                                <DelayedLink state='home' delay={delay} replace={true} to='home'>Home</DelayedLink>
                             </li>
                             <li>
-                                <NavLink to={'trending'}>Trending</NavLink>
+                                <DelayedLink state='trending' delay={delay} replace={true} to='trending'>Trending</DelayedLink>
                             </li>
                             <li>
-                                <NavLink to={'upcoming'}>Upcoming</NavLink>
+                                <DelayedLink state='upcoming' delay={delay} replace={true} to='upcoming'>Upcoming</DelayedLink>
                             </li>
                             <li>
-                                <NavLink to={'top_rated'}>Top-Rated</NavLink>
+                                <DelayedLink state='top_rated' delay={delay} replace={true} to='top_rated'>Top-Rated</DelayedLink>
                             </li>
                             <li>
-                                <NavLink to={'movies'}>All Movies</NavLink>
+                                <DelayedLink state='movies' delay={delay} replace={true} to='movies'>All Movies</DelayedLink>
                             </li>
                             <li>
-                                <NavLink to={'search'}>Search</NavLink>
+                                <DelayedLink state='search' delay={delay} replace={true} to='search'>Search</DelayedLink>
                             </li>
                         </ul>
                     </nav>

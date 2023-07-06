@@ -5,10 +5,9 @@ const ProfileUser = () => {
 
 
     return (
-        <div>
+        <>
             Profile
-        </div>
+        </>
     );
 };
-
 export {ProfileUser};

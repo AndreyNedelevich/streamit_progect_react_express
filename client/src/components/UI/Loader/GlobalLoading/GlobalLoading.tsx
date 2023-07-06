@@ -18,12 +18,12 @@ const GlobalLoading = () => {
         } else {
             setTimeout(() => {
                 setIsLoading(false);
-            }, 500);
+            }, 800);
         }
     }, [loading]);
 
     return (
-        <div className={isLoading? 'globalLoading visibility_visible':'globalLoading visibility_hidden'}>
+        <div className={isLoading? 'globalLoading opacity_visible':'globalLoading opacity_hidden'}>
             <LinearLoader/>
             <div className='globalLoading_logo'>
                 <img  src={logo} alt='logo '/>
