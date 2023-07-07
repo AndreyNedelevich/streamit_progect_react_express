@@ -48,27 +48,30 @@ const TrendingPage = () => {
     return (
         <>
             <GlobalLoading/>
-            <SliderMovie nowPlayining={sliderTrending}/>
-                <h2 className="list__title">Trending Films</h2>
-                {errors && <h1 style={{color: 'red', textAlign: 'center'}}>{errors.status_message}</h1>}
-                <MovieListWithoutFilter movies={trendingMovies}/>
-                <div className='block__loader'>
-                    {
-                        numPageAll.pageTrending < numOfPagesForAll ? (
-                            <button className='button__load' onClick={loadMore}>
-                                load more
-                            </button>
-                        ) : null
-                    }
-                    {
-                        numPageAll.pageTrending > 1 ? (
-                            <button  className='button__load' onClick={loadFirstPage}>
-                                 first page
-                            </button>
-                        ) : null
-                    }
-                </div>
-            <AppArrow/>
+            {!loading &&
+                <>
+                    <SliderMovie nowPlayining={sliderTrending}/>
+                    <h2 className="list__title">Trending Films</h2>
+                    {errors && <h1 style={{color: 'red', textAlign: 'center'}}>{errors.status_message}</h1>}
+                    <MovieListWithoutFilter movies={trendingMovies}/>
+                    <div className='block__loader'>
+                        {
+                            numPageAll.pageTrending < numOfPagesForAll ? (
+                                <button className='button__load' onClick={loadMore}>
+                                    load more
+                                </button>
+                            ) : null
+                        }
+                        {
+                            numPageAll.pageTrending > 1 ? (
+                                <button className='button__load' onClick={loadFirstPage}>
+                                    first page
+                                </button>
+                            ) : null
+                        }
+                    </div>
+                    <AppArrow/>
+                </>}
         </>
     );
 };

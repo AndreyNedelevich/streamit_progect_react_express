@@ -8,7 +8,7 @@ const userMenu = [
     },
     {
         display: "EDIT PROFILE",
-        path: "/edit-profile",
+        path: "/edit_profile",
         state: "edit.profile"
     },
     {

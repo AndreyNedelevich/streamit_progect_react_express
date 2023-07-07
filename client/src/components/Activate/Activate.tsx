@@ -5,7 +5,6 @@ import {authService} from "../../services";
 import {AxiosError} from "axios";
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {userActions} from "../../redux";
-import {EUserStatus} from "../../enums";
 
 const Activate = () => {
 

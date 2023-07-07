@@ -3,7 +3,7 @@ import {Routes, Route, Navigate} from "react-router-dom";
 
 
 import {RequiredAuth} from "../hoc";
-import {HomePage, UpcomingPage, TrendingPage, TopRatedPage, MoviesPage, SearchPage} from "../pages";
+import {HomePage, UpcomingPage, TrendingPage, TopRatedPage, MoviesPage, SearchPage, EditProfile} from "../pages";
 import {PosterPreview} from "../components/PosterPreview";
 import { Notification, PasswordUpdate} from "../components";
 import {ShowModal} from "../components";
@@ -13,7 +13,7 @@ import {useAppDispatch} from "../hooks";
 import {authService} from "../services";
 import { userActions} from "../redux";
 import {authorization} from "../constans";
-import {Profile} from "../components/Header/Profile";
+import {ProfileUser} from "../pages";
 
 
 enum RouteNames {
@@ -27,7 +27,8 @@ enum RouteNames {
     IDMOVIE = 'movie/:id',
     RESTORE_PASSWORD = 'restore-password/:actionToken',
     CHANGE_PASSWORD = 'password-update',
-    Profile='profile'
+    PROFILE='profile',
+    EDIT_PROFILE='edit_profile'
 }
 
 
@@ -81,9 +82,14 @@ const RoutesConfig = () => {
                         <PasswordUpdate/>
                     </RequiredAuth>
                 }/>
-                <Route path={RouteNames.Profile} element={
+                <Route path={RouteNames.PROFILE} element={
                     <RequiredAuth>
-                        <Profile/>
+                        <ProfileUser/>
+                    </RequiredAuth>
+                }/>
+                <Route path={RouteNames.EDIT_PROFILE} element={
+                    <RequiredAuth>
+                        <EditProfile/>
                     </RequiredAuth>
                 }/>
             </Routes>

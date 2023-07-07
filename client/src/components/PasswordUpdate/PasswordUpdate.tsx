@@ -57,8 +57,6 @@ const PasswordUpdate = () => {
 
     return (
         <>
-            <div className='dark'></div>
-            {isLoginRequest && <LinearLoader/>}
             <div className="container_update_password">
                 <form className="form_password_update" onSubmit={handleSubmit(submitFunction)}>
                     <h2 className="title_update_password  ">Change password</h2>
@@ -70,21 +68,21 @@ const PasswordUpdate = () => {
                     />
                     {errors.oldPassword && <span className="error_update_password_1">{errors.oldPassword.message}</span>}
                     <input
-                        className='forgot_password_input'
+                        className='password_update_input'
                         type="text"
                         placeholder={"new password"}
                         {...register("password")}
                     />
                     {errors.password && <span className="error_update_password_2">{errors.password.message}</span>}
                     <input
-                        className='forgot_password_input'
+                        className='password_update_input'
                         type="text"
                         placeholder={"confirm pasword"}
                         {...register("confirmPassword")}
                     />
                     {errors.confirmPassword &&
                         <span className="error_update_password_3">{errors.confirmPassword.message}</span>}
-                    <button style={{width: '100%', height: '3.2rem', margin: '7px 0'}} className='button_update_password'>SEND
+                    <button style={{width: '50%', height: '1.8rem'}} className='button_update_password'>Change password
                     </button>
                 </form>
                 {error &&

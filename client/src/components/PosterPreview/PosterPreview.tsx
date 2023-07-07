@@ -27,11 +27,9 @@ const PosterPreview = () => {
 
     return (
         <>
-            {movieInfo &&
+            <GlobalLoading/>
+            {movieInfo&&!loading&&
                 <>
-                    <GlobalLoading/>
-                    {<span className='loading__movie'>
-                    </span>}
                     <div className="poster heignt__poster"
                          style={{
                              backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), 

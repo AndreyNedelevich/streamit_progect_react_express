@@ -24,8 +24,10 @@ const HomePage = () => {
 
 
     return (
+        <>
+            <GlobalLoading/>
+            {!loading &&
                 <>
-                    <GlobalLoading/>
                     <SliderMovie nowPlayining={sliderNowPlayining}/>
                     {errors && <h1 style={{color: 'red', textAlign: 'center'}}>{errors.status_message}</h1>}
                     <h2 className="list__title">New Films</h2>
@@ -33,6 +35,8 @@ const HomePage = () => {
                     <Outlet/>
                     <AppArrow/>
                 </>
+            }
+        </>
     );
 };
 

@@ -7,7 +7,7 @@ import {userMenu} from "../../configs";
 import {modalActions, userActions} from "../../redux";
 import {EActionTokenModal} from "../../enums";
 
-const Profile = () => {
+const MenuUser = () => {
 
     const {user} = useAppSelector(state => state.userReducer)
     const dispatch = useAppDispatch()
@@ -20,7 +20,7 @@ const Profile = () => {
 
     return (
         <>
-            <div onClick={toggleMenu} className='wrapper_profile'>
+            <div onClick={toggleMenu} className='wrapper_menu'>
                 {user.userName}
             </div>
                 <Menu
@@ -68,4 +68,4 @@ const Profile = () => {
     )
 };
 
-export {Profile};
+export {MenuUser};

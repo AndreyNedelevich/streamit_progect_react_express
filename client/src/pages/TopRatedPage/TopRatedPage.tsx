@@ -5,7 +5,7 @@ import '../PageStyle.css'
 import {useAppDispatch, useAppSelector} from "../../hooks";
 import {moviesActions} from "../../redux";
 import {IParams} from "../../interfaces";
-import {AppArrow, GlobalLoading,MovieListWithoutFilter, SliderMovie} from "../../components";
+import {AppArrow, GlobalLoading, MovieListWithoutFilter, SliderMovie} from "../../components";
 
 
 const TopRatedPage = () => {
@@ -16,7 +16,8 @@ const TopRatedPage = () => {
         topRatedMovies,
         numOfPagesForAll,
         numPageAll,
-        errors
+        errors,
+        loading
     } = useAppSelector((state) => state.movieReducer)
 
     const params: IParams = {
@@ -50,27 +51,30 @@ const TopRatedPage = () => {
     return (
         <>
             <GlobalLoading/>
-            <SliderMovie nowPlayining={sliderTrending}/>
-                <h2 className="list__title">Top Rated Films</h2>
-                {errors && <h1 style={{color: 'red', textAlign: 'center'}}>{errors.status_message}</h1>}
-                <MovieListWithoutFilter movies={topRatedMovies}/>
-                <div className='block__loader'>
-                    {
-                        numPageAll.pageTop_Rated < numOfPagesForAll ? (
-                            <button className='button__load' onClick={loadMore}>
-                                load more
-                            </button>
-                        ) : null
-                    }
-                    {
-                        numPageAll.pageTop_Rated > 1 ? (
-                            <button className='button__load' onClick={loadFirstPage}>
-                                 first page
-                            </button>
-                        ) : null
-                    }
-                </div>
-            <AppArrow/>
+            {!loading &&
+                <>
+                    <SliderMovie nowPlayining={sliderTrending}/>
+                    <h2 className="list__title">Top Rated Films</h2>
+                    {errors && <h1 style={{color: 'red', textAlign: 'center'}}>{errors.status_message}</h1>}
+                    <MovieListWithoutFilter movies={topRatedMovies}/>
+                    <div className='block__loader'>
+                        {
+                            numPageAll.pageTop_Rated < numOfPagesForAll ? (
+                                <button className='button__load' onClick={loadMore}>
+                                    load more
+                                </button>
+                            ) : null
+                        }
+                        {
+                            numPageAll.pageTop_Rated > 1 ? (
+                                <button className='button__load' onClick={loadFirstPage}>
+                                    first page
+                                </button>
+                            ) : null
+                        }
+                    </div>
+                    <AppArrow/>
+                </>}
         </>
     );
 };

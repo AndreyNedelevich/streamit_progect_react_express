@@ -12,7 +12,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {ThemeContext, themes} from "../../context";
 import {modalActions} from "../../redux";
 import {EActionTokenModal} from "../../enums";
-import {Profile} from "./Profile";
+import {MenuUser} from "./MenuUser";
 import {DelayedLink} from "./DelaydLink";
 
 
@@ -101,7 +101,7 @@ const Header = () => {
                             {theme === 'lights' && <WbSunnyOutlined fontSize="large"/>}
                             {theme === 'darks' && <DarkModeOutlined fontSize="large"/>}
                         </IconButton>
-                        {user ? <Profile/> :
+                        {user ? <MenuUser/> :
                             <div className='wrapper_register_login'>
                                 <button onClick={login} className='button'>SINGL IN</button>
                                 <div className='register' onClick={register}>REGISTRATION</div>

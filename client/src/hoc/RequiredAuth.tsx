@@ -20,8 +20,8 @@ const dispatch=useAppDispatch()
 const accessToken= authService.getAccessToken()
 
     if (!user&&!accessToken) {
-        <Navigate to={'/home'}/>
         dispatch(modalActions.shownModal(EActionTokenModal.LOGIN))
+        return  <Navigate to={'/home'}/>
     }
 
     return children

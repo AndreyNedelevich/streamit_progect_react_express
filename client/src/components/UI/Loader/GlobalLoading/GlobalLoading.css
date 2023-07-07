@@ -9,11 +9,12 @@
 
 .opacity_hidden{
     opacity: 0;
+    transition: all 0.3s ease;
 }
 
 .opacity_visible{
     opacity: 1;
-    transition: all 0.3s ease;
+
 }
 
 .globalLoading>div{
