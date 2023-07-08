@@ -57,6 +57,10 @@ class AuthService {
   }
 
   public async sendActivationEmail(user: IUser) {
+    if (user.status === EUserStatus.Active) {
+      throw new ApiError("This account is already activated", 422);
+    }
+
     const actionToken = tokenService.generateActionToken(
       { _id: user._id, userName: user.userName },
       EActionTokenTypes.Activate

@@ -18,7 +18,7 @@ class UserController {
     }
   }
 
-  public async findById(
+  public async findByIdUser(
     req: Request,
     res: Response,
     next: NextFunction
@@ -34,7 +34,7 @@ class UserController {
     }
   }
 
-  public async findByToken(
+  public async findByTokenUser(
     req: Request,
     res: Response,
     next: NextFunction
@@ -50,7 +50,7 @@ class UserController {
     }
   }
 
-  public async updateById(
+  public async updateDataUserById(
     req: Request,
     res: Response,
     next: NextFunction
@@ -61,6 +61,22 @@ class UserController {
       const updatedUser = await userService.updateById(userId, req.body);
 
       return res.status(200).json(updatedUser);
+    } catch (e) {
+      next(e);
+    }
+  }
+
+  public async updateEmailUserById(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<Response<IUser>> {
+    try {
+      const { userId } = req.params;
+
+      const user = await userService.updateEmailUserById(req.body, userId);
+
+      return res.status(200).json(user);
     } catch (e) {
       next(e);
     }

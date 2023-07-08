@@ -1,5 +1,5 @@
-import React, { useState} from 'react';
-import {useNavigate} from "react-router-dom";
+import React, { useState,FC} from 'react';
+
 
 import './PasswordUpdate.css'
 
@@ -9,24 +9,24 @@ import {passwordUpdateValidator} from "../../validators";
 import {authService} from "../../services";
 import {toast} from "react-toastify";
 import {AxiosError} from "axios";
-import {LinearLoader} from "../UI/Loader/LinearLoader";
+import {IUseState} from "../../hooks";
 
+interface IProps{
+    setIsLoginRequest:IUseState<boolean>
+}
 
-const PasswordUpdate = () => {
-
-    const navigate=useNavigate()
-
+const PasswordUpdate:FC<IProps> = ({setIsLoginRequest}) => {
 
     type IPasswordUpdate = {oldPassword:string, password: string, confirmPassword: string }
 
 
     const [error, setError] = useState(null);
-    const [isLoginRequest, setIsLoginRequest] = useState(false);
+
 
 
     const {
         handleSubmit, register, reset,
-        formState: {isValid, errors}
+        formState: {errors}
     } = useForm<IPasswordUpdate>({mode: 'all', resolver: joiResolver(passwordUpdateValidator)});
 
 
@@ -35,7 +35,6 @@ const PasswordUpdate = () => {
         try {
             setIsLoginRequest(true)
             await authService.chengePassword(data.oldPassword,data.password)
-            navigate('/home')
             toast.success("New password successfully set", {
                     autoClose: 2000,
                     theme:"light",
@@ -47,7 +46,6 @@ const PasswordUpdate = () => {
             toast.error(`${err.message}`, {
                 autoClose: 2000,
                 theme:"light",
-
             });
         } finally {
             reset();
@@ -82,12 +80,10 @@ const PasswordUpdate = () => {
                     />
                     {errors.confirmPassword &&
                         <span className="error_update_password_3">{errors.confirmPassword.message}</span>}
-                    <button style={{width: '50%', height: '1.8rem'}} className='button_update_password'>Change password
+                    <button style={{width: '40%', height: '2.3rem'}} className='button_update_password'>
+                        Change password
                     </button>
                 </form>
-                {error &&
-                    <div className="error_update_password">{error.message}</div>
-                }
             </div>
         </>
     );

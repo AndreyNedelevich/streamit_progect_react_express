@@ -6,8 +6,8 @@ const LoaderForm=() =>{
 
     return (
             <Oval
-                height={20}
-                width={20}
+                height={'0.8rem'}
+                width={'0.8rem'}
                 color="#FFFFFF"
                 wrapperStyle={{}}
                 wrapperClass=""

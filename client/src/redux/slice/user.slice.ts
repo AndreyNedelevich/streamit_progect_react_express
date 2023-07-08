@@ -3,17 +3,19 @@ import {AxiosError} from 'axios';
 
 import {IErrorAuth, IUserFromDB} from '../../interfaces';
 import {userService} from "../../services/user.service";
-
+import {toast} from "react-toastify";
 
 
 interface IState {
-    user: IUserFromDB;
+    user: IUserFromDB
     error: IErrorAuth
+    loading:boolean
 }
 
 const initialState: IState = {
     user: null,
-    error: null
+    error: null,
+    loading:false
 }
 
 const getUser = createAsyncThunk<IUserFromDB, string>(
@@ -34,7 +36,19 @@ const getUserByToken = createAsyncThunk<IUserFromDB, void>(
     async (_, {rejectWithValue}) => {
         try {
             const {data} = await userService.getUserByToken()
-            console.log(data);
+            return data
+        } catch (e) {
+            const err = e as AxiosError
+            return rejectWithValue(err)
+        }
+    }
+)
+
+const updateEmailById = createAsyncThunk<IUserFromDB, {userId:string,email:string}>(
+    'userSlice/updateEmailById',
+    async ({email,userId}, {rejectWithValue}) => {
+        try {
+            const {data} = await userService.updateUserById(userId,email)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -56,7 +70,7 @@ const slice = createSlice({
         },
         chengeUserStatus: (state, action) => {
             if (state.user !== null) {
-                state.user.status=action.payload
+                state.user.status=action.payload.message
             }
 
         },
@@ -69,14 +83,25 @@ const slice = createSlice({
             .addCase(getUserByToken.fulfilled, (state, action) => {
                 state.user = action.payload;
             })
+            .addCase(updateEmailById.fulfilled, (state, action) => {
+                state.user = action.payload;
+            })
             .addMatcher(isPending(), (state) => {
+                state.loading = true
                 state.error = null
             })
             .addMatcher(isFulfilled(), state => {
+                state.loading = false
                 state.error = null
             })
             .addMatcher(isRejectedWithValue(), (state, action) => {
                 state.error = action.payload as IErrorAuth
+                // @ts-ignore
+                toast.error(`${action.payload.message}`, {
+                    autoClose: 2000,
+                    theme: "light",
+                });
+                state.loading = false
             })
 });
 
@@ -86,8 +111,7 @@ const userActions = {
     ...actions,
     getUser,
     getUserByToken,
-
-
+    updateEmailById,
 }
 
 export {

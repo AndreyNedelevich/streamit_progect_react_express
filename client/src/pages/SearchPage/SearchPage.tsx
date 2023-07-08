@@ -18,7 +18,7 @@ const SearchPage = () => {
         searchQuery,
         pageSearch,
         searchMovies,
-        loading
+        loading,errors
     } = useAppSelector(state => state.searchReducer)
     const dispatch = useAppDispatch()
 
@@ -52,6 +52,7 @@ const SearchPage = () => {
             <div className='dark'></div>
             {loading && <LinearLoader/>}
             <>
+                {errors && <h1 style={{color:'red', textAlign:'center'}}>{errors.status_message}</h1> }
                 <div className='conteiner__search'>
                     <h2 className="list__title">Search movies</h2>
                     <Search setQuery={setQuery}/>

@@ -1,9 +1,10 @@
 import {createAsyncThunk, createSlice, isFulfilled, isPending, isRejectedWithValue} from '@reduxjs/toolkit';
 import {AxiosError} from "axios";
 
-import {IDetailsByMovie, IErrorMovie, IVideo,IVideos} from "../../interfaces";
+import {IDetailsByMovie, IErrorMovie, IVideo} from "../../interfaces";
 
 import {aditionalService} from "../../services";
+
 
 
 interface IState {
@@ -58,6 +59,7 @@ const slice = createSlice({
             })
             .addMatcher(isRejectedWithValue(), (state, action) => {
                 state.errors = action.payload as IErrorMovie
+
                 state.loading = false
             })
 

@@ -9,6 +9,7 @@ import {Video} from "../Video";
 import {GenresisFilm} from "../Filters";
 import './PosterPreview.css'
 import {AppArrow, GlobalLoading} from "../UI";
+import {toast} from "react-toastify";
 
 
 
@@ -22,7 +23,8 @@ const PosterPreview = () => {
 
 
     const dispatch = useAppDispatch()
-    const {movieInfo, loading} = useAppSelector((state) => state.movieInformreducer)
+    const {movieInfo, loading,errors} = useAppSelector((state) => state.movieInformreducer)
+
 
 
     return (

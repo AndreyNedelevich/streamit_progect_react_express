@@ -12,7 +12,7 @@ class UserController {
             next(e);
         }
     }
-    async findById(req, res, next) {
+    async findByIdUser(req, res, next) {
         try {
             const { userId } = req.params;
             const user = await user_service_1.userService.findById(userId);
@@ -22,7 +22,7 @@ class UserController {
             next(e);
         }
     }
-    async findByToken(req, res, next) {
+    async findByTokenUser(req, res, next) {
         try {
             const dataFromToken = req.res.locals.tokenPayload;
             const user = await user_service_1.userService.findById(dataFromToken._id);
@@ -32,11 +32,21 @@ class UserController {
             next(e);
         }
     }
-    async updateById(req, res, next) {
+    async updateDataUserById(req, res, next) {
         try {
             const { userId } = req.params;
             const updatedUser = await user_service_1.userService.updateById(userId, req.body);
             return res.status(200).json(updatedUser);
+        }
+        catch (e) {
+            next(e);
+        }
+    }
+    async updateEmailUserById(req, res, next) {
+        try {
+            const { userId } = req.params;
+            const user = await user_service_1.userService.updateEmailUserById(req.body, userId);
+            return res.status(200).json(user);
         }
         catch (e) {
             next(e);

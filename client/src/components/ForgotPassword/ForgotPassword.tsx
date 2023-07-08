@@ -27,7 +27,7 @@ const ForgotPassword = () => {
 
     const {
         handleSubmit, register, reset,
-        formState: {isValid, errors}
+        formState: { errors}
     } = useForm<IPassword>({mode: 'all', resolver: joiResolver(forgotPasswordValidator)});
 
 

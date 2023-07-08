@@ -18,7 +18,7 @@ const GlobalLoading = () => {
         } else {
             setTimeout(() => {
                 setIsLoading(false);
-            }, 800);
+            }, 1000);
         }
     }, [loading]);
 

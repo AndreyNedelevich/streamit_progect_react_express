@@ -6,6 +6,7 @@ import {IErrorMovie, IMovie, IResponseAll, ISearchParams} from "../../interfaces
 import {searchService} from "../../services";
 
 
+
 interface IState {
     searchQuery: string
     searchMovies: IMovie[]

@@ -18,7 +18,7 @@ import {ProfileUser} from "../pages";
 
 enum RouteNames {
     HOME = 'home',
-    HOME_ACTIVATED='home/:actionToken',
+    HOME_ACTIVATED='activate/:actionToken',
     MOVIES = 'movies',
     TRENDING = 'trending',
     TOP_RATED = 'top_rated',
@@ -77,11 +77,11 @@ const RoutesConfig = () => {
                 }/>
                 <Route path={RouteNames.IDMOVIE} element={<PosterPreview/>}/>
                 <Route path={RouteNames.RESTORE_PASSWORD} element={<ForgotPassword/>}/>
-                <Route path={RouteNames.CHANGE_PASSWORD} element={
-                    <RequiredAuth>
-                        <PasswordUpdate/>
-                    </RequiredAuth>
-                }/>
+                {/*<Route path={RouteNames.CHANGE_PASSWORD} element={*/}
+                {/*    <RequiredAuth>*/}
+                {/*        <PasswordUpdate/>*/}
+                {/*    </RequiredAuth>*/}
+                {/*}/>*/}
                 <Route path={RouteNames.PROFILE} element={
                     <RequiredAuth>
                         <ProfileUser/>

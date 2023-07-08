@@ -1,7 +1,8 @@
 .wrapper_edit_profile{
     display: grid;
     grid-template-columns: 1fr 3fr;
-    margin-top: 2.5rem;margin-left: 2.5rem;
+    margin-top: 2.5rem;
+    margin-left: 2.5rem;
     min-height: 50rem;
     width: 92%;
 }
@@ -16,24 +17,25 @@
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
-    min-height: 27.2rem;
-    max-width: 25rem;
+    height: 29.2rem;
+    width: 22rem;
     margin: 0.4rem;
     margin-top: 0.8rem;
     border-radius: 5px ;
-
 }
 
 
+
+
 .block_edit_email{
+    position: relative;
     width: 98%;
+    height: 8rem;
     border-radius: 5px ;
     border: 0.12rem solid rgba(255, 255, 255, 0.77);
     margin: 1rem 0 1.6rem 0.6rem;
     font-size: 1.9rem;
     padding: 0.3rem;
-    padding-left: 1rem;
-    text-align: left;
     color: white;
 }
 
@@ -45,37 +47,96 @@
     font-style: italic;
     text-align: left;
     width: 14rem;
+    margin-left: 0.7rem;
+}
+
+.edit_user_email{
+    display: grid;
+    align-self:end;
+    justify-self:start;
+    margin-left: 0.5rem;
+    font-size: 1.4rem;
 }
 
 
 .edit_email{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 30% 35% 35%;
+    justify-items: start;
+    align-items: end;
     margin-top: 1rem;
 }
 
 
-
-
-
-
-
-
-
 .block_user_edit_data{
+    display: grid;
+    grid-template-rows: 1fr 3fr;
     width: 98%;
     border-radius: 5px ;
-    height: 45%;
+    height: 20rem;
     margin: 1rem 0 0.6rem 0.6rem;
     border: 0.12rem solid rgba(255, 255, 255, 0.77);
 }
 
-
+.title_edit_profile{
+    font-size: 2rem;
+    color: var(--color-titles);
+    text-shadow: 1px 2px 0.5px rgba(160, 156, 156, 0.8), 0 1px 1px #000, 0 0 0.5px #000, 0 0 1px;
+    border-bottom: 3px solid var(--color-titles);
+    font-style: italic;
+    text-align: left;
+    margin-left: 0.7rem;
+}
 
 
 .edit_data{
     color: white;
     font-style: italic;
-    font-size: 1.8rem;
-    margin: 0.8rem 0.8rem;
+    font-size: 1.25rem;
+    margin: 2rem 0.8rem;
+}
+
+.error_edit_profile{
+    position: absolute;
+    width: 100%;
+    color: red;
+    top: 6.2rem;
+    right: -28.5rem;
+    font-size: 0.9rem;
+}
+
+.email_edit_input {
+    width: 90%;
+    border: 2px solid var(--color-for-words);
+    background-color: var(--background--color-input_forgot_password);
+    padding: 0.1rem 0.8rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    color: var(--color-for-words);
+    height: 2.2rem;
+    outline: none;
+}
+
+.email_edit_input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+}
+
+
+.invalid{
+    border: 1px solid #e60808;
+}
+
+.button_edit_profile {
+    font-size: 0.75rem;
+    padding: 0.1rem;
+    background-color: red;
+    color: white;
+    border-radius: 0.3rem;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: box-shadow 0.3s ease;
+    border: 1px solid gray;
 }

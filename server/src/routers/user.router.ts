@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import { userController } from "../controllers/user.controller";
-import { commonMiddleware } from "../middlewares";
+import { commonMiddleware, userMiddleware } from "../middlewares";
 import { authMiddleware } from "../middlewares/auth.middleware";
 import { UserValidator } from "../validators";
 
@@ -13,13 +13,13 @@ router.get(
   "/:userId",
   commonMiddleware.isIdValid("userId"),
   authMiddleware.checkAccessToken,
-  userController.findById
+  userController.findByIdUser
 );
 
 router.get(
   "/user/info",
   authMiddleware.checkAccessToken,
-  userController.findByToken
+  userController.findByTokenUser
 );
 
 router.put(
@@ -27,8 +27,18 @@ router.put(
   commonMiddleware.isIdValid("userId"),
   commonMiddleware.isBodyValid(UserValidator.update),
   authMiddleware.checkAccessToken,
-  userController.updateById
+  userController.updateDataUserById
 );
+
+router.put(
+  "/update_email/:userId",
+  authMiddleware.checkAccessToken,
+  commonMiddleware.isIdValid("userId"),
+  userMiddleware.findAndThrow("email"),
+  commonMiddleware.isBodyValid(UserValidator.forgotPassword),
+  userController.updateEmailUserById
+);
+
 router.delete(
   "/:userId",
   commonMiddleware.isIdValid("userId"),
