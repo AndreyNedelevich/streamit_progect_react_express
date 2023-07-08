@@ -5,20 +5,13 @@ import './EditProfile.css'
 import {LinearLoader} from "../../components/UI/Loader/LinearLoader";
 import {PasswordUpdate} from "../../components";
 import {ChangeEmail} from "../../components/ChangeEmail";
+import {EditProfileUser} from "../../components/EditProfileUser";
 
 
 const EditProfile = () => {
 
-    const {user,loading} = useAppSelector((state) => state.userReducer)
+    const {user, loading} = useAppSelector((state) => state.userReducer)
     const [isLoginRequest, setIsLoginRequest] = useState(false);
-
-
-
-
-
-
-
-
 
 
     return (
@@ -32,19 +25,20 @@ const EditProfile = () => {
                          alt='foto'/>
                 </div>
                 <div>
-                   <ChangeEmail/>
+                    <ChangeEmail/>
                     <div className='block_user_edit_data'>
                         <h2 className="title_edit_profile">Edit profile</h2>
-                        <div>
-                            <div className='edit_data'>User name-{user?.userName}</div>
-                            <div className='edit_data'>Age - {user?.age}</div>
-                        </div>
-                        <div>
-                            <div className='edit_data'>{user?.userName}</div>
-                            <div className='edit_data'>{user?.age}</div>
+                        <div className='grid_user_edit_data'>
+                            <div>
+                                <EditProfileUser/>
+                            </div>
+                            <div>
+                                <div className='edit_data'>{user?.userName}</div>
+                                <div className='edit_data'>{user?.age}</div>
+                            </div>
                         </div>
                     </div>
-                    <PasswordUpdate setIsLoginRequest={setIsLoginRequest} />
+                    <PasswordUpdate setIsLoginRequest={setIsLoginRequest}/>
                 </div>
             </div>
         </>

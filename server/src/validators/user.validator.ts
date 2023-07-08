@@ -23,7 +23,6 @@ export class UserValidator {
   });
 
   static update = Joi.object({
-    email: this.email.required(),
     userName: this.userName,
     age: this.age,
   });

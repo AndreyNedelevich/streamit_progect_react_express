@@ -23,7 +23,7 @@ router.get(
 );
 
 router.put(
-  "/:userId",
+  "/update/:userId",
   commonMiddleware.isIdValid("userId"),
   commonMiddleware.isBodyValid(UserValidator.update),
   authMiddleware.checkAccessToken,

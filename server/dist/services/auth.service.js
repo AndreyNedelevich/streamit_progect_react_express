@@ -51,7 +51,7 @@ class AuthService {
     }
     async sendActivationEmail(user) {
         if (user.status === user_status_enum_1.EUserStatus.Active) {
-            throw new errors_1.ApiError("User not found", 422);
+            throw new errors_1.ApiError("This account is already activated", 422);
         }
         const actionToken = token_service_1.tokenService.generateActionToken({ _id: user._id, userName: user.userName }, action_token_type_enum_1.EActionTokenTypes.Activate);
         await Promise.all([

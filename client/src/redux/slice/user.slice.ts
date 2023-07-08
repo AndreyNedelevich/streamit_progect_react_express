@@ -48,7 +48,19 @@ const updateEmailById = createAsyncThunk<IUserFromDB, {userId:string,email:strin
     'userSlice/updateEmailById',
     async ({email,userId}, {rejectWithValue}) => {
         try {
-            const {data} = await userService.updateUserById(userId,email)
+            const {data} = await userService.editEmailUserById(userId,email)
+            return data
+        } catch (e) {
+            const err = e as AxiosError
+            return rejectWithValue(err)
+        }
+    }
+)
+const editUser = createAsyncThunk<IUserFromDB, {userId:string,dto:Partial<IUserFromDB>}>(
+    'userSlice/editUser',
+    async ({userId,dto}, {rejectWithValue}) => {
+        try {
+            const {data} = await userService.editUserById(userId,dto)
             return data
         } catch (e) {
             const err = e as AxiosError
@@ -70,7 +82,7 @@ const slice = createSlice({
         },
         chengeUserStatus: (state, action) => {
             if (state.user !== null) {
-                state.user.status=action.payload.message
+                state.user.status=action.payload
             }
 
         },
@@ -84,6 +96,9 @@ const slice = createSlice({
                 state.user = action.payload;
             })
             .addCase(updateEmailById.fulfilled, (state, action) => {
+                state.user = action.payload;
+            })
+            .addCase(editUser.fulfilled, (state, action) => {
                 state.user = action.payload;
             })
             .addMatcher(isPending(), (state) => {
@@ -112,6 +127,7 @@ const userActions = {
     getUser,
     getUserByToken,
     updateEmailById,
+    editUser,
 }
 
 export {

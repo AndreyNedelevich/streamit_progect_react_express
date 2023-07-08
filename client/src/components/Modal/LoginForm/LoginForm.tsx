@@ -93,7 +93,7 @@ const LoginForm = () => {
                     </div>
                 </form>
                 {error &&
-                    <div className="error_chenge_password">{error.message}</div>
+                    <div className="error_login">{error.message}</div>
                 }
             </div>
         </div>

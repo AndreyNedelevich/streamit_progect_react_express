@@ -1,20 +1,5 @@
-.container_update_password {
-    min-height: 22rem;
-    border: 0.12rem solid rgba(255, 255, 255, 0.77);
-    width: 98%;
-    margin: 1rem 0 0.6rem 0.6rem;
-}
 
-.title_update_password {
-    font-size: 2rem;
-    color: var(--color-titles);
-    text-shadow: 1px 2px 0.5px rgba(160, 156, 156, 0.8), 0 1px 1px #000, 0 0 0.5px #000, 0 0 1px;
-    border-bottom: 3px solid var(--color-titles);
-    font-style: italic;
-    text-align: center;
-}
-
-.form_password_update {
+.form_edit_user {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -22,16 +7,17 @@
     align-items: flex-start;
     gap: 1.4rem;
     margin-left: 0.5rem;
+    margin-top: 1.7rem;
     padding: 0.5rem 0.5rem;
 }
 
-.form_password_update input:-webkit-autofill,
+.form_edit_user input:-webkit-autofill,
 input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
 }
 
-.password_update_input {
-    width: 40%;
+.edit_user_input {
+    width: 100%;
     border: 2px solid var(--color-for-words);
     background-color: var(--background--color-input_forgot_password);
     padding: 0.5rem 0.5rem;
@@ -41,27 +27,22 @@ input:-webkit-autofill:focus {
     height: 2.5rem;
 }
 
-.error_update_password_1 {
+.error_edit_user_1 {
     position: absolute;
     color: red;
-    top: 7rem;
-    font-size: 1.2rem;
+    top: 3.3rem;
+    font-size: 0.7rem;
 }
 
-.error_update_password_2 {
+.error_edit_user_2 {
     position: absolute;
     color: red;
-    top: 10.8rem;
-    font-size: 1.2rem;
-}
-.error_update_password_3 {
-    position: absolute;
-    color: red;
-    top: 14.7rem;
-    font-size: 1.2rem;
+    top: 7.2rem;
+    font-size: 0.7rem;
 }
 
-.button_update_password {
+
+.button_edit_user {
     position: relative;
     font-size: 1rem;
     background-color: red;
@@ -76,8 +57,9 @@ input:-webkit-autofill:focus {
     margin-top: 0.3rem ;
 }
 
-.button_update_password:hover {
+.button_edit_user:hover {
     box-shadow: 0 7px 9px rgba(243, 4, 4, 0.5);
 }
+
 
 
