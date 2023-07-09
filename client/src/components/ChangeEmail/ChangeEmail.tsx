@@ -21,7 +21,6 @@ const ChangeEmail = () => {
 
 
     const formSubmitHandler = async (data: { email: string }) => {
-
         const response = await dispatch(userActions.updateEmailById({userId: user._id, email: data.email}))
         console.log(response);
         if (response.meta.requestStatus === 'fulfilled') {

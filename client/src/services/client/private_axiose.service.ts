@@ -21,7 +21,6 @@ const weitList: IWaitListCB[] = [];
 privateClient.interceptors.request.use(config => {
     const access = authService.getAccessToken();
     if (access) {
-        config.headers['Content-Type'] = "application/json"
         config.headers.Authorization = `${access}`
     }
     return config

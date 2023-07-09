@@ -28,7 +28,6 @@ export const useFetching = (callback: FetchingFunction): FetchingResult => {
                     theme: "light",
                 });
             }
-
             setError(err.message);
         } finally {
             setIsLoading(false);

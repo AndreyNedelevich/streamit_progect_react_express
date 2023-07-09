@@ -8,9 +8,6 @@ const publicClient = axios.create({baseURL});
 publicClient.interceptors.request.use(config => {
     return {
         ...config,
-        headers: {
-            "Content-Type": "application/json"
-        }
     };
 })
 

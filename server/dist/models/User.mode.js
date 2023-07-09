@@ -23,6 +23,10 @@ const userSchema = new mongoose_1.Schema({
         default: user_status_enum_1.EUserStatus.Inactive,
         enum: user_status_enum_1.EUserStatus,
     },
+    avatar: {
+        type: String,
+        required: false,
+    },
     password: {
         type: String,
         required: true,

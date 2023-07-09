@@ -5,6 +5,7 @@ const express_1 = require("express");
 const user_controller_1 = require("../controllers/user.controller");
 const middlewares_1 = require("../middlewares");
 const auth_middleware_1 = require("../middlewares/auth.middleware");
+const file_middleware_1 = require("../middlewares/file.middleware");
 const validators_1 = require("../validators");
 const router = (0, express_1.Router)();
 router.get("/", user_controller_1.userController.findAll);
@@ -13,4 +14,6 @@ router.get("/user/info", auth_middleware_1.authMiddleware.checkAccessToken, user
 router.put("/update/:userId", middlewares_1.commonMiddleware.isIdValid("userId"), middlewares_1.commonMiddleware.isBodyValid(validators_1.UserValidator.update), auth_middleware_1.authMiddleware.checkAccessToken, user_controller_1.userController.updateDataUserById);
 router.put("/update_email/:userId", auth_middleware_1.authMiddleware.checkAccessToken, middlewares_1.commonMiddleware.isIdValid("userId"), middlewares_1.userMiddleware.findAndThrow("email"), middlewares_1.commonMiddleware.isBodyValid(validators_1.UserValidator.forgotPassword), user_controller_1.userController.updateEmailUserById);
 router.delete("/:userId", middlewares_1.commonMiddleware.isIdValid("userId"), auth_middleware_1.authMiddleware.checkAccessToken, user_controller_1.userController.deleteById);
+router.post("/avatar/:userId", auth_middleware_1.authMiddleware.checkAccessToken, middlewares_1.commonMiddleware.isIdValid("userId"), file_middleware_1.fileMiddleware.isAvatarValid, user_controller_1.userController.uploadAvatar);
+router.delete("/avatar/:userId", auth_middleware_1.authMiddleware.checkAccessToken, middlewares_1.commonMiddleware.isIdValid("userId"), user_controller_1.userController.deleteAvatar);
 exports.userRouter = router;

@@ -9,6 +9,7 @@ const User_mode_1 = require("../models/User.mode");
 const user_repository_1 = require("../repositories/user.repository");
 const email_service_1 = require("./email.service");
 const token_service_1 = require("./token.service");
+const s3_service_1 = require("./s3.service");
 class UserService {
     async findAll() {
         return await User_mode_1.User.find();
@@ -38,6 +39,22 @@ class UserService {
     async updateById(userId, dto) {
         await this.getOneByIdOrThrow(userId);
         return await User_mode_1.User.findOneAndUpdate({ _id: userId }, { ...dto }, { returnDocument: "after" });
+    }
+    async uploadAvatar(userId, avatar) {
+        const user = await this.getOneByIdOrThrow(userId);
+        if (user.avatar) {
+            await s3_service_1.s3Service.deleteFile(user.avatar);
+        }
+        const pathToFile = await s3_service_1.s3Service.uploadFile(avatar, "user", userId);
+        return await User_mode_1.User.findByIdAndUpdate(userId, { $set: { avatar: pathToFile } }, { new: true });
+    }
+    async deleteAvatar(userId) {
+        const user = await this.getOneByIdOrThrow(userId);
+        if (!user.avatar) {
+            return user;
+        }
+        await s3_service_1.s3Service.deleteFile(user.avatar);
+        return await User_mode_1.User.findByIdAndUpdate(userId, { $unset: { avatar: true } }, { new: true });
     }
     async deleteById(userId) {
         await this.getOneByIdOrThrow(userId);

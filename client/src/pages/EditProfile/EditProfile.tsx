@@ -1,17 +1,22 @@
-import React, {useState} from 'react';
+import React, {FC, useState} from 'react';
 
-import {useAppSelector} from "../../hooks";
+
+import {IUseState, useAppSelector} from "../../hooks";
 import './EditProfile.css'
 import {LinearLoader} from "../../components/UI/Loader/LinearLoader";
 import {PasswordUpdate} from "../../components";
 import {ChangeEmail} from "../../components/ChangeEmail";
 import {EditProfileUser} from "../../components/EditProfileUser";
+import {EditAvatar} from "../../components/EditAvatar";
+
+
+
 
 
 const EditProfile = () => {
-
     const {user, loading} = useAppSelector((state) => state.userReducer)
     const [isLoginRequest, setIsLoginRequest] = useState(false);
+
 
 
     return (
@@ -20,10 +25,7 @@ const EditProfile = () => {
             {loading && <LinearLoader/>}
             {isLoginRequest && <LinearLoader/>}
             <div className='wrapper_edit_profile'>
-                <div className='wrapper_edit_profile_img'>
-                    <img className='profile_edit_img' src={"https://www.movienewz.com/img/films/poster-holder.jpg"}
-                         alt='foto'/>
-                </div>
+                <EditAvatar setIsLoginRequest={setIsLoginRequest}/>
                 <div>
                     <ChangeEmail/>
                     <div className='block_user_edit_data'>

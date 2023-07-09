@@ -3,6 +3,7 @@ import { Router } from "express";
 import { userController } from "../controllers/user.controller";
 import { commonMiddleware, userMiddleware } from "../middlewares";
 import { authMiddleware } from "../middlewares/auth.middleware";
+import { fileMiddleware } from "../middlewares/file.middleware";
 import { UserValidator } from "../validators";
 
 const router = Router();
@@ -44,6 +45,24 @@ router.delete(
   commonMiddleware.isIdValid("userId"),
   authMiddleware.checkAccessToken,
   userController.deleteById
+);
+
+router.post(
+  "/avatar/:userId",
+  authMiddleware.checkAccessToken,
+  //Проверяем access токен который прилетит в Header c фронта
+  commonMiddleware.isIdValid("userId"),
+  //Проводим валидцию ID пользователя.
+  fileMiddleware.isAvatarValid,
+  //Логика валидации файла который прийдет с clienta
+  userController.uploadAvatar
+);
+
+router.delete(
+  "/avatar/:userId",
+  authMiddleware.checkAccessToken,
+  commonMiddleware.isIdValid("userId"),
+  userController.deleteAvatar
 );
 
 export const userRouter = router;

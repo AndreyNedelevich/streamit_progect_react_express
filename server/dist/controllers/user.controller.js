@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userController = void 0;
+const user_mapper_1 = require("../mapers/user.mapper");
 const user_service_1 = require("../services/user.service");
 class UserController {
     async findAll(req, res, next) {
@@ -16,7 +17,8 @@ class UserController {
         try {
             const { userId } = req.params;
             const user = await user_service_1.userService.findById(userId);
-            return res.json(user);
+            const response = user_mapper_1.userMapper.toResponse(user);
+            return res.json(response);
         }
         catch (e) {
             next(e);
@@ -26,7 +28,8 @@ class UserController {
         try {
             const dataFromToken = req.res.locals.tokenPayload;
             const user = await user_service_1.userService.findById(dataFromToken._id);
-            return res.json(user);
+            const response = user_mapper_1.userMapper.toResponse(user);
+            return res.json(response);
         }
         catch (e) {
             next(e);
@@ -36,7 +39,8 @@ class UserController {
         try {
             const { userId } = req.params;
             const updatedUser = await user_service_1.userService.updateById(userId, req.body);
-            return res.status(200).json(updatedUser);
+            const response = user_mapper_1.userMapper.toResponse(updatedUser);
+            return res.status(200).json(response);
         }
         catch (e) {
             next(e);
@@ -46,7 +50,8 @@ class UserController {
         try {
             const { userId } = req.params;
             const user = await user_service_1.userService.updateEmailUserById(req.body, userId);
-            return res.status(200).json(user);
+            const response = user_mapper_1.userMapper.toResponse(user);
+            return res.status(200).json(response);
         }
         catch (e) {
             next(e);
@@ -57,6 +62,30 @@ class UserController {
             const { userId } = req.params;
             await user_service_1.userService.deleteById(userId);
             return res.sendStatus(204);
+        }
+        catch (e) {
+            next(e);
+        }
+    }
+    async uploadAvatar(req, res, next) {
+        try {
+            const { userId } = req.params;
+            const avatar = req.files.avatar;
+            console.log(avatar);
+            const user = await user_service_1.userService.uploadAvatar(userId, avatar);
+            const response = user_mapper_1.userMapper.toResponse(user);
+            return res.status(201).json(response);
+        }
+        catch (e) {
+            next(e);
+        }
+    }
+    async deleteAvatar(req, res, next) {
+        try {
+            const { userId } = req.params;
+            const user = await user_service_1.userService.deleteAvatar(userId);
+            const response = user_mapper_1.userMapper.toResponse(user);
+            return res.status(201).json(response);
         }
         catch (e) {
             next(e);
