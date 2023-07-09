@@ -9,6 +9,7 @@ class UserMapper {
             userName: user.userName,
             age: user.age,
             email: user.email,
+            status: user.status,
             avatar: user?.avatar ? `${config_1.configs.AWS_S3_URL}/${user.avatar}` : null,
         };
     }

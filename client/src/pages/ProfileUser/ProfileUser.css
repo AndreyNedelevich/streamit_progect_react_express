@@ -17,8 +17,8 @@
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
-    min-height: 31.5rem;
-    max-width: 25rem;
+    height: 31.5rem;
+    width: 25rem;
     margin: 0.4rem;
     margin-top: 0.8rem;
     border-radius: 5px ;

@@ -11,7 +11,6 @@ publicClient.interceptors.request.use(config => {
     };
 })
 
-
 publicClient.interceptors.response.use((response) => {
     if (response) return response
 }, (err) => {

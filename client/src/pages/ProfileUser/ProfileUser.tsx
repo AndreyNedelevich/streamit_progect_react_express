@@ -12,7 +12,8 @@ const ProfileUser = () => {
             <DarkHeader/>
             <div className='wrapper_profile'>
                 <div className='wrapper_profile_img'>
-                    <img className='profile_img' src={"https://www.movienewz.com/img/films/poster-holder.jpg"}
+                    <img className='profile_img'
+                         src={user?.avatar ? `${user.avatar}` : `https://www.movienewz.com/img/films/poster-holder.jpg`}
                          alt='foto'/>
                 </div>
                 <div>

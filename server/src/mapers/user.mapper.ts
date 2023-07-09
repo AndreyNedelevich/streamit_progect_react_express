@@ -8,6 +8,7 @@ class UserMapper {
       userName: user.userName,
       age: user.age,
       email: user.email,
+      status: user.status,
       //Если какое то поля не обезательное то есть смысл делать заглушки ** user.avatar ? 1:2**
       avatar: user?.avatar ? `${configs.AWS_S3_URL}/${user.avatar}` : null,
       //Так как в БД мы сохранияем URL без **https://express-node.s3.amazonaws.com** для того что бы в случае если необходимо будет поменять
