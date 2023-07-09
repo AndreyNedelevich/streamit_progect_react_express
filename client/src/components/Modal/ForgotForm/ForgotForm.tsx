@@ -4,14 +4,13 @@ import {joiResolver} from '@hookform/resolvers/joi';
 import CloseIcon from '@mui/icons-material/Close';
 
 import {modalActions} from "../../../redux";
-import {useAppDispatch} from "../../../hooks";
+import {useAppDispatch, useFetching} from "../../../hooks";
 import './ForgotForm.css'
 import {forgotValidator} from "../../../validators";
 import logo from "../../../assets/imeges/logo.png";
 import {EActionTokenModal} from "../../../enums";
 import {authService} from "../../../services";
 import {toast} from "react-toastify";
-import {AxiosError} from "axios";
 import {LoaderForm} from "../../UI";
 
 
@@ -21,32 +20,31 @@ const ForgotForm = () => {
 
     const dispatch = useAppDispatch();
 
-    const [isLoginRequest, setIsLoginRequest] = useState(false);
-    const [error, setError] = useState(null);
-
 
     const {
         handleSubmit, register, reset,
-        formState: {isValid, errors}
+        formState: {errors}
     } = useForm<IEmail>({mode: 'all', resolver: joiResolver(forgotValidator)});
 
-    const forgot: SubmitHandler<IEmail> = async (email: IEmail) => {
-        setError(null);
-        try {
-            setIsLoginRequest(true);
-            await authService.forotPassword(email.email)
+
+
+
+    const [fetching, isLoading, error]=useFetching(
+        async  (email) =>{
+            await authService.forotPassword(email)
             dispatch(modalActions.shownModal(EActionTokenModal.NONE))
             toast.success("On the  email will be sent to the Email, you provided during registration. This letter  will contain a link to follow!", {
                 autoClose: 6000,
                 theme:"light",
             });
-        } catch (e) {
-            const err = e as AxiosError
-            setError(err);
-        } finally {
-            setIsLoginRequest(false);
-            reset();
         }
+    )
+
+
+
+    const forgot: SubmitHandler<IEmail> = async ({email}: IEmail) => {
+        fetching(email,false)
+        reset();
     }
 
     const closeModalWindow = () => {
@@ -73,10 +71,10 @@ const ForgotForm = () => {
 
                 </form>
                 <div className='forgot_loader'>
-                {isLoginRequest && <LoaderForm/>}
+                {isLoading && <LoaderForm/>}
                 </div>
                 {error &&
-                    <div className="error_forgot">{error.message}</div>
+                    <div className="error_forgot">{error}</div>
                 }
             </div>
         </div>

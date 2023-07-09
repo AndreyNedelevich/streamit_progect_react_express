@@ -13,7 +13,7 @@ import {ThemeContext, themes} from "../../context";
 import {modalActions} from "../../redux";
 import {EActionTokenModal} from "../../enums";
 import {MenuUser} from "./MenuUser";
-import {DelayedLink} from "./DelaydLink";
+import {DelayedLink} from "./DelayedLink";
 
 
 const Header = () => {

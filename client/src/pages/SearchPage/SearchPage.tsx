@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
 
 import {useAppDispatch, useAppSelector} from "../../hooks";
@@ -6,6 +6,7 @@ import {ISearchParams} from "../../interfaces";
 import {searchActions} from "../../redux";
 import {AppArrow,MovieListWithoutFilter, Search} from "../../components";
 import {LinearLoader} from "../../components/UI/Loader/LinearLoader";
+import {DarkHeader} from "../../components/Header/DarkHeader";
 
 
 const SearchPage = () => {
@@ -48,8 +49,8 @@ const SearchPage = () => {
 
 
     return (
-        <Fragment>
-            <div className='dark'></div>
+        <>
+            <DarkHeader/>
             {loading && <LinearLoader/>}
             <>
                 {errors && <h1 style={{color:'red', textAlign:'center'}}>{errors.status_message}</h1> }
@@ -70,7 +71,7 @@ const SearchPage = () => {
                 </div>
             </>
             <AppArrow/>
-        </Fragment>
+        </>
     );
 };
 

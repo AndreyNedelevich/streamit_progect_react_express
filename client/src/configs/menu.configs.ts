@@ -12,9 +12,14 @@ const userMenu = [
         state: "edit.profile"
     },
     {
-        display: "PASSWORD UPDATE",
-        path: "/password-update",
-        state: "password.update"
+        display: "EDIT PASSWORD",
+        path: "/edit_profile",
+        state: "/edit_profile"
+    },
+    {
+        display: "ACTIVATE ACCOUNT",
+        path: "/activate",
+        state: "activate"
     }
 ];
 

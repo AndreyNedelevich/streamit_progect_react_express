@@ -59,8 +59,8 @@ class AuthService {
         localStorage.setItem(this.refreshKey, refreshToken)
     }
 
-    setTokensfromMovieDB(access:string ): void {
-        localStorage.setItem('accessforMovie', access)
+    setTokensfromMovieDB(access:string ): void{
+       localStorage.setItem('accessforMovie', access)
     }
 
     getAccessTokenforMovieDB(): string {

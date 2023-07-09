@@ -1,6 +1,7 @@
 import React from 'react';
 import {useAppSelector} from "../../hooks";
 import './ProfileUser.css'
+import {DarkHeader} from "../../components/Header/DarkHeader";
 
 const ProfileUser = () => {
 
@@ -8,6 +9,7 @@ const ProfileUser = () => {
 
     return (
         <>
+            <DarkHeader/>
             <div className='wrapper_profile'>
                 <div className='wrapper_profile_img'>
                     <img className='profile_img' src={"https://www.movienewz.com/img/films/poster-holder.jpg"}

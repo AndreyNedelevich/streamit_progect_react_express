@@ -1,56 +1,51 @@
-import React, {useState} from "react";
+import React from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {joiResolver} from '@hookform/resolvers/joi';
 import CloseIcon from '@mui/icons-material/Close';
 
 import {IUser} from "../../../interfaces";
 import {modalActions, userActions} from "../../../redux";
-import {useAppDispatch} from "../../../hooks";
+import {useAppDispatch, useFetching} from "../../../hooks";
 import './loginForm.css'
 import {loginValidator} from "../../../validators";
 import logo from "../../../assets/imeges/logo.png";
 import {EActionTokenModal} from "../../../enums";
 import {authService} from "../../../services";
 import {toast} from "react-toastify";
-import {AxiosError} from "axios";
 import {LoaderForm} from "../../UI";
 
 
 const LoginForm = () => {
     const dispatch = useAppDispatch();
 
-    const [isLoginRequest, setIsLoginRequest] = useState(false);
-    const [error, setError] = useState(null);
 
 
     const {
         handleSubmit, register, reset,
-        formState: {isValid, errors}
+        formState: { errors}
     } = useForm<IUser>({mode: 'all', resolver: joiResolver(loginValidator)});
 
-    const login: SubmitHandler<IUser> = async (user: IUser) => {
-        setError(null);
-        try {
-            setIsLoginRequest(true);
+
+    const [fetching, isLoading, error]=useFetching(
+        async  (user) =>{
             const {data} = await authService.login(user)
             console.log(data);
             if (data) {
                 dispatch(userActions.getUser(data.id))
                 dispatch(modalActions.shownModal(EActionTokenModal.NONE))
                 toast.success("Sign in success", {
-                    // autoClose: false,
-                    // progress: undefined,
                     theme:"light",
                     autoClose: 1500,
                 });
             }
-        } catch (e) {
-            const err = e as AxiosError
-            setError(err);
-        } finally {
-            setIsLoginRequest(false);
-            reset();
         }
+    )
+
+
+
+    const login: SubmitHandler<IUser> = async (user: IUser) => {
+        fetching(user,false)
+        reset();
     }
 
     const closeModalWindow = () => {
@@ -85,7 +80,7 @@ const LoginForm = () => {
                         Are you not with us yet? Register!!
                         <button
                           type="button"  onClick={() => dispatch(modalActions.shownModal(EActionTokenModal.REGISTRATION))}>REGISTRATION</button>
-                        {isLoginRequest && <LoaderForm/>}
+                        {isLoading && <LoaderForm/>}
                     </div>
                     <div className='login_form'>Forgot your password!!!
                         <button style={{marginLeft:"2.3rem"}}
@@ -93,7 +88,7 @@ const LoginForm = () => {
                     </div>
                 </form>
                 {error &&
-                    <div className="error_login">{error.message}</div>
+                    <div className="error_login">{error}</div>
                 }
             </div>
         </div>

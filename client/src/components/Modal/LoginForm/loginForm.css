@@ -115,6 +115,7 @@ input:-webkit-autofill:focus {
     margin-left: 1rem;
     padding: 0 0.5rem;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .login_form svg{

@@ -30,6 +30,8 @@ const PasswordUpdate:FC<IProps> = ({setIsLoginRequest}) => {
     } = useForm<IPasswordUpdate>({mode: 'all', resolver: joiResolver(passwordUpdateValidator)});
 
 
+
+
     const submitFunction: SubmitHandler<IPasswordUpdate> = async (data: IPasswordUpdate) => {
         setError(null);
         try {

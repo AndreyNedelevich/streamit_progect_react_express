@@ -1,7 +1,7 @@
 .wrapper_edit_profile{
     display: grid;
     grid-template-columns: 1fr 3fr;
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     margin-left: 2.5rem;
     min-height: 50rem;
     width: 92%;

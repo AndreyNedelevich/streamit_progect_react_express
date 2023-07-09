@@ -6,13 +6,13 @@ import {toast} from "react-toastify";
 import {AxiosError} from "axios";
 
 import { IRegistr} from "../../../interfaces";
-import {modalActions} from "../../../redux";
+import {modalActions, userActions} from "../../../redux";
 import './RegistrationForm.css'
 import {registrationValidator} from "../../../validators";
 import logo from "../../../assets/imeges/logo.png";
-import {EActionTokenModal} from "../../../enums";
+import {EActionTokenModal, EUserStatus} from "../../../enums";
 import {authService} from "../../../services";
-import {useAppDispatch} from "../../../hooks";
+import {useAppDispatch, useFetching} from "../../../hooks";
 import {LoaderForm} from "../../UI";
 
 
@@ -22,35 +22,30 @@ const RegistrationForm = () => {
 
     const dispatch = useAppDispatch();
 
-    const [isRegistrRequest, setIsRegistrRequest] = useState(false);
-    const [error, setError] = useState(null);
+
 
 
     const {
         handleSubmit, register, reset,
-        formState: {isValid, errors}
+        formState: { errors}
     } = useForm<IRegistr>({mode: 'all', resolver: joiResolver(registrationValidator)});
 
 
-    const registration: SubmitHandler<IRegistr> = async (user: IRegistr) => {
-        setError(null);
-        try {
-            setIsRegistrRequest(true);
-            await authService.register(user)
-            dispatch(modalActions.shownModal(EActionTokenModal.NONE))
-            toast.success("Sign up success",{
-                // autoClose: false,
-                // progress: undefined,
-                autoClose: 1500,
-                theme:"light",
-            });
-        } catch (e) {
-            const err = e as AxiosError
-            setError(err);
-        } finally {
-            setIsRegistrRequest(false);
-            reset();
+    const [fetching, isLoading, error]=useFetching(
+        async  (user) =>{
+                await authService.register(user)
+                dispatch(modalActions.shownModal(EActionTokenModal.NONE))
+                toast.success("Sign up success",{
+                    autoClose: 1500,
+                    theme:"light",
+                });
         }
+    )
+
+
+    const registration: SubmitHandler<IRegistr> = async (user: IRegistr) => {
+        fetching(user,false)
+        reset();
     }
 
 
@@ -104,11 +99,11 @@ const RegistrationForm = () => {
 
                     <div className='register_form'>У тебя уже есть аккаунт?
                         <button type='button' onClick={() => dispatch(modalActions.shownModal(EActionTokenModal.LOGIN))}>SIGN IN</button>
-                        {isRegistrRequest&&  <LoaderForm/>}
+                        {isLoading&&  <LoaderForm/>}
                     </div>
                 </form>
                 {error &&
-                    <div className="error_register">{error.message}</div>
+                    <div className="error_register">{error}</div>
                 }
             </div>
         </div>

@@ -45,14 +45,6 @@ const MenuUser = () => {
                     ))}
                     <ListItemButton
                         sx={{ border: '0.1rem solid white', margin: '0.7rem'}}
-                        onClick={() => dispatch(modalActions.shownModal(EActionTokenModal.ACTIVATED))}
-                    >
-                        <ListItemText disableTypography primary={
-                            <Typography textTransform="uppercase">ACTIVATE ACCOUNT</Typography>
-                        }/>
-                    </ListItemButton>
-                    <ListItemButton
-                        sx={{ border: '0.1rem solid white', margin: '0.7rem'}}
                         onClick={() =>{
                             dispatch(userActions.signOut(null))
                             dispatch(modalActions.shownModal(EActionTokenModal.NONE))
@@ -62,7 +54,6 @@ const MenuUser = () => {
                             <Typography textTransform="uppercase">SIGN OUT</Typography>
                         }/>
                     </ListItemButton>
-
                 </Menu>
         </>
     )

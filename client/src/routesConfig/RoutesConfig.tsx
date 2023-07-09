@@ -1,24 +1,25 @@
-import React,{useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {Routes, Route, Navigate} from "react-router-dom";
 
 
 import {RequiredAuth} from "../hoc";
 import {HomePage, UpcomingPage, TrendingPage, TopRatedPage, MoviesPage, SearchPage, EditProfile} from "../pages";
 import {PosterPreview} from "../components/PosterPreview";
-import { Notification, PasswordUpdate} from "../components";
+import {Notification, PasswordUpdate} from "../components";
 import {ShowModal} from "../components";
 import {ForgotPassword} from "../components/ForgotPassword";
 import {Activate} from "../components";
 import {useAppDispatch} from "../hooks";
 import {authService} from "../services";
-import { userActions} from "../redux";
+import {userActions} from "../redux";
 import {authorization} from "../constans";
 import {ProfileUser} from "../pages";
+import {ActivateAccount} from "../pages/ActivateAccaunt/ActivateAccount";
 
 
 enum RouteNames {
     HOME = 'home',
-    HOME_ACTIVATED='activate/:actionToken',
+    HOME_ACTIVATED = 'activate/:actionToken',
     MOVIES = 'movies',
     TRENDING = 'trending',
     TOP_RATED = 'top_rated',
@@ -26,9 +27,9 @@ enum RouteNames {
     SEARCH = 'search',
     IDMOVIE = 'movie/:id',
     RESTORE_PASSWORD = 'restore-password/:actionToken',
-    CHANGE_PASSWORD = 'password-update',
-    PROFILE='profile',
-    EDIT_PROFILE='edit_profile'
+    PROFILE = 'profile',
+    EDIT_PROFILE = 'edit_profile',
+    ACTIVATE_ACCOUNT = 'activate'
 }
 
 
@@ -38,7 +39,11 @@ const RoutesConfig = () => {
 
     useEffect(() => {
         authService.setTokensfromMovieDB(authorization)
-        dispatch(userActions.getUserByToken())
+        const access=authService.getAccessToken()
+        if (access) {
+            dispatch(userActions.getUserByToken())
+        }
+
     }, [dispatch]);
 
     return (
@@ -48,7 +53,7 @@ const RoutesConfig = () => {
             <Routes>
                 <Route index element={<Navigate to={RouteNames.HOME}/>}/>
                 <Route path={RouteNames.HOME} element={<HomePage/>}>
-                    <Route path={RouteNames.HOME_ACTIVATED} element={<Activate/>} />
+                    <Route path={RouteNames.HOME_ACTIVATED} element={<Activate/>}/>
                 </Route>
                 <Route path={RouteNames.TRENDING} element={
                     <RequiredAuth>
@@ -77,11 +82,11 @@ const RoutesConfig = () => {
                 }/>
                 <Route path={RouteNames.IDMOVIE} element={<PosterPreview/>}/>
                 <Route path={RouteNames.RESTORE_PASSWORD} element={<ForgotPassword/>}/>
-                {/*<Route path={RouteNames.CHANGE_PASSWORD} element={*/}
-                {/*    <RequiredAuth>*/}
-                {/*        <PasswordUpdate/>*/}
-                {/*    </RequiredAuth>*/}
-                {/*}/>*/}
+                <Route path={RouteNames.ACTIVATE_ACCOUNT} element={
+                    <RequiredAuth>
+                        <ActivateAccount/>
+                    </RequiredAuth>
+                }/>
                 <Route path={RouteNames.PROFILE} element={
                     <RequiredAuth>
                         <ProfileUser/>

@@ -15,7 +15,7 @@ const ChangeEmail = () => {
 
     const {
         handleSubmit, register, reset,
-        formState: {isValid, errors}
+        formState: {errors}
     } = useForm<{ email: string }>({mode: 'all', resolver: joiResolver(allValidators.changeEmail)});
 
 

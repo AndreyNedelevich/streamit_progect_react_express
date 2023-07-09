@@ -5,7 +5,7 @@ import { useAppSelector} from "../../hooks";
 import {RegistrationForm} from "../Modal";
 import {LoginForm} from "../Modal";
 import {ForgotForm} from "../Modal";
-import {ActivatedAccaunt} from "../Modal";
+
 
 
 const ShowModal = () => {
@@ -17,7 +17,6 @@ const ShowModal = () => {
             {showModal === EActionTokenModal.LOGIN && <LoginForm />}
             {showModal === EActionTokenModal.REGISTRATION &&<RegistrationForm /> }
             {showModal === EActionTokenModal.FORGOTPASSWORD &&<ForgotForm /> }
-            {showModal === EActionTokenModal.ACTIVATED &&<ActivatedAccaunt /> }
         </>
     );
 };

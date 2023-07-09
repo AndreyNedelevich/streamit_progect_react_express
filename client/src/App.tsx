@@ -1,11 +1,10 @@
 import React from 'react';
 
-import {authService} from "./services";
-import {authorization} from "./constans";
+
 import './App.css';
-import {Footer, Header} from "./components";
+import { Header, MainFooter} from "./components";
 import {RoutesConfig} from "./routesConfig";
-import {useAppSelector} from "./hooks";
+
 
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
         <div>
             <Header/>
             <RoutesConfig/>
-            <Footer/>
+            <MainFooter/>
         </div>
     );
 }
