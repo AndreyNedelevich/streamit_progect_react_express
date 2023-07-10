@@ -2,6 +2,7 @@ import React from 'react';
 import {useAppSelector} from "../../hooks";
 import './ProfileUser.css'
 import {DarkHeader} from "../../components/Header/DarkHeader";
+import avatar from "../../assets/imeges/Avatar-PNG-Image.png";
 
 const ProfileUser = () => {
 
@@ -13,7 +14,7 @@ const ProfileUser = () => {
             <div className='wrapper_profile'>
                 <div className='wrapper_profile_img'>
                     <img className='profile_img'
-                         src={user?.avatar ? `${user.avatar}` : `https://www.movienewz.com/img/films/poster-holder.jpg`}
+                         src={user?.avatar ? `${user.avatar}` : `${avatar}`}
                          alt='foto'/>
                 </div>
                 <div>

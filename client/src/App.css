@@ -40,14 +40,17 @@ button{
 
 :root[data-theme="darks"] {
     --main-bg-color: #09161c;
+    --global-loader: rgb(29, 29, 36);
     --color-titles: white;
 
     --color-arrow: white;
 
+    --bottom-avatar: rgba(255, 255, 255, 0.88);
+
     --color-loader: none;
     --background-color: none;
     --color-havior: #380505;
-    --color-for-words: white;
+    --color-for-words: rgba(242, 242, 242, 0.84);
 
     --color-pagination: white;
     --background--color-input: black;
@@ -60,10 +63,13 @@ button{
 
 
 :root[data-theme="lights"] {
-    --main-bg-color: rgb(240, 240, 240);
-    --color-titles: rgba(56, 53, 53, 0.73);
+    --main-bg-color: #efefef;
+    --color-titles: rgba(55, 53, 53, 0.85);
+    --global-loader: rgb(255, 255, 255);
 
-    --color-arrow: rgb(168, 166, 166);
+    --color-arrow: rgba(221, 21, 21, 0.89);
+
+    --bottom-avatar: black;;
 
     --color-loader: none;
     --background-color: black;

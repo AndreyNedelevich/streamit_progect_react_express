@@ -18,7 +18,7 @@ input:-webkit-autofill:focus {
 
 .edit_user_input {
     width: 100%;
-    border: 2px solid var(--color-for-words);
+    border: 0.2rem solid var(--color-for-words);
     background-color: var(--background--color-input_forgot_password);
     padding: 0.5rem 0.5rem;
     font-size: 1rem;

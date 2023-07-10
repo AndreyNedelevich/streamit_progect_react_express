@@ -17,8 +17,10 @@ const ActivateAccount = () => {
 
     const [fetching, isLoading, error]=useFetching(
         async  () =>{
-          const response= await authService.sendActivationEmail(user.email)
-            dispatch(userActions.chengeUserStatus(EUserStatus.Sent))
+            await authService.sendActivationEmail(user.email)
+            if(!error){
+                dispatch(userActions.chengeUserStatus(EUserStatus.Sent))
+            }
         }
     )
 

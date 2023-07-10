@@ -3,14 +3,14 @@ import {Button} from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CircularProgress from '@mui/material/CircularProgress';
 
-import './DeleteAvatar.css'
+import './DeleteAccount.css'
 import {useAppDispatch, useAppSelector, useFetching} from "../../hooks";
 import {userService} from "../../services/user.service";
 import {userActions} from "../../redux";
 import {toast} from "react-toastify";
 
 
-const DeleteAvatar = () => {
+const DeleteAccount = () => {
 
     const dispatch = useAppDispatch()
 
@@ -41,10 +41,11 @@ const DeleteAvatar = () => {
                 startIcon={isLoading ? <CircularProgress size={'1.3rem'} color="inherit"/> : <DeleteIcon/>}
                 style={{
                     marginLeft: '0.7rem',
+                    marginBottom:'3.1rem',
                     backgroundColor: 'red',
-                    borderColor: '#fff',
+                    borderColor: 'rgba(192,189,189,0.67)',
                     width: '21rem',
-                    height: '2.5rem',
+                    height: '2.35rem',
                     color: '#fff'
                 }}
                 onClick={()=>{fetching()}}
@@ -55,4 +56,4 @@ const DeleteAvatar = () => {
     );
 };
 
-export {DeleteAvatar};
+export {DeleteAccount};

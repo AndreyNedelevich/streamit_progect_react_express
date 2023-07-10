@@ -30,7 +30,7 @@
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     text-align: center;
-    color: white;
+    color:var(--color-titles);
     font-style: italic;
 }
 
@@ -55,28 +55,11 @@
 
 
 
-
-
-.forgot_loader{
-    position: relative;
-    cursor: pointer;
-    font-size: 0.7rem;
-    color: white;
-    margin-bottom: 0.4rem;
-}
-
-.forgot_loader svg{
-    position: absolute;
-    top: -1rem;
-    right: 12rem;
-}
-
-
 .message_activate{
     margin: 1rem 0;
     width: 100%;
-    color: white;
+    color: var(--color-titles);
     font-size: 1.4rem;
     padding:1.2rem 0.2rem;
-    border: 0.12rem solid var(--color-titles);
+    border: 0.25rem solid var(--color-titles);
 }

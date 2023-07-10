@@ -8,27 +8,26 @@
 
 .block_batton button{
     width:10rem;
+    color: var(--color-for-words)!important;
+    border: 0.15rem solid var(--bottom-avatar) !important;
 }
 
 .message_loadFile{
     display: inline-block;
-    width: 100%;
     margin-left: 0.5rem;
-    color: white;
+    color: var(--color-for-words);
     font-size: 0.85rem;
     font-style: italic;
     text-align: left;
 }
-.message_loadFile button{
-    background-color: white;
-    color: black;
-    border: 0.1rem solid white;
+.message_button{
+    display: inline;
+    background-color: white;;
     cursor: pointer;
     margin-left: 0.3rem;
     font-size: 0.8rem;
     font-style: italic;
-    border-right: 0.2rem;
-    padding: 0 0.1rem;
+    padding: 0 0.2rem;
 }
 
 .opasity_button{

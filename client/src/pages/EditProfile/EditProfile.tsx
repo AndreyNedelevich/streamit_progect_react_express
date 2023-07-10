@@ -9,7 +9,8 @@ import {ChangeEmail} from "../../components/ChangeEmail";
 import {EditProfileUser} from "../../components/EditProfileUser";
 import {EditAvatar} from "../../components/EditAvatar";
 import {DarkHeader} from "../../components/Header/DarkHeader";
-import {DeleteAvatar} from "../../components/DeleteAvatar";
+import {DeleteAccount} from "../../components/DeleteAccount";
+
 
 
 const EditProfile = () => {
@@ -25,7 +26,7 @@ const EditProfile = () => {
             <div className='wrapper_edit_profile'>
                 <div className='wrapper_edit_profile_block'>
                     <EditAvatar setIsLoginRequest={setIsLoginRequest}/>
-                    <DeleteAvatar/>
+                    <DeleteAccount/>
                 </div>
                 <div>
                     <ChangeEmail/>

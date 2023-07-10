@@ -9,6 +9,7 @@ import './EditAvatar.css'
 import {IUseState, useAppDispatch, useAppSelector} from "../../hooks";
 import {toast} from "react-toastify";
 import {userService} from "../../services/user.service";
+import avatar from "../../assets/imeges/Avatar-PNG-Image.png";
 
 import {userActions} from "../../redux";
 
@@ -68,14 +69,14 @@ const EditAvatar: FC<IProps> = ({setIsLoginRequest}) => {
     }
 
 
-    const handleDelete =async () => {
+    const handleDelete = async () => {
         if (!user?.avatar) {
             return
         }
         try {
             setIsLoginRequest(true)
             const {data} = await userService.deleteAvatar(user._id)
-            if(data){
+            if (data) {
                 dispatch(userActions.deleteAvatar(null))
             }
             toast.success("Photo remotely", {
@@ -95,54 +96,56 @@ const EditAvatar: FC<IProps> = ({setIsLoginRequest}) => {
 
     };
 
-    const styleSelectFileOpasity=selectedFile?'':'opasity_button'
-    const styleDeleteFileOpasity=user?.avatar?'':'opasity_button'
-    return (
+    const styleSelectFileOpasity = selectedFile ? '' : 'opasity_button'
+    const styleDeleteFileOpasity = user?.avatar ? '' : 'opasity_button'
 
-            <div className='blockAvatar'>
-                <img onClick={handleImageClick} style={{cursor: 'pointer'}} className='profile_edit_img'
-                     src={user?.avatar ? `${user.avatar}` : `https://www.movienewz.com/img/films/poster-holder.jpg`}
-                     alt='foto'/>
-                <span
-                    className='message_loadFile'>{selectedFile ? `Selected file ${selectedFile.name}` : 'Upload a file. Click on the photo!'}
-                    <button onClick={() => {
-                        setSelectedFile(null)
-                    }}>dalete selected file</button>
-                </span>
-                <input
-                    style={{display: "none"}}
-                    accept="image/*,.png,.jpg"
-                    id='files'
-                    type="file"
-                    onChange={handleFileChange}
-                    color="error"
-                    name='selected file'
-                    ref={fileInputRef}
-                />
-                <div className='block_batton'>
-                    <Button
-                        className={styleSelectFileOpasity}
-                        style={{borderColor: red[500], color: '#fff'}}
-                        variant="outlined"
-                        color="secondary"
-                        disabled={!selectedFile}
-                        onClick={handleUpload}
-                        startIcon={<CloudUploadIcon/>}
-                    >
-                        Sent
-                    </Button>
-                    <Button
-                        className={styleDeleteFileOpasity}
-                        variant="outlined"
-                        color="secondary"
-                        startIcon={<DeleteIcon/>}
-                        style={{borderColor: red[500], color: '#fff'}}
-                        onClick={handleDelete}
-                    >
-                        Delete
-                    </Button>
-                </div>
+    return (
+        <div className='blockAvatar'>
+            <img onClick={handleImageClick} style={{cursor: 'pointer'}} className='profile_edit_img'
+                 src={user?.avatar ? `${user.avatar}` : `${avatar}`}
+                 alt='foto'/>
+            <div>
+               <span className='message_loadFile'>{selectedFile ? `Selected file ${selectedFile.name}` : 'Upload a file. Click on the photo!'}</span>
+                <button className='message_button' onClick={() => {
+                    setSelectedFile(null)
+                }}>dalete selected file
+                </button>
             </div>
+
+            <input
+                style={{display: "none"}}
+                accept="image/*,.png,.jpg"
+                id='files'
+                type="file"
+                onChange={handleFileChange}
+                color="error"
+                name='selected file'
+                ref={fileInputRef}
+            />
+            <div className='block_batton'>
+                <Button
+                    className={styleSelectFileOpasity}
+                    style={{borderColor: red[500], color: '#fff'}}
+                    variant="outlined"
+                    color="secondary"
+                    disabled={!selectedFile}
+                    onClick={handleUpload}
+                    startIcon={<CloudUploadIcon/>}
+                >
+                    Sent
+                </Button>
+                <Button
+                    className={styleDeleteFileOpasity}
+                    variant="outlined"
+                    color="secondary"
+                    startIcon={<DeleteIcon/>}
+                    style={{borderColor: red[500], color: '#fff'}}
+                    onClick={handleDelete}
+                >
+                    Delete
+                </Button>
+            </div>
+        </div>
 
     );
 };

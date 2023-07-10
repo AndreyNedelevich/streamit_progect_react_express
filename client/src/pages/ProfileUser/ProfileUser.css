@@ -14,7 +14,7 @@
 }
 
 .profile_img{
-    border: 0.15rem solid rgb(255, 255, 255);
+    border: 0.2rem solid var(--color-for-words);
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -29,13 +29,13 @@
 .title_userName{
     width: 98%;
     border-radius: 5px ;
-    border: 0.12rem solid rgba(255, 255, 255, 0.77);
+    border: 0.2rem solid var(--color-for-words);
     margin: 1rem 0 1.6rem 0.6rem;
     font-size: 1.9rem;
     padding: 0.3rem;
     padding-left: 1rem;
     text-align: left;
-    color: white;
+    color: var(--color-for-words);
 }
 
 .block_uset_data{
@@ -43,7 +43,7 @@
     border-radius: 5px ;
     height: 45%;
     margin: 1rem 0 0.6rem 0.6rem;
-    border: 0.12rem solid rgba(255, 255, 255, 0.77);
+    border: 0.2rem solid var(--color-for-words);
 }
 
 .block_uset_data{
@@ -54,7 +54,7 @@
 
 
 .data{
-    color: white;
+    color: var(--color-for-words);
     font-style: italic;
     font-size: 1.8rem;
     margin: 0.8rem 0.8rem;
