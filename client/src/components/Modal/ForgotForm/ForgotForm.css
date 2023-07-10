@@ -74,11 +74,6 @@ input:-webkit-autofill:focus {
     transition: box-shadow 0.3s ease;
     border: 1px solid gray;
 }
-.button_forgot:hover {
-    box-shadow: 0 0.3rem 0.2rem rgba(243, 4, 4, 0.5);
-}
-
-
 
 .logo__form_forgot {
     position: relative;

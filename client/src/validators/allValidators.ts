@@ -12,8 +12,8 @@ export class allValidators {
         .min(5)
         .max(22).messages({
             'string.empty': 'This field is required!',
-            "string.max": 'userName length must be less than 22 characters!',
-            "string.min": 'userName length must be more than 5 characters!'
+            "string.max": 'userName length must be less 22 letters!',
+            "string.min": 'userName length must be more  5 letters!'
         });
     static age = Joi.number()
         .min(1)

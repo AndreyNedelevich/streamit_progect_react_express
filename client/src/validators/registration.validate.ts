@@ -13,15 +13,15 @@ const registrationValidator = Joi.object({
         .max(18)
         .required().messages({
             'string.empty': 'This field is required!',
-            "string.max":'"userName" length must be less than to 16 characters long'
+            "string.max":'userName userName length must be less 22 letters'
         }),
     age: Joi.number()
         .min(1)
         .max(120)
         .required().messages({
             'number.empty': 'This field is required!',
-            "number.max":'"age"  must be less than to 120 years',
-            "number.min":'"age"  must be more than  3 years'
+            "number.max":'age must be less than to 120 years',
+            "number.min":'age must be more than  3 years'
         }),
     password: Joi.string().regex(regexConstants.PASSWORD).trim().required().label('Password').messages({
         'string.empty': 'This field is required!',

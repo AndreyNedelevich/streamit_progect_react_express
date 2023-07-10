@@ -71,9 +71,8 @@ input:-webkit-autofill:focus {
     transition: box-shadow 0.3s ease;
     border: 0.05rem solid gray;
 }
-.button_register:hover {
-    box-shadow: 0 0.5rem 0.6rem rgba(243, 4, 4, 0.5);
-}
+
+
 
 
 

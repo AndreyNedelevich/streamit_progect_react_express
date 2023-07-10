@@ -73,9 +73,7 @@ input:-webkit-autofill:focus {
     transition: box-shadow 0.3s ease;
     border: 0.1rem solid gray;
 }
-.button_login:hover {
-    box-shadow: 0 7px 9px rgba(243, 4, 4, 0.5);
-}
+
 
 
 .logo_form {

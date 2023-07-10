@@ -56,7 +56,7 @@
 .data{
     color: var(--color-for-words);
     font-style: italic;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     margin: 0.8rem 0.8rem;
 }
 
