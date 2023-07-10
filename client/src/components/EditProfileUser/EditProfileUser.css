@@ -59,9 +59,6 @@ input:-webkit-autofill:focus {
     margin-top: 0.3rem ;
 }
 
-.button_edit_user:hover {
-    box-shadow: 0 7px 9px rgba(243, 4, 4, 0.5);
-}
 
 
 

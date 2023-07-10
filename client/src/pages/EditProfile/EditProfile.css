@@ -110,7 +110,7 @@
     width: 100%;
     color: red;
     top: 6.2rem;
-    right: -28.5rem;
+    right: -20.5rem;
     font-size: 0.9rem;
 }
 
@@ -157,6 +157,9 @@ input:-webkit-autofill:focus {
     .wrapper_edit_profile {
         grid-template-columns: 24rem 50rem;
     }
+    .error_edit_profile {
+        right: -17.9rem;
+    }
 }
 
 @media (max-width: 992px) {
@@ -170,6 +173,9 @@ input:-webkit-autofill:focus {
     .profile_edit_img {
         width: 22rem;
         height: 30rem;
+    }
+    .error_edit_profile {
+        right: -16.2rem;
     }
 
     .edit_user_email {
@@ -203,8 +209,7 @@ input:-webkit-autofill:focus {
     }
 
     .error_edit_profile {
-        top: 6.2rem;
-        right: -215rem;
+        right: -15.2rem;
     }
 
     .title_edit_email {
@@ -245,6 +250,9 @@ input:-webkit-autofill:focus {
 
     .edit_email button {
         height: 2.5rem !important;
+    }
+    .error_edit_profile {
+        right: -16.2rem;
     }
 }
 
