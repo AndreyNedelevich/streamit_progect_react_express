@@ -29,7 +29,6 @@ const LoginForm = () => {
     const [fetching, isLoading, error]=useFetching(
         async  (user) =>{
             const {data} = await authService.login(user)
-            console.log(data);
             if (data) {
                 dispatch(userActions.getUser(data.id))
                 dispatch(modalActions.shownModal(EActionTokenModal.NONE))

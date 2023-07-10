@@ -22,14 +22,12 @@ const ChangeEmail = () => {
 
     const formSubmitHandler = async (data: { email: string }) => {
         const response = await dispatch(userActions.updateEmailById({userId: user._id, email: data.email}))
-        console.log(response);
         if (response.meta.requestStatus === 'fulfilled') {
             toast.success(`The new email address has been successfully set. email sent to verify email address ${data.email}`, {
                 autoClose: false,
                 theme: "light",
             });
         }
-        console.log(error)
         reset();
 
     };
@@ -43,7 +41,7 @@ const ChangeEmail = () => {
 
     return (
         <div className='block_edit_email'>
-            <h2 className="title_edit_email">Change email</h2>
+            <h2 className="title_edit_email">Edit email</h2>
             <form onSubmit={handleSubmit(formSubmitHandler)} className='edit_email'>
                 <div className='edit_user_email'>{user?.email}</div>
                 <input {...register("email")} className={emailInputClasses} type="text"

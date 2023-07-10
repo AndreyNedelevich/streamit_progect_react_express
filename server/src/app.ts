@@ -22,8 +22,6 @@ app.use(
   })
 );
 
-// CRUD - create, read, update, delete
-
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
 

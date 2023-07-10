@@ -26,7 +26,7 @@ const Activate = () => {
             });
         } catch (e) {
             const err = e as AxiosError
-            toast.error("Account activation error!", {
+            toast.error(`Account activation error! ${err.message}`, {
                 autoClose: 2000,
                 theme: "light",
             });

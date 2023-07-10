@@ -41,7 +41,7 @@ const EditProfileUser = () => {
 
 
     return (
-        <>
+        <div>
             <form className="form_edit_user" onSubmit={handleSubmit(submitFunction)}>
                 <input
                     className='edit_user_input'
@@ -61,7 +61,7 @@ const EditProfileUser = () => {
                     Edit user
                 </button>
             </form>
-        </>
+        </div>
     );
 };
 

@@ -18,7 +18,6 @@ const ActivateAccount = () => {
     const [fetching, isLoading, error]=useFetching(
         async  () =>{
           const response= await authService.sendActivationEmail(user.email)
-            console.log(response);
             dispatch(userActions.chengeUserStatus(EUserStatus.Sent))
         }
     )
@@ -31,9 +30,9 @@ const ActivateAccount = () => {
             <div className='wrapper_activate'>
                 <h2 className='activate_title'>Activate account</h2>
                 {user?.status === EUserStatus.Inactive ?
-                    <i className='message_activate'>{`The letter will be sent to your email (${user.email}). Follow the link to verify your account!`}</i> :
+                    <i className='message_activate'>{`The letter will send to your email (${user.email}). Follow the link to activate your account!`}</i> :
                     user?.status === EUserStatus.Sent ?
-                        <i className='message_activate'>{`An email has already been sent to activate your account!`}</i> :
+                        <i className='message_activate'>{`Letter has already sent to activate your account! Follow the link to activate your account!`}</i> :
                         <i className='message_activate'>{`Your account is activated!`}</i>}
 
                 {user?.status === EUserStatus.Inactive &&

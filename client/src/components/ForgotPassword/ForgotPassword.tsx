@@ -8,11 +8,9 @@ import {joiResolver} from "@hookform/resolvers/joi";
 import {forgotPasswordValidator} from "../../validators";
 import {authService} from "../../services";
 import {toast} from "react-toastify";
-import {AxiosError} from "axios";
 import {LinearLoader} from "../UI/Loader/LinearLoader";
 import {useFetching} from "../../hooks";
-import {modalActions, userActions} from "../../redux";
-import {EActionTokenModal} from "../../enums";
+
 
 
 const ForgotPassword = () => {

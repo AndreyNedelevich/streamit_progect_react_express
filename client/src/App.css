@@ -34,6 +34,10 @@ ul {
     list-style-type: none;
 }
 
+button{
+    cursor: pointer;
+}
+
 :root[data-theme="darks"] {
     --main-bg-color: #09161c;
     --color-titles: white;

@@ -71,7 +71,6 @@ class UserController {
         try {
             const { userId } = req.params;
             const avatar = req.files.avatar;
-            console.log(avatar);
             const user = await user_service_1.userService.uploadAvatar(userId, avatar);
             const response = user_mapper_1.userMapper.toResponse(user);
             return res.status(201).json(response);

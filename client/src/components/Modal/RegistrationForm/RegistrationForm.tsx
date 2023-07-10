@@ -1,16 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {joiResolver} from '@hookform/resolvers/joi';
 import CloseIcon from '@mui/icons-material/Close';
 import {toast} from "react-toastify";
-import {AxiosError} from "axios";
+
 
 import { IRegistr} from "../../../interfaces";
-import {modalActions, userActions} from "../../../redux";
+import {modalActions} from "../../../redux";
 import './RegistrationForm.css'
 import {registrationValidator} from "../../../validators";
 import logo from "../../../assets/imeges/logo.png";
-import {EActionTokenModal, EUserStatus} from "../../../enums";
+import {EActionTokenModal} from "../../../enums";
 import {authService} from "../../../services";
 import {useAppDispatch, useFetching} from "../../../hooks";
 import {LoaderForm} from "../../UI";

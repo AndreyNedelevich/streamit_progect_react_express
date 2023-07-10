@@ -84,7 +84,11 @@ const slice = createSlice({
             if (state.user !== null) {
                 state.user.status=action.payload
             }
-
+        },
+        deleteAvatar: (state, action) => {
+            if (state?.user.avatar !== null) {
+                state.user.avatar=action.payload
+            }
         },
     },
     extraReducers: builder =>

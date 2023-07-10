@@ -5,7 +5,7 @@ import {Routes, Route, Navigate} from "react-router-dom";
 import {RequiredAuth} from "../hoc";
 import {HomePage, UpcomingPage, TrendingPage, TopRatedPage, MoviesPage, SearchPage, EditProfile} from "../pages";
 import {PosterPreview} from "../components/PosterPreview";
-import {Notification, PasswordUpdate} from "../components";
+import {Notification} from "../components";
 import {ShowModal} from "../components";
 import {ForgotPassword} from "../components/ForgotPassword";
 import {Activate} from "../components";
@@ -14,7 +14,7 @@ import {authService} from "../services";
 import {userActions} from "../redux";
 import {authorization} from "../constans";
 import {ProfileUser} from "../pages";
-import {ActivateAccount} from "../pages/ActivateAccaunt/ActivateAccount";
+import {ActivateAccount} from "../pages";
 
 
 enum RouteNames {

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import img from '../../assets/imeges/footer.jpg';
 import './MainFooter.css'
 import logotip from "../../assets/imeges/logo.png";
 

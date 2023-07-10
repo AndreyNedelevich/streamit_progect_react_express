@@ -6,7 +6,8 @@ const urls_user = {
     updateEmail: (userId: string):string =>`${users}/update_email/${userId}`,
     updateUser: (userId: string):string =>`${users}/update/${userId}`,
     uploadAvatar: (userId: string):string =>`${users}/avatar/${userId}`,
-    deleteAvatar:(userId: string):string =>`${users}/avatar/${userId}`,
+    daleteAvatar:(userId: string):string =>`${users}/avatar/${userId}`,
+    deleteAccount:(userId:string):string=>`${users}/delete/${userId}`,
 }
 
 export {

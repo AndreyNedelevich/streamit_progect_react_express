@@ -8,8 +8,8 @@ const errors_1 = require("../errors");
 const User_mode_1 = require("../models/User.mode");
 const user_repository_1 = require("../repositories/user.repository");
 const email_service_1 = require("./email.service");
-const token_service_1 = require("./token.service");
 const s3_service_1 = require("./s3.service");
+const token_service_1 = require("./token.service");
 class UserService {
     async findAll() {
         return await User_mode_1.User.find();

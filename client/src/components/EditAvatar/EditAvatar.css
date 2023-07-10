@@ -1,11 +1,8 @@
-/*.blockAvatar{*/
-/*    position: relative;*/
-/*}*/
 
 .block_batton{
     display: flex;
     justify-content: center;
-    gap: 0.8rem;
+    gap: 1.6rem;
     margin-top: 0.8rem;
 }
 
@@ -32,5 +29,9 @@
     font-style: italic;
     border-right: 0.2rem;
     padding: 0 0.1rem;
+}
 
+.opasity_button{
+    opacity: 0;
+    transition: opacity 0.3ms ease;
 }

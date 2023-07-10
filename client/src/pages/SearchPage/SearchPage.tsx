@@ -43,8 +43,7 @@ const SearchPage = () => {
             dispatch(searchActions.getMoviesBySearch(params))
         }
 
-
-    }, [pageSearch, searchQuery])
+    }, [dispatch,pageSearch, searchQuery])
 
 
 

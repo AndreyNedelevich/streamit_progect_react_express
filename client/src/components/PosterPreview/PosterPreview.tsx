@@ -6,10 +6,10 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
 import {movieInfoActions} from "../../redux";
 import {StarsReting} from "../StarsRating";
 import {Video} from "../Video";
-import {GenresisFilm} from "../Filters";
+import {GenresFilm} from "../Filters";
 import './PosterPreview.css'
 import {AppArrow, GlobalLoading} from "../UI";
-import {toast} from "react-toastify";
+
 
 
 
@@ -23,7 +23,7 @@ const PosterPreview = () => {
 
 
     const dispatch = useAppDispatch()
-    const {movieInfo, loading,errors} = useAppSelector((state) => state.movieInformreducer)
+    const {movieInfo, loading} = useAppSelector((state) => state.movieInformreducer)
 
 
 
@@ -67,7 +67,7 @@ const PosterPreview = () => {
                             <div className="genres">
                                 {
                                     movieInfo.genres && movieInfo.genres.slice(0, 6).map((genre, i) =>
-                                        <GenresisFilm key={genre.id} genre={genre}/>
+                                        <GenresFilm key={genre.id} genre={genre}/>
                                     )
                                 }
                             </div>

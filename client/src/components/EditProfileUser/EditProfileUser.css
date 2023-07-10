@@ -30,15 +30,17 @@ input:-webkit-autofill:focus {
 .error_edit_user_1 {
     position: absolute;
     color: red;
-    top: 3.3rem;
-    font-size: 0.7rem;
+    top: 3.2rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .error_edit_user_2 {
     position: absolute;
     color: red;
     top: 7.2rem;
-    font-size: 0.7rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 

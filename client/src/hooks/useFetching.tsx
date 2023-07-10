@@ -17,7 +17,6 @@ export const useFetching = (callback: FetchingFunction): FetchingResult => {
     const fetching: FetchingFunction = async (args,showToasty:boolean=true) => {
         setError('')
         try {
-            console.log(args);
             setIsLoading(true);
             await callback(args);
         } catch (e) {

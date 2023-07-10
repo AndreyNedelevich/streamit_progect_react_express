@@ -41,7 +41,7 @@ router.put(
 );
 
 router.delete(
-  "/:userId",
+  "/delete/:userId",
   commonMiddleware.isIdValid("userId"),
   authMiddleware.checkAccessToken,
   userController.deleteById
@@ -50,11 +50,8 @@ router.delete(
 router.post(
   "/avatar/:userId",
   authMiddleware.checkAccessToken,
-  //Проверяем access токен который прилетит в Header c фронта
   commonMiddleware.isIdValid("userId"),
-  //Проводим валидцию ID пользователя.
   fileMiddleware.isAvatarValid,
-  //Логика валидации файла который прийдет с clienta
   userController.uploadAvatar
 );
 

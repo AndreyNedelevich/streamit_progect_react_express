@@ -20,9 +20,6 @@ const PasswordUpdate:FC<IProps> = ({setIsLoginRequest}) => {
     type IPasswordUpdate = {oldPassword:string, password: string, confirmPassword: string }
 
 
-    const [error, setError] = useState(null);
-
-
 
     const {
         handleSubmit, register, reset,
@@ -33,18 +30,15 @@ const PasswordUpdate:FC<IProps> = ({setIsLoginRequest}) => {
 
 
     const submitFunction: SubmitHandler<IPasswordUpdate> = async (data: IPasswordUpdate) => {
-        setError(null);
         try {
             setIsLoginRequest(true)
             await authService.chengePassword(data.oldPassword,data.password)
-            toast.success("New password successfully set", {
+            toast.success("new password successfully set", {
                     autoClose: 2000,
                     theme:"light",
             });
         } catch (e) {
             const err = e as AxiosError
-            console.log(err);
-            setError(err);
             toast.error(`${err.message}`, {
                 autoClose: 2000,
                 theme:"light",
@@ -59,7 +53,7 @@ const PasswordUpdate:FC<IProps> = ({setIsLoginRequest}) => {
         <>
             <div className="container_update_password">
                 <form className="form_password_update" onSubmit={handleSubmit(submitFunction)}>
-                    <h2 className="title_update_password  ">Change password</h2>
+                    <h2 className="title_update_password  ">Edit password</h2>
                     <input
                         className='password_update_input'
                         type="text"

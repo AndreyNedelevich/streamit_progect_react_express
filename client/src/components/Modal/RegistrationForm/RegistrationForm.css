@@ -91,34 +91,35 @@ input:-webkit-autofill:focus {
 .error_register_1 {
     position: absolute;
     color: white;
-    top: 3rem;
-    font-size: 0.7rem;
+    top: 3.4rem;
+    font-size: 0.8rem;
 }
 
 .error_register_2 {
     position: absolute;
     color: white;
-    top: 6rem;
-    font-size: 0.7rem;
+    top: 6.8rem;
+    font-size: 0.8rem;
 }
 
 .error_register_3 {
     position: absolute;
     color: white;
-    top: 9rem;
-    font-size: 0.7rem;
+    top: 10rem;
+    font-size: 0.8rem;
 }
 .error_register_4 {
     position: absolute;
     color: white;
-    top: 12rem;
-    font-size: 0.7rem;
+    top: 13.2rem;
+    font-size: 0.8rem;
 }
+
 .error_register_5 {
     position: absolute;
     color: white;
-    top: 15rem;
-    font-size: 0.7rem;
+    top: 16.5rem;
+    font-size: 0.8rem;
 }
 
 .register_form{

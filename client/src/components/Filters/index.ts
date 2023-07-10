@@ -1,2 +1,2 @@
 export * from './Genres'
-export * from './GenresIsFilm'
+export * from './GenresFilm'

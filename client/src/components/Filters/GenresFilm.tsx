@@ -3,9 +3,9 @@ import Chip from '@mui/material/Chip';
 
 
 
-import {useAppSelector, useAppDispatch} from "../../hooks";
+import { useAppDispatch} from "../../hooks";
 import {genresActions, pageActions} from "../../redux";
-import './GenreIsFilm.css'
+import './GenresFilm.css'
 import {IGenre} from "../../interfaces";
 import {useNavigate} from "react-router-dom";
 
@@ -14,11 +14,9 @@ genre:IGenre
 }
 
 
-const GenresisFilm:FC<IProps> = ({genre}) => {
+const GenresFilm:FC<IProps> = ({genre}) => {
 
 
-
-    const {selectedGenres} = useAppSelector((state) => state.genresReducer)
     const dispatch = useAppDispatch()
 
 
@@ -50,4 +48,4 @@ const searchGanre=(genre:IGenre)=>{
     )
 }
 
-export {GenresisFilm}
+export {GenresFilm}
