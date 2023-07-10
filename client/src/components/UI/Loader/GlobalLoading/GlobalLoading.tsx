@@ -23,7 +23,7 @@ const GlobalLoading = () => {
     }, [loading]);
 
     return (
-        <div className={isLoading? 'globalLoading opacity_visible':'globalLoading opacity_hidden'}>
+        <div className={loading?'globalLoading opacity_hidden': 'globalLoading opacity_visible'}>
             <LinearLoader/>
             <div className='globalLoading_logo'>
                 <img  src={logo} alt='logo '/>
@@ -31,5 +31,6 @@ const GlobalLoading = () => {
         </div>
     );
 };
-//style={{visibility:isLoading?'visible':'hidden'}}
+
+
 export {GlobalLoading};

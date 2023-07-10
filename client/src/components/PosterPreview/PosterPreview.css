@@ -113,3 +113,16 @@
     margin-right: 0.5rem;
 }
 
+
+@media (max-width: 768px) {
+    .movie-content__info {
+        width: 65%;
+    }
+
+    .title {
+        font-size: 4rem;
+        line-height: 1;
+        margin: 1rem 0 4rem 0;
+    }
+
+}

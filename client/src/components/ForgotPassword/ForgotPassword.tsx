@@ -66,7 +66,7 @@ const ForgotPassword = () => {
                     />
                     {errors.confirmPassword &&
                         <span className="error_forgot_password_2">{errors.confirmPassword.message}</span>}
-                    <button style={{width: '100%', height: '3.2rem', margin: '7px 0'}} className='button_forgot_password'>SEND
+                    <button style={{width: '100%', height: '3.2rem', margin: '0.5rem 0'}} className='button_forgot_password'>SEND
                     </button>
                 </form>
                 {error &&

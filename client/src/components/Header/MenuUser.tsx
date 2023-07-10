@@ -28,11 +28,11 @@ const MenuUser = () => {
                     open={Boolean(anchorEl)}
                     anchorEl={anchorEl}
                     onClose={() => setAnchorEl(null)}
-                    PaperProps={{sx: {padding: 0, mt: '1.6rem', background: 'rgba(20,19,19,0.6)', color: 'white'}}}
+                    PaperProps={{sx: {padding: 0, mt: '1.5rem', background: 'rgba(20,19,19,0.6)', color: 'white'}}}
                 >
                     {userMenu.map((item, index) => (
                         <ListItemButton
-                            sx={{border: '0.1rem solid white', margin: '0.7rem'}}
+                            sx={{padding:'0.8rem',border: '0.1rem solid white', margin: '0.7rem'}}
                             component={Link}
                             to={item.path}
                             key={index}
@@ -44,7 +44,7 @@ const MenuUser = () => {
                         </ListItemButton>
                     ))}
                     <ListItemButton
-                        sx={{ border: '0.1rem solid white', margin: '0.7rem'}}
+                        sx={{ padding:'0.8rem',border: '0.1rem solid white', margin: '0.7rem'}}
                         onClick={() =>{
                             dispatch(userActions.signOut(null))
                             dispatch(modalActions.shownModal(EActionTokenModal.NONE))

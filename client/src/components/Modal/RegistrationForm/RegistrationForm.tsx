@@ -94,7 +94,7 @@ const RegistrationForm = () => {
                     />
                     {errors.confirmPassword &&
                         <span className="error_register_5">{errors.confirmPassword.message}</span>}
-                    <button style={{width: '100%', height: '2.5rem', margin: '7px 0'}} className='button_register'>SIGN UP
+                    <button style={{width: '100%', height: '2.5rem', margin: '0.5rem 0'}} className='button_register'>SIGN UP
                     </button>
 
                     <div className='register_form'>У тебя уже есть аккаунт?

@@ -17,9 +17,9 @@
     width: 27rem;
     height: 16.5rem;
     margin: 6.5rem auto;
-    border: 2px solid black;
+    border: 0.01rem solid black;
     padding: 1rem 1rem 1rem 1rem;
-    border-radius: 10px;
+    border-radius: 0.6rem;
     transition: background 2s ease-in;
 }
 
@@ -63,19 +63,19 @@ input:-webkit-autofill:focus {
 
 .button_forgot {
     font-size: 1.1rem;
-    margin: 20px 0;
+    margin: 1.1rem 0;
     background-color: red;
     color:white;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     outline: none;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.01rem;
     transition: box-shadow 0.3s ease;
     border: 1px solid gray;
 }
 .button_forgot:hover {
-    box-shadow: 0 7px 9px rgba(243, 4, 4, 0.5);
+    box-shadow: 0 0.3rem 0.2rem rgba(243, 4, 4, 0.5);
 }
 
 
@@ -118,9 +118,9 @@ input:-webkit-autofill:focus {
     margin: 0rem auto;
     width: 90%;
     color: #eb1717;
-    border:2px solid rgba(221, 18, 18, 0.9);
+    border: 0.1rem solid rgba(221, 18, 18, 0.9);
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     padding: 0.7rem;
     font-weight: 700;
 }

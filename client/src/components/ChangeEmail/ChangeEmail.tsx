@@ -24,7 +24,6 @@ const ChangeEmail = () => {
         const response = await dispatch(userActions.updateEmailById({userId: user._id, email: data.email}))
         if (response.meta.requestStatus === 'fulfilled') {
             toast.success(`The new email address has been successfully set. email sent to verify email address ${data.email}`, {
-                autoClose: false,
                 theme: "light",
             });
         }
@@ -46,7 +45,7 @@ const ChangeEmail = () => {
                 <div className='edit_user_email'>{user?.email}</div>
                 <input {...register("email")} className={emailInputClasses} type="text"
                        placeholder='new email'/>
-                <button style={{width: '50%', height: '2.2rem'}}
+                <button style={{width: '55%', height: '2.2rem'}}
                         className='button_edit_profile '>Change email
                 </button>
             </form>

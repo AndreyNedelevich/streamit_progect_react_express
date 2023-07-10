@@ -28,7 +28,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
-    margin-bottom: 7rem;
+    margin-bottom: 5rem;
 }
 
 
@@ -56,4 +56,29 @@
 
 .button__load:active {
     color: var(--color-havior)
+}
+
+
+
+
+
+@media (max-width: 992px) {
+    .block__loader{
+        margin-top: 1rem;
+        margin-bottom: 4rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .button__load {
+        border-radius: 0.5rem;
+        width: 12rem;
+        height: 2.5rem;
+        padding: 0 0;
+    }
+    .block__loader{
+        margin-top: 0.6rem;
+        margin-bottom: 3rem;
+    }
 }

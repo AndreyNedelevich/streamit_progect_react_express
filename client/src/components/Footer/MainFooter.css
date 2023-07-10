@@ -1,7 +1,7 @@
 .footer {
     position: relative;
     color: white;
-    padding:1rem 0;
+    padding: 1rem 0;
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('../../assets/imeges/footer.jpg');
     background-position: center;
     background-size: cover;
@@ -72,7 +72,27 @@
     align-items: center;
     margin-bottom: 0.5rem;
 }
-.footer__logo>img{
+
+.footer__logo > img {
     width: 8rem;
     height: 2.5rem;
+}
+
+
+
+@media (max-width: 992px) {
+
+    .footer-content {
+        margin-left: 5.5rem;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .footer-list-item {
+        font-size: 1rem;
+    }
+    .footer-content {
+        margin-left: 4.5rem;
+    }
 }

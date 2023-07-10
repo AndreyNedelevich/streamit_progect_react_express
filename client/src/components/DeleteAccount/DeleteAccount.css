@@ -2,8 +2,8 @@
     width: 11.5rem;
     font-size: 1.5rem;
     color: var(--color-titles);
-    text-shadow: 1px 2px 0.5px rgba(160, 156, 156, 0.8), 0 1px 1px #000, 0 0 0.5px #000, 0 0 1px;
-    border-bottom: 3px solid var(--color-titles);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgba(160, 156, 156, 0.8), 0 0.1rem 0.15rem #000, 0 0 0.1rem #000, 0 0 1px;
+    border-bottom: 0.2rem solid var(--color-titles);
     font-style: italic;
     text-align: left;
     margin-left: 0.7rem;
@@ -15,5 +15,30 @@
     display: grid;
     align-self: end;
     margin-bottom: 0.4rem;
+}
 
+.block_delete_avatar>button{
+    width: 21rem;
+    height: 2.35rem;
+    margin-bottom: 3.1rem;
+}
+
+
+@media (max-width: 768px) {
+    .block_delete_avatar>button{
+        width: 17rem;
+        height: 2.2rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .block_delete_avatar button svg{
+        font-size: 1.3rem!important;
+    }
+}
+
+@media (max-width: 576px) {
+    .block_delete_avatar>button{
+        width: 21rem;
+        margin-bottom: 3.2rem;
+    }
 }

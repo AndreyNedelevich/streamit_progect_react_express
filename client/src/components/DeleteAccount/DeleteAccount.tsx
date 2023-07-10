@@ -40,12 +40,10 @@ const DeleteAccount = () => {
                 color="secondary"
                 startIcon={isLoading ? <CircularProgress size={'1.3rem'} color="inherit"/> : <DeleteIcon/>}
                 style={{
+                    borderRadius:"0.3rem",
                     marginLeft: '0.7rem',
-                    marginBottom:'3.1rem',
                     backgroundColor: 'red',
                     borderColor: 'rgba(192,189,189,0.67)',
-                    width: '21rem',
-                    height: '2.35rem',
                     color: '#fff'
                 }}
                 onClick={()=>{fetching()}}

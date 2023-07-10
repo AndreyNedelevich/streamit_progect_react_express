@@ -111,8 +111,8 @@ button{
     /* Адаптацию проводим при 577px*/
 
     .container {
-        flex-direction: row-reverse;
-        flex-wrap: wrap;
+        /*flex-direction: row-reverse;*/
+        /*flex-wrap: wrap;*/
     }
 
     .swiper-button-next {
@@ -126,11 +126,6 @@ button{
     .logo img {
         display: none;
     }
-
-    .button__load {
-        width: 20rem;
-    }
-
 }
 
 @media (max-width: 576px) {
@@ -138,12 +133,9 @@ button{
     /*@media screen and (min-width: 0 ) and (max-width: 575px) {}*/
     /*Адаптацию проводим при 320px*/
 
-
-
     html {
         font-size: 44%;
     }
-
 
     .genres__card {
         margin: 0;
@@ -160,7 +152,6 @@ button{
         flex-direction: row;
         flex-wrap: wrap;
     }
-
     html {
         font-size: 31.5%;
     }

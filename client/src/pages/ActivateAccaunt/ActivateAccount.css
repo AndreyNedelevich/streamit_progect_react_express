@@ -38,16 +38,16 @@
 
 .button_activate{
     font-size: 1.1rem;
-    margin: 20px 0;
+    margin: 1.2rem 0;
     background-color: red;
     color:white;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     outline: none;
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: box-shadow 0.3s ease;
-    border: 1px solid gray;
+    border: 0.05rem solid gray;
 }
 .button_activate:hover {
     box-shadow: 0 7px 9px rgba(243, 4, 4, 0.5);

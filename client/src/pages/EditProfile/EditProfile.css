@@ -1,18 +1,19 @@
-.wrapper_edit_profile{
+.wrapper_edit_profile {
     display: grid;
-    grid-template-columns: 24rem 60rem;
+    grid-template-columns:24rem 55rem;
     margin-top: 2rem;
     margin-left: 2.5rem;
     min-height: 50rem;
     width: 92%;
 }
 
-.wrapper_edit_profile_block{
+.wrapper_edit_profile_block {
     display: grid;
     padding: 0.2rem;
+    grid-template-rows:31rem 1rem 9rem 12.8rem;
 }
 
-.profile_edit_img{
+.profile_edit_img {
     border: 0.2rem solid var(--color-for-words);
     background-size: cover;
     background-position: top center;
@@ -21,17 +22,15 @@
     width: 22rem;
     margin: 0.4rem;
     margin-top: 0.8rem;
-    border-radius: 5px ;
+    border-radius: 5px;
 }
 
 
-
-
-.block_edit_email{
+.block_edit_email {
     position: relative;
     width: 98%;
     height: 8rem;
-    border-radius: 5px ;
+    border-radius: 5px;
     border: 0.2rem solid var(--color-for-words);
     margin: 1rem 0 1.6rem 0.6rem;
     font-size: 1.9rem;
@@ -42,7 +41,7 @@
 .title_edit_email {
     font-size: 2rem;
     color: var(--color-titles);
-    text-shadow: 1px 2px 0.5px rgba(160, 156, 156, 0.8), 0 1px 1px #000, 0 0 0.5px #000, 0 0 1px;
+    text-shadow: 0.1rem 0.2rem 0.18rem rgba(160, 156, 156, 0.8), 0 0.1rem 0.1rem #000, 0 0 0.2rem #000, 0 0 1px;
     border-bottom: 0.3rem solid var(--color-titles);
     font-style: italic;
     text-align: left;
@@ -51,17 +50,17 @@
     margin-top: 0.15rem;
 }
 
-.edit_user_email{
+.edit_user_email {
     display: grid;
-    align-self:end;
-    justify-self:start;
+    align-self: end;
+    justify-self: start;
     margin-left: 0.5rem;
     font-size: 1.4rem;
-    color: var(--color-for-words) ;
+    color: var(--color-for-words);
 }
 
 
-.edit_email{
+.edit_email {
     display: grid;
     grid-template-columns: 30% 35% 35%;
     justify-items: start;
@@ -70,28 +69,28 @@
 }
 
 
-.block_user_edit_data{
+.block_user_edit_data {
     display: grid;
     grid-template-rows: 1fr 6fr;
     width: 98%;
-    border-radius: 5px ;
+    border-radius: 5px;
     height: 20rem;
     margin: 1rem 0 0.6rem 0.6rem;
     border: 0.2rem solid var(--color-for-words);
 }
 
-.grid_user_edit_data{
+.grid_user_edit_data {
     display: grid;
     grid-template-columns: 3fr 4fr;
     gap: 1.5rem;
 }
 
-.title_edit_profile{
+.title_edit_profile {
     width: 12rem;
     font-size: 2rem;
     color: var(--color-titles);
-    text-shadow: 1px 2px 0.5px rgba(160, 156, 156, 0.8), 0 1px 1px #000, 0 0 0.5px #000, 0 0 1px;
-    border-bottom: 3px solid var(--color-titles);
+    text-shadow: 0.1rem 0.15rem 0.1rem rgba(160, 156, 156, 0.8), 0 0.1rem 0.1rem #000, 0 0 0.5px #000, 0 0 1px;
+    border-bottom: 0.2rem solid var(--color-titles);
     font-style: italic;
     text-align: left;
     margin-left: 0.7rem;
@@ -99,14 +98,14 @@
 }
 
 
-.edit_data{
+.edit_data {
     color: var(--color-for-words);
     font-style: italic;
     font-size: 1.5rem;
     margin: 2.6rem 0.8rem;
 }
 
-.error_edit_profile{
+.error_edit_profile {
     position: absolute;
     width: 100%;
     color: red;
@@ -121,7 +120,7 @@
     background-color: var(--background--color-input_forgot_password);
     padding: 0.1rem 0.8rem;
     font-size: 1rem;
-    border-radius: 5px;
+    border-radius: 0.3rem;
     color: var(--color-for-words);
     height: 2.2rem;
     outline: none;
@@ -133,7 +132,7 @@ input:-webkit-autofill:focus {
 }
 
 
-.invalid{
+.invalid {
     border: 1px solid #e60808;
 }
 
@@ -150,6 +149,106 @@ input:-webkit-autofill:focus {
     transition: box-shadow 0.3s ease;
     border: 1px solid gray;
 }
+
+@media (max-width: 1200px) {
+    /*!*Large*!*/
+    /*@media screen and (min-width: 992px ) and (max-width: 1200px) {} */
+    /*  // Адаптацию проводим при 993px*/
+    .wrapper_edit_profile {
+        grid-template-columns: 24rem 50rem;
+    }
+}
+
+@media (max-width: 992px) {
+    /*!*Medium*!*/
+    /*@media screen and (min-width: 768px ) and (max-width: 992px) {}*/
+    /*Адаптацию проводим при 769px*/
+    .wrapper_edit_profile {
+        grid-template-columns: 24rem 48rem;
+    }
+
+    .profile_edit_img {
+        width: 22rem;
+        height: 30rem;
+    }
+
+    .edit_user_email {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .wrapper_edit_profile {
+        grid-template-columns: 19rem 37rem;
+        margin-left: 0.8rem;
+    }
+
+    .grid_user_edit_data {
+        grid-template-columns: 5fr 4fr;
+        gap: 1rem;
+    }
+
+    .wrapper_edit_profile_block {
+        grid-template-rows: 26rem 2rem 12rem 13.8rem
+    }
+
+    .profile_edit_img {
+        width: 18rem;
+        height: 25rem;
+    }
+
+    .edit_email {
+        grid-template-columns: 38% 37% 30%;
+    }
+
+    .error_edit_profile {
+        top: 6.2rem;
+        right: -215rem;
+    }
+
+    .title_edit_email {
+        font-size: 1.7rem;
+    }
+
+    .title_edit_profile {
+        font-size: 1.7rem;
+    }
+
+    .title_update_password {
+        font-size: 1.7rem;
+    }
+
+    .edit_email button {
+        width: 70% !important;
+    }
+
+
+}
+
+@media (max-width: 576px) {
+    .wrapper_edit_profile_block {
+        grid-template-rows: 32rem 5rem 2.8rem 13.8rem
+    }
+
+    .profile_edit_img {
+        width: 21rem;
+        height: 30rem;
+    }
+
+    .wrapper_edit_profile {
+        grid-template-columns: 22rem 39rem;
+        margin-top: 0.5rem;
+        margin-left: 0.8rem;
+        width: 98%;
+    }
+
+    .edit_email button {
+        height: 2.5rem !important;
+    }
+}
+
+
 
 
 

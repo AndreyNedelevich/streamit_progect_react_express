@@ -66,7 +66,7 @@ const ForgotForm = () => {
                         {...register("email")}
                     />
                     {errors.email && <span className="error_forgot_1">{errors.email.message}</span>}
-                    <button style={{width: '100%', height: '2.5rem', margin: '7px 0'}} className='button_forgot'>SEND
+                    <button style={{width: '100%', height: '2.5rem', margin: '0.5rem 0'}} className='button_forgot'>SEND
                     </button>
 
                 </form>

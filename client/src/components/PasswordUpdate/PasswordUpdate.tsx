@@ -76,7 +76,7 @@ const PasswordUpdate:FC<IProps> = ({setIsLoginRequest}) => {
                     />
                     {errors.confirmPassword &&
                         <span className="error_update_password_3">{errors.confirmPassword.message}</span>}
-                    <button style={{width: '40%', height: '2.3rem'}} className='button_update_password'>
+                    <button  className='button_update_password'>
                         Change password
                     </button>
                 </form>

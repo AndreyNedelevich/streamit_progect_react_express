@@ -34,7 +34,7 @@ const LoginForm = () => {
                 dispatch(modalActions.shownModal(EActionTokenModal.NONE))
                 toast.success("Sign in success", {
                     theme:"light",
-                    autoClose: 1500,
+                     autoClose: 1500,
                 });
             }
         }
@@ -72,7 +72,7 @@ const LoginForm = () => {
                         {...register("password")}
                     />
                     {errors.password && <span className="error_login_2">{errors.password.message}</span>}
-                    <button style={{width: '100%', height: '2.5rem', margin: '7px 0'}} className='button_login'>SIGN
+                    <button style={{width: '100%', height: '2.5rem', margin: '0.5rem  0'}} className='button_login'>SIGN
                         IN
                     </button>
                     <div className='login_form'>

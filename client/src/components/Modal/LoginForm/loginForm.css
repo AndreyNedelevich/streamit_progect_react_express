@@ -17,9 +17,9 @@
     width: 28rem;
     height: 23rem;
     margin: 6.5rem auto;
-    border: 2px solid black;
+    border: 0.01rem solid black;
     padding: 1rem 1rem 1rem 1rem;
-    border-radius: 10px;
+    border-radius: 0.6rem;
     transition: background 2s ease-in;
 }
 
@@ -65,13 +65,13 @@ input:-webkit-autofill:focus {
     margin: 20px 0;
     background-color: red;
     color:white;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     outline: none;
     cursor: pointer;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.1rem;
     transition: box-shadow 0.3s ease;
-    border: 1px solid gray;
+    border: 0.1rem solid gray;
 }
 .button_login:hover {
     box-shadow: 0 7px 9px rgba(243, 4, 4, 0.5);
@@ -114,8 +114,10 @@ input:-webkit-autofill:focus {
 .login_form>button{
     margin-left: 1rem;
     padding: 0 0.5rem;
-    border-radius: 3px;
+    border-radius: 0.1rem;
     cursor: pointer;
+    border: none;
+    font-size: 0.85rem;
 }
 
 .login_form svg{
@@ -129,9 +131,9 @@ input:-webkit-autofill:focus {
     margin: 0.3rem auto;
     width: 90%;
     color: #eb1717;
-    border:2px solid rgba(221, 18, 18, 0.9);
+    border:0.05rem solid rgba(221, 18, 18, 0.9);
     font-size: 1rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     padding: 0.7rem;
     font-weight: 700;
 }

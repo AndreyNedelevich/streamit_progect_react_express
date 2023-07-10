@@ -100,12 +100,12 @@ const EditAvatar: FC<IProps> = ({setIsLoginRequest}) => {
     const styleDeleteFileOpasity = user?.avatar ? '' : 'opasity_button'
 
     return (
-        <div className='blockAvatar'>
+        <>
             <img onClick={handleImageClick} style={{cursor: 'pointer'}} className='profile_edit_img'
                  src={user?.avatar ? `${user.avatar}` : `${avatar}`}
                  alt='foto'/>
             <div>
-               <span className='message_loadFile'>{selectedFile ? `Selected file ${selectedFile.name}` : 'Upload a file. Click on the photo!'}</span>
+               <span className='message_loadFile'>{selectedFile ? `Selected file ${selectedFile.name}` : 'Upload a file.Click  photo!'}</span>
                 <button className='message_button' onClick={() => {
                     setSelectedFile(null)
                 }}>dalete selected file
@@ -145,7 +145,7 @@ const EditAvatar: FC<IProps> = ({setIsLoginRequest}) => {
                     Delete
                 </Button>
             </div>
-        </div>
+        </>
 
     );
 };
