@@ -1,15 +1,12 @@
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import fileUpload from "express-fileupload";
-import * as mongoose from "mongoose";
 
 import { configs } from "./configs/config";
-import { cronRunner } from "./crons";
 import { ApiError } from "./errors";
 import { authRouter } from "./routers/auth.router";
 import { userRouter } from "./routers/user.router";
 
-const PORT = configs.API_PORT || 5110;
 const app = express();
 
 app.use(express.json());
@@ -39,10 +36,4 @@ app.use((err: ApiError, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-app.listen(PORT, async () => {
-  await mongoose.connect(configs.MONGODB_URL);
-  cronRunner();
-  console.log(`Server has started on PORT $${PORT} 🥸`);
-});
-
-export { app };
+export default app;
