@@ -5,7 +5,7 @@ import * as mongoose from "mongoose";
 
 import { configs } from "./src/configs/config";
 import { cronRunner } from "./src/crons";
-import { ApiError} from "./src/errors";
+import { ApiError } from "./src/errors";
 import { authRouter } from "./src/routers/auth.router";
 import { userRouter } from "./src/routers/user.router";
 
