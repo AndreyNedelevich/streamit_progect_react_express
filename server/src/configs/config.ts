@@ -3,7 +3,7 @@ import { config } from "dotenv";
 config();
 
 export const configs = {
-  PORT: process.env.PORT,
+  API_PORT: process.env.API_PORT,
   DB_URL: process.env.DB_URL,
 
   JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET,

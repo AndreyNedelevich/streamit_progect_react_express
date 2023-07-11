@@ -4,7 +4,7 @@ exports.configs = void 0;
 const dotenv_1 = require("dotenv");
 (0, dotenv_1.config)();
 exports.configs = {
-    PORT: process.env.PORT,
+    API_PORT: process.env.API_PORT,
     DB_URL: process.env.DB_URL,
     JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET,
     JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET,
