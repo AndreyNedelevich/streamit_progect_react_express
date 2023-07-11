@@ -14,11 +14,11 @@ import { configs } from "../configs/config";
 class S3Service {
   constructor(
     private client = new S3Client({
-      region: configs.AWS_S3_REGION,
+      region: configs.AWS_REGION,
 
       credentials: {
-        accessKeyId: configs.AWS_ACCESS_KEY,
-        secretAccessKey: configs.AWS_SECRET_TOKEN,
+        accessKeyId: configs.AWS_ACCESS,
+        secretAccessKey: configs.AWS_KEY,
       },
     })
   ) {}
@@ -32,7 +32,7 @@ class S3Service {
 
     await this.client.send(
       new PutObjectCommand({
-        Bucket: configs.AWS_S3_NAME,
+        Bucket: configs.AWS_NAME,
 
         Key: filePath,
 
@@ -50,7 +50,7 @@ class S3Service {
     //Метод удаляещий фото с Bucket. Как аргумент принимает путь к файлу.
     await this.client.send(
       new DeleteObjectCommand({
-        Bucket: configs.AWS_S3_NAME,
+        Bucket: configs.AWS_NAME,
         Key: filePath,
       })
     );
@@ -67,7 +67,7 @@ class S3Service {
 
     await this.client.send(
       new PutObjectCommand({
-        Bucket: configs.AWS_S3_NAME,
+        Bucket: configs.AWS_NAME,
         Key: filePath,
         Body: stream,
 
