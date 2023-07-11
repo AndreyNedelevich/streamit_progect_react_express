@@ -13,7 +13,7 @@ class S3Service {
         region: config_1.configs.AWS_S3_REGION,
         credentials: {
             accessKeyId: config_1.configs.AWS_ACCESS_KEY,
-            secretAccessKey: config_1.configs.AWS_SECRET_KEY,
+            secretAccessKey: config_1.configs.AWS_SECRET_TOKEN,
         },
     })) {
         this.client = client;
