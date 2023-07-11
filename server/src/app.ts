@@ -38,5 +38,5 @@ app.use((err: ApiError, req: Request, res: Response, next: NextFunction) => {
 app.listen(PORT, async () => {
   await mongoose.connect(configs.DB_URL);
   cronRunner();
-  console.log(`Server has started on PORT $PORT} 🥸`);
+  console.log(`Server has started on PORT $${PORT} 🥸`);
 });

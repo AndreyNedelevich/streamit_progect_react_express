@@ -55,5 +55,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, async () => {
     await mongoose.connect(config_1.configs.DB_URL);
     (0, crons_1.cronRunner)();
-    console.log(`Server has started on PORT $PORT} 🥸`);
+    console.log(`Server has started on PORT $${PORT} 🥸`);
 });
