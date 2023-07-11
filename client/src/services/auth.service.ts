@@ -40,7 +40,11 @@ class AuthService {
         if (!refreshToken) {
             throw new Error("Refresh token isn't exists")
         }
-        const {data}: AxiosResponse<ITokens> = await privateClient.post(urls_auth.refresh, {refresh: refreshToken});
+        const {data}: AxiosResponse<ITokens> = await publicClient.post(urls_auth.refresh, {},{
+            headers: {
+                Authorization: `${refreshToken}`,
+            }
+        });
         this.setTokens(data)
     }
 

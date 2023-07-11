@@ -1,11 +1,11 @@
-import React, { useState,FC} from 'react';
+import React, {FC} from 'react';
 
 
 import './PasswordUpdate.css'
 
 import {SubmitHandler, useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
-import {passwordUpdateValidator} from "../../validators";
+import {allValidators} from "../../validators";
 import {authService} from "../../services";
 import {toast} from "react-toastify";
 import {AxiosError} from "axios";
@@ -24,7 +24,7 @@ const PasswordUpdate:FC<IProps> = ({setIsLoginRequest}) => {
     const {
         handleSubmit, register, reset,
         formState: {errors}
-    } = useForm<IPasswordUpdate>({mode: 'all', resolver: joiResolver(passwordUpdateValidator)});
+    } = useForm<IPasswordUpdate>({mode: 'all', resolver: joiResolver(allValidators.passwordUpdateValidator)});
 
 
 

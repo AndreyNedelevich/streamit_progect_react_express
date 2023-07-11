@@ -32,10 +32,10 @@ const errors_1 = require("../errors");
 class TokenService {
     generateTokenPair(payload) {
         const accessToken = jwt.sign(payload, config_1.configs.JWT_ACCESS_SECRET, {
-            expiresIn: "1d",
+            expiresIn: "10m",
         });
         const refreshToken = jwt.sign(payload, config_1.configs.JWT_REFRESH_SECRET, {
-            expiresIn: "2d",
+            expiresIn: "30m",
         });
         return {
             accessToken,

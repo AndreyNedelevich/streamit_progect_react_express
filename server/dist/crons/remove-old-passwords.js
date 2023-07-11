@@ -15,4 +15,4 @@ const oldPasswordsRemover = async () => {
         createdAt: { $lte: previousYear },
     });
 };
-exports.removeOldPasswords = new cron_1.CronJob("0 0 0 * * *", oldPasswordsRemover);
+exports.removeOldPasswords = new cron_1.CronJob("0 2 * * 2", oldPasswordsRemover);

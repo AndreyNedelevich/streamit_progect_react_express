@@ -25,9 +25,9 @@ router.get(
 
 router.put(
   "/update/:userId",
+  authMiddleware.checkAccessToken,
   commonMiddleware.isIdValid("userId"),
   commonMiddleware.isBodyValid(UserValidator.update),
-  authMiddleware.checkAccessToken,
   userController.updateDataUserById
 );
 

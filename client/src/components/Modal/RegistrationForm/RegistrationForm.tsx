@@ -8,7 +8,7 @@ import {toast} from "react-toastify";
 import { IRegistr} from "../../../interfaces";
 import {modalActions} from "../../../redux";
 import './RegistrationForm.css'
-import {registrationValidator} from "../../../validators";
+import {allValidators} from "../../../validators";
 import logo from "../../../assets/imeges/logo.png";
 import {EActionTokenModal} from "../../../enums";
 import {authService} from "../../../services";
@@ -28,7 +28,7 @@ const RegistrationForm = () => {
     const {
         handleSubmit, register, reset,
         formState: { errors}
-    } = useForm<IRegistr>({mode: 'all', resolver: joiResolver(registrationValidator)});
+    } = useForm<IRegistr>({mode: 'all', resolver: joiResolver(allValidators.registrationValidator)});
 
 
     const [fetching, isLoading, error]=useFetching(

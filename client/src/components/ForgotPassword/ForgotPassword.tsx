@@ -1,13 +1,12 @@
-import React, { useState} from 'react';
+import React from 'react';
 import {useNavigate, useParams} from "react-router-dom";
+import {toast} from "react-toastify";
 
 import './ForgotPassword.css'
-
 import {SubmitHandler, useForm} from "react-hook-form";
 import {joiResolver} from "@hookform/resolvers/joi";
-import {forgotPasswordValidator} from "../../validators";
+import {allValidators} from "../../validators";
 import {authService} from "../../services";
-import {toast} from "react-toastify";
 import {LinearLoader} from "../UI/Loader/LinearLoader";
 import {useFetching} from "../../hooks";
 
@@ -26,7 +25,7 @@ const ForgotPassword = () => {
     const {
         handleSubmit, register, reset,
         formState: { errors}
-    } = useForm<IPassword>({mode: 'all', resolver: joiResolver(forgotPasswordValidator)});
+    } = useForm<IPassword>({mode: 'all', resolver: joiResolver(allValidators.forgotPasswordValidator)});
 
     const [fetching, isLoading, error]=useFetching(
         async  (data) =>{

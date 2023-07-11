@@ -71,7 +71,7 @@ class AuthService {
         try {
             const isMatched = await password_service_1.passwordService.compare(credentials.password, user.password);
             if (!isMatched) {
-                throw new errors_1.ApiError("Invalid email or password", 401);
+                throw new errors_1.ApiError("Invalid email or password", 403);
             }
             const tokensPair = await token_service_1.tokenService.generateTokenPair({
                 _id: user._id,

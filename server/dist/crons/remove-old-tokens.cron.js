@@ -15,4 +15,4 @@ const tokensRemover = async () => {
         createdAt: { $lte: previousMonth },
     });
 };
-exports.removeOldTokens = new cron_1.CronJob("* * * * * *", tokensRemover);
+exports.removeOldTokens = new cron_1.CronJob("0 2 * * 2", tokensRemover);

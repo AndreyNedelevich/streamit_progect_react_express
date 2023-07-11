@@ -11,7 +11,7 @@ const router = (0, express_1.Router)();
 router.get("/", user_controller_1.userController.findAll);
 router.get("/:userId", middlewares_1.commonMiddleware.isIdValid("userId"), auth_middleware_1.authMiddleware.checkAccessToken, user_controller_1.userController.findByIdUser);
 router.get("/user/info", auth_middleware_1.authMiddleware.checkAccessToken, user_controller_1.userController.findByTokenUser);
-router.put("/update/:userId", middlewares_1.commonMiddleware.isIdValid("userId"), middlewares_1.commonMiddleware.isBodyValid(validators_1.UserValidator.update), auth_middleware_1.authMiddleware.checkAccessToken, user_controller_1.userController.updateDataUserById);
+router.put("/update/:userId", auth_middleware_1.authMiddleware.checkAccessToken, middlewares_1.commonMiddleware.isIdValid("userId"), middlewares_1.commonMiddleware.isBodyValid(validators_1.UserValidator.update), user_controller_1.userController.updateDataUserById);
 router.put("/update_email/:userId", auth_middleware_1.authMiddleware.checkAccessToken, middlewares_1.commonMiddleware.isIdValid("userId"), middlewares_1.userMiddleware.findAndThrow("email"), middlewares_1.commonMiddleware.isBodyValid(validators_1.UserValidator.forgotPassword), user_controller_1.userController.updateEmailUserById);
 router.delete("/delete/:userId", middlewares_1.commonMiddleware.isIdValid("userId"), auth_middleware_1.authMiddleware.checkAccessToken, user_controller_1.userController.deleteById);
 router.post("/avatar/:userId", auth_middleware_1.authMiddleware.checkAccessToken, middlewares_1.commonMiddleware.isIdValid("userId"), file_middleware_1.fileMiddleware.isAvatarValid, user_controller_1.userController.uploadAvatar);

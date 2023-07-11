@@ -6,7 +6,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import {modalActions} from "../../../redux";
 import {useAppDispatch, useFetching} from "../../../hooks";
 import './ForgotForm.css'
-import {forgotValidator} from "../../../validators";
+import {allValidators} from "../../../validators";
 import logo from "../../../assets/imeges/logo.png";
 import {EActionTokenModal} from "../../../enums";
 import {authService} from "../../../services";
@@ -24,7 +24,7 @@ const ForgotForm = () => {
     const {
         handleSubmit, register, reset,
         formState: {errors}
-    } = useForm<IEmail>({mode: 'all', resolver: joiResolver(forgotValidator)});
+    } = useForm<IEmail>({mode: 'all', resolver: joiResolver(allValidators.forgotValidator)});
 
 
 

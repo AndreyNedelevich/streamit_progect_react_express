@@ -7,7 +7,7 @@ import {IUser} from "../../../interfaces";
 import {modalActions, userActions} from "../../../redux";
 import {useAppDispatch, useFetching} from "../../../hooks";
 import './loginForm.css'
-import {loginValidator} from "../../../validators";
+import {allValidators} from "../../../validators";
 import logo from "../../../assets/imeges/logo.png";
 import {EActionTokenModal} from "../../../enums";
 import {authService} from "../../../services";
@@ -23,7 +23,7 @@ const LoginForm = () => {
     const {
         handleSubmit, register, reset,
         formState: { errors}
-    } = useForm<IUser>({mode: 'all', resolver: joiResolver(loginValidator)});
+    } = useForm<IUser>({mode: 'all', resolver: joiResolver(allValidators.loginValidator)});
 
 
     const [fetching, isLoading, error]=useFetching(
