@@ -9,7 +9,7 @@ import { ApiError } from "./errors";
 import { authRouter } from "./routers/auth.router";
 import { userRouter } from "./routers/user.router";
 
-const PORT = configs.API_PORT||5110;
+const PORT = configs.API_PORT || 5110;
 const app = express();
 
 app.use(express.json());
