@@ -57,3 +57,4 @@ app.listen(PORT, async () => {
     (0, crons_1.cronRunner)();
     console.log(`Server has started on PORT $${PORT} 🥸`);
 });
+exports.default = app;

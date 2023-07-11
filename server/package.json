@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "rimraf dist && tsc-watch --onSuccess \"npm run watch\"",
-    "watch": "nodemon \"src/app.ts\" --watch \"./src\""
+    "watch": "nodemon \"api/index.ts\" --watch \"./src\"",
+    "vercel-build": "echo hello"
   },
   "author": "",
   "license": "ISC",
