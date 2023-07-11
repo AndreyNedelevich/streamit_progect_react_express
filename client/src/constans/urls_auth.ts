@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:5120';
+const baseURL = 'https://streamit-api.vercel.app/';
 const auth = '/auth'
 
 const urls_auth = {
