@@ -1,8 +1,8 @@
 import * as mongoose from "mongoose";
 
-import app from "./app";
-import { configs } from "./configs/config";
-import { cronRunner } from "./crons";
+import app from "./src/app";
+import { configs } from "./src/configs/config";
+import { cronRunner } from "./src/crons";
 
 const PORT = configs.API_PORT || 5110;
 
