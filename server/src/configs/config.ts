@@ -4,7 +4,7 @@ config();
 
 export const configs = {
   API_PORT: process.env.API_PORT,
-  DB_URL: process.env.DB_URL,
+  MONGODB_URL: process.env.MONGODB_URL,
 
   JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET,
   JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET,
@@ -20,7 +20,7 @@ export const configs = {
   NO_REPLY_PASSWORD: process.env.NO_REPLY_PASSWORD,
 
   AWS_ACCESS_KEY: process.env.AWS_ACCESS_KEY,
-  AWS_SECRET_KEY: process.env.AWS_SECRET_KEY,
+  AWS_SECRET_TOKEN: process.env.AWS_SECRET_TOKEN,
   AWS_S3_REGION: process.env.AWS_S3_REGION,
   AWS_S3_NAME: process.env.AWS_S3_NAME,
   AWS_S3_ACL: process.env.AWS_S3_ACL,

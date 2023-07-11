@@ -18,7 +18,7 @@ class S3Service {
 
       credentials: {
         accessKeyId: configs.AWS_ACCESS_KEY,
-        secretAccessKey: configs.AWS_SECRET_KEY,
+        secretAccessKey: configs.AWS_SECRET_TOKEN,
       },
     })
   ) {}
