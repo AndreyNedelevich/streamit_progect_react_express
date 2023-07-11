@@ -6,10 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cors_1 = __importDefault(require("cors"));
 const express_1 = __importDefault(require("express"));
 const express_fileupload_1 = __importDefault(require("express-fileupload"));
+const mongoose_1 = __importDefault(require("mongoose"));
 const config_1 = require("./configs/config");
+const crons_1 = require("./crons");
 const auth_router_1 = require("./routers/auth.router");
 const user_router_1 = require("./routers/user.router");
 const app = (0, express_1.default)();
+const PORT = config_1.configs.API_PORT || 5110;
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, express_fileupload_1.default)());
@@ -29,4 +32,8 @@ app.use((err, req, res, next) => {
         status: err.status,
     });
 });
-exports.default = app;
+app.listen(PORT, async () => {
+    await mongoose_1.default.connect(config_1.configs.MONGODB_URL);
+    (0, crons_1.cronRunner)();
+    console.log(`Server has started on PORT $${PORT} 🥸`);
+});
