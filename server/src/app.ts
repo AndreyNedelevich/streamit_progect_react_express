@@ -3,11 +3,11 @@ import express, { NextFunction, Request, Response } from "express";
 import fileUpload from "express-fileupload";
 import * as mongoose from "mongoose";
 
-import { configs } from "./src/configs/config";
-import { cronRunner } from "./src/crons";
-import { ApiError } from "./src/errors";
-import { authRouter } from "./src/routers/auth.router";
-import { userRouter } from "./src/routers/user.router";
+import { configs } from "./configs/config";
+import { cronRunner } from "./crons";
+import { ApiError } from "./errors";
+import { authRouter } from "./routers/auth.router";
+import { userRouter } from "./routers/user.router";
 
 const PORT = configs.API_PORT || 5110;
 const app = express();
@@ -40,3 +40,5 @@ app.listen(PORT, async () => {
   cronRunner();
   console.log(`Server has started on PORT $${PORT} 🥸`);
 });
+
+export default app;
