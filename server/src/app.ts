@@ -54,3 +54,31 @@ app.listen(PORT, async () => {
 
 //Внутри машинки нажимаем Connect
 //Внутри машинки c -2 это дефолтный userName
+
+//После коннекта попадаем в терминал Машинки
+
+//Далее необходимо установить env
+
+//Инструкция о настройке машинки Setting up Node.js on an Amazon EC2 instance
+//1)curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+//2). ~/.nvm/nvm.sh
+//3)nvm install --lts
+
+//Если мы хотип переключиться на другую версию node - nvm use -16 (если указывать только цифры то устан послед в 16 версии)
+//Аповерить вермию node -  node -v
+
+//проверка обновленний -  sudo yum update
+//устанавливаем GIT  -  sudo yum install git
+// проверка версии  -  git version
+
+//git clone - (сылка на проект https://github.com/AndreyNedelevich/streamit_progect_react_express.git) клонируем проект в машинку
+
+//После клонирования на магинке будет проект
+//Далее заходим при помощи cd в директории в которой нужно создать файл .env
+
+//оздаем файл touch .env
+
+//nano .env  -  заходим в созданный файл .env
+
+//В данный файл копируем все переменные с файла .env
+//contrl C сохранить   /  contrl X  выйти назад
