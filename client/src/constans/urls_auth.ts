@@ -1,4 +1,4 @@
-const baseURL = 'http://ec2-52-87-174-106.compute-1.amazonaws.com:5120';
+const baseURL = 'https://ec2-52-87-174-106.compute-1.amazonaws.com:5120';
 const auth = '/auth'
 
 const urls_auth= {
