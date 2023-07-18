@@ -13,7 +13,7 @@ import {
 class TokenService {
   public generateTokenPair(payload: ITokenPayload): ITokensPair {
     const accessToken = jwt.sign(payload, configs.JWT_ACCESS_SECRET, {
-      expiresIn: "10m",
+      expiresIn: "1d",
     });
     const refreshToken = jwt.sign(payload, configs.JWT_REFRESH_SECRET, {
       expiresIn: "30m",

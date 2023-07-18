@@ -22,9 +22,6 @@ app.use((0, cors_1.default)({
 }));
 app.use("/users", user_router_1.userRouter);
 app.use("/auth", auth_router_1.authRouter);
-app.get("/", (req, res) => {
-    res.send("This is my API runing!!!!!!!!!!!!!!");
-});
 app.use((err, req, res, next) => {
     const status = err.status || 5100;
     return res.status(status).json({

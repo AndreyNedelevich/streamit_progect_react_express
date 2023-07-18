@@ -27,10 +27,6 @@ app.use(
 app.use("/users", userRouter);
 app.use("/auth", authRouter);
 
-app.get("/", (req, res) => {
-  res.send("This is my API runing!!!!!!!!!!!!!!");
-});
-
 app.use((err: ApiError, req: Request, res: Response, next: NextFunction) => {
   const status = err.status || 5100;
 
