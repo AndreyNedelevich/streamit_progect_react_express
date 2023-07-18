@@ -41,3 +41,16 @@ app.listen(PORT, async () => {
   cronRunner();
   console.log(`Server has started on PORT $${PORT} 🥸`);
 });
+
+//Deploy AVS
+
+//Название машинки
+//Генерируем новую пару ключей в Create new key pair. выбираем .pem
+//Выделяем галочками эти пунткты
+// Allow HTTPS traffic from the internetTo set up an endpoint
+// Allow HTTP traffic from the internet
+
+//Нажимаем создать и после нажимаем на ссылку и заходим в машинку.
+
+//Внутри машинки нажимаем Connect
+//Внутри машинки c -2 это дефолтный userName
