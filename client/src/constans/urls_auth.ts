@@ -1,7 +1,7 @@
 const baseURL = 'http://ec2-52-87-174-106.compute-1.amazonaws.com:5120';
 const auth = '/auth'
 
-const urls_auth = {
+const urls_auth= {
     register: `${auth}/register`,
     login: `${auth}/login`,
     refresh: `${auth}/refresh`,
