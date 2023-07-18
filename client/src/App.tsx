@@ -10,7 +10,6 @@ import {RoutesConfig} from "./routesConfig";
 function App() {
 
 
-
     return (
         <div>
             <Header/>
