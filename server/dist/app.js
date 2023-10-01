@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
     });
 });
 app.listen(PORT, async () => {
-    await mongoose_1.default.connect(config_1.configs.MONGODB_URL);
+    await mongoose_1.default.connect("mongodb+srv://nedelevich:Oventiger1986@stremitdatabase.q8s4f2c.mongodb.net/");
     (0, crons_1.cronRunner)();
     console.log(`Server has started on PORT $${PORT} 🥸`);
 });

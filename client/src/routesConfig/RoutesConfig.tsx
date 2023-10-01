@@ -56,46 +56,46 @@ const RoutesConfig = () => {
                     <Route path={RouteNames.HOME_ACTIVATED} element={<Activate/>}/>
                 </Route>
                 <Route path={RouteNames.TRENDING} element={
-                    <RequiredAuth>
+                    // <RequiredAuth>
                         <TrendingPage/>
-                    </RequiredAuth>
+                    // </RequiredAuth>
                 }/>
                 <Route path={RouteNames.UPCOMING} element={
-                    <RequiredAuth>
+                    // <RequiredAuth>
                         <UpcomingPage/>
-                    </RequiredAuth>
+                    // </RequiredAuth>
                 }/>
                 <Route path={RouteNames.TOP_RATED} element={
-                    <RequiredAuth>
+                    // <RequiredAuth>
                         <TopRatedPage/>
-                    </RequiredAuth>
+                    // </RequiredAuth>
                 }/>
                 <Route path={RouteNames.MOVIES} element={
-                    <RequiredAuth>
+                    // <RequiredAuth>
                         <MoviesPage/>
-                    </RequiredAuth>
+                    // </RequiredAuth>
                 }/>
                 <Route path={RouteNames.SEARCH} element={
-                    <RequiredAuth>
+                    // <RequiredAuth>
                         <SearchPage/>
-                    </RequiredAuth>
+                    // </RequiredAuth>
                 }/>
                 <Route path={RouteNames.IDMOVIE} element={<PosterPreview/>}/>
                 <Route path={RouteNames.RESTORE_PASSWORD} element={<ForgotPassword/>}/>
                 <Route path={RouteNames.ACTIVATE_ACCOUNT} element={
-                    <RequiredAuth>
+                    // <RequiredAuth>
                         <ActivateAccount/>
-                    </RequiredAuth>
+                    // </RequiredAuth>
                 }/>
                 <Route path={RouteNames.PROFILE} element={
-                    <RequiredAuth>
+                    // <RequiredAuth>
                         <ProfileUser/>
-                    </RequiredAuth>
+                    // </RequiredAuth>
                 }/>
                 <Route path={RouteNames.EDIT_PROFILE} element={
-                    <RequiredAuth>
+                    // <RequiredAuth>
                         <EditProfile/>
-                    </RequiredAuth>
+                    // </RequiredAuth>
                 }/>
             </Routes>
         </div>
