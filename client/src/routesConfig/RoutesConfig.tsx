@@ -37,6 +37,7 @@ const RoutesConfig = () => {
 
     const dispatch = useAppDispatch()
 
+
     useEffect(() => {
         authService.setTokensfromMovieDB(authorization)
         const access=authService.getAccessToken()
