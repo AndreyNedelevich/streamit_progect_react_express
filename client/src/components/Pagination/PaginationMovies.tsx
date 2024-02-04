@@ -25,7 +25,7 @@ import {useAppDispatch, useAppSelector} from "../../hooks";
     return (
         <div className='pagination'>
         <Stack spacing={10}>
-            <Pagination color="primary"   count={numPageAllMovies} page={pageAllMovies} onChange={handleChange} />
+            <Pagination color="primary"  count={numPageAllMovies} page={pageAllMovies} onChange={handleChange} />
         </Stack>
         </div>
     );

@@ -20,7 +20,8 @@ app.use(fileUpload());
 app.use(
   cors({
     credentials: true,
-    origin: configs.FRONT_URL,
+    // origin: configs.FRONT_URL,
+    origin:'*'
   })
 );
 

@@ -1,4 +1,4 @@
-const baseURL = 'https://streamit.bio';
+const baseURL = 'http://127.0.0.1:5120'
 const auth = '/auth'
 
 const urls_auth= {
