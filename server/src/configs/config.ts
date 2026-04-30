@@ -4,7 +4,7 @@ config();
 
 export const configs = {
   API_PORT: process.env.API_PORT,
-  MONGODB_URL: process.env.MONGODB_URL,
+  MONGODB_URL: process.env.MONGODB_URI,
 
   JWT_ACCESS_SECRET: process.env.JWT_ACCESS_SECRET,
   JWT_REFRESH_SECRET: process.env.JWT_REFRESH_SECRET,

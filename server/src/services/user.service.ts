@@ -3,13 +3,14 @@ import { UploadedFile } from "express-fileupload";
 import { EActionTokenTypes } from "../enums/action-token-type.enum";
 import { EEmailActions } from "../enums/email.enum";
 import { EUserStatus } from "../enums/user-status.enum";
-import { ApiError } from "../errors";
+import {ApiError, EErrorCode} from "../errors";
 import { User } from "../models/User.mode";
 import { userRepository } from "../repositories/user.repository";
 import { IUser } from "../types/user.type";
 import { emailService } from "./email.service";
 import { s3Service } from "./s3.service";
 import { tokenService } from "./token.service";
+import {Action} from "../models/Action.model";
 
 class UserService {
   public async findAll(): Promise<IUser[]> {
@@ -45,15 +46,29 @@ class UserService {
 
     if (user) {
       const actionToken = tokenService.generateActionToken(
-        { _id: userWithBD._id, userName: userWithBD.userName },
+          { _id: user._id, userName: user.userName },
         EActionTokenTypes.Activate
       );
 
-      emailService.sendMail(dto.email, EEmailActions.WELCOME, {
-        email: user.email,
-        userName: user.userName,
-        actionToken,
-      });
+
+      await ApiError.from(async (): Promise<void> => {
+            Action.create({
+              actionToken,
+              tokenType: EActionTokenTypes.Activate,
+              _userId: user._id,
+            })
+          },  500,
+          EErrorCode.ACTION_TOKEN_CREATE_FAILED)
+
+
+      ApiError.runAsync( () => {
+            return  emailService.sendMail(dto.email, EEmailActions.WELCOME, {
+              email: user.email,
+              userName: user.userName,
+              actionToken,
+            });
+          }
+      )
     }
 
     return user;

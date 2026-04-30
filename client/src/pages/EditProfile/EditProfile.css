@@ -110,12 +110,12 @@
     width: 100%;
     color: red;
     top: 6.2rem;
-    right: -20.5rem;
+    right: -17.3rem;
     font-size: 0.9rem;
 }
 
 .email_edit_input {
-    width: 90%;
+    width: 95%;
     border: 0.2rem solid var(--color-for-words);
     background-color: var(--background--color-input_forgot_password);
     padding: 0.1rem 0.8rem;

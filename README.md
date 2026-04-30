@@ -29,8 +29,8 @@ npm install
 ```
 
 
-# Environment Variables
 
+# Environment Variables
 Before running the application, create an `.env` file in the root directory with the following environment variables:
 
 
@@ -38,7 +38,7 @@ Before running the application, create an `.env` file in the root directory with
 ### MongoDB Configuration
 
 ```env
- MONGODB_URL="mongodb+srv://nedelevich:Oventiger1986@stremitdatabase.q8s4f2c.mongodb.net/"
+MONGODB_URL="mongodb://127.0.0.1:27017/stremitdatabase?directConnection=true"
 JWT_ACCESS_SECRET=jwtSecret
 JWT_REFRESH_SECRET=jwtRefresh
 JWT_FORGOT_SECRET=forgotPasswordSecret
@@ -46,8 +46,8 @@ JWT_ACTIVATE_SECRET=activatedSecretKey
 API_PORT=5120
 SECRET_SALT=7
 FRONT_URL=http://192.168.0.1
-NO_REPLY_EMAIL=nedelevich@gmail.com
-NO_REPLY_PASSWORD=jxogfsrtsexamjkv
+NO_REPLY_EMAIL=email@gmail.com
+NO_REPLY_PASSWORD=password_gmail
 AWS_ACCESS=access key
 AWS_KEY=secret key
 AWS_REGION=us-east-1
@@ -56,22 +56,33 @@ AWS_S3_ACL=public-read
 AWS_S3_URL=your AWS S3 URL
 ```
 
-## Authorization data
 
-Authorization data for the user:
 
-```json
-[
-  {
-    "username": "user1@gmail.com",
-    "password": "user_2023"
-  },
-  {
-    "username": "user2@gmail.com",
-    "password": "user_2023"
-  },
-  {
-    "username": "user3@gmail.com",
-    "password": "user_2023"
-  }
-]
+##  Running the project
+
+###  Client (React)
+
+To start the React application in development mode:
+
+```bash
+cd client
+npm start
+```
+
+
+
+###  Server (Express)
+
+To start the server in development mode:
+
+This command will:
+
+clean the dist folder
+run TypeScript compilation in watch mode
+start the server with nodemon for auto-restart on changes
+
+```bash
+cd server
+npm start
+```
+

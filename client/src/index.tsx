@@ -15,6 +15,7 @@ const root = ReactDOM.createRoot(
 );
 
 const store = setupStore();
+
 root.render(
     <Provider store={store}>
         <ThemeProvider>

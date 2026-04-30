@@ -4,7 +4,7 @@ import {baseURL} from "../../constans";
 
 const publicClient = axios.create({baseURL});
 
-//@ts-ignore
+
 publicClient.interceptors.request.use(config => {
     return {
         ...config,

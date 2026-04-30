@@ -3,7 +3,7 @@ import { Types } from "mongoose";
 import { EActionTokenTypes } from "../enums/action-token-type.enum";
 import { EEmailActions } from "../enums/email.enum";
 import { EUserStatus } from "../enums/user-status.enum";
-import { ApiError } from "../errors";
+import {ApiError, EErrorCode} from "../errors";
 import { Action } from "../models/Action.model";
 import { OldPassword } from "../models/OldPassword.model";
 import { Token } from "../models/Token.model";
@@ -16,40 +16,53 @@ import { tokenService } from "./token.service";
 
 class AuthService {
   public async register(data: IUser): Promise<void> {
-    try {
       const hashedPassword = await passwordService.hash(data.password);
 
-      const user = await User.create({ ...data, password: hashedPassword });
+    const user = await ApiError.from(
+        async () => {
+          return await User.create({
+            ...data,
+            password: hashedPassword,
+          });
+        },
+        500,
+        EErrorCode.DATABASE_SAVE_ERROR
+    );
+
 
       const actionToken = tokenService.generateActionToken(
         { _id: user._id, userName: user.userName },
         EActionTokenTypes.Activate
       );
-      await Promise.all([
+
+      await ApiError.from(async (): Promise<void> => {
         Action.create({
           actionToken,
           tokenType: EActionTokenTypes.Activate,
           _userId: user._id,
-        }),
-        emailService.sendMail(data.email, EEmailActions.WELCOME, {
-          email: user.email,
-          userName: user.userName,
-          actionToken,
-        }),
-      ]);
-    } catch (e) {
-      throw new ApiError(e.message, e.status);
-    }
+        })
+      },  500,
+          EErrorCode.ACTION_TOKEN_CREATE_FAILED)
+
+
+     ApiError.runAsync( () => {
+         return  emailService.sendMail(data.email, EEmailActions.WELCOME, {
+            email: user.email,
+            userName: user.userName,
+            actionToken,
+          })
+        }
+     )
   }
 
   public async activate(jwtPayload: ITokenPayload): Promise<void> {
     try {
       await Promise.all([
         User.updateOne({ _id: jwtPayload._id }, { status: EUserStatus.Active }),
-        Action.deleteMany({
-          _userId: jwtPayload._id,
-          tokenType: EActionTokenTypes.Activate,
-        }),
+        // Action.deleteMany({
+        //   _userId: jwtPayload._id,
+        //   tokenType: EActionTokenTypes.Activate,
+        // }),
       ]);
     } catch (e) {
       throw new ApiError(e.message, e.status);

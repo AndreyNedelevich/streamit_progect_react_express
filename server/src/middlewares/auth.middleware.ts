@@ -75,6 +75,8 @@ class AuthMiddleware {
           tokenType
         );
 
+        console.log(actionToken, "actionToken")
+
         const tokenFromDb = await Action.findOne({ actionToken });
 
         if (!tokenFromDb) {

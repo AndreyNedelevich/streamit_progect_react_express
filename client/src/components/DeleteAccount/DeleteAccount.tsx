@@ -19,7 +19,6 @@ const DeleteAccount = () => {
     const [fetching, isLoading, error] = useFetching(
         async () => {
             const response =await userService.deleteAccount(user._id)
-            console.log(response);
             if (response&&!error) {
                 dispatch(userActions.signOut(null))
                 toast.success("Account deleted", {

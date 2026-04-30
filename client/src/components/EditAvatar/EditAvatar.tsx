@@ -123,27 +123,27 @@ const EditAvatar: FC<IProps> = ({setIsLoginRequest}) => {
                 ref={fileInputRef}
             />
             <div className='block_batton'>
-                <Button
-                    className={styleSelectFileOpasity}
-                    style={{borderColor: red[500], color: '#fff'}}
-                    variant="outlined"
-                    color="secondary"
-                    disabled={!selectedFile}
-                    onClick={handleUpload}
-                    startIcon={<CloudUploadIcon/>}
-                >
-                    Sent
-                </Button>
-                <Button
-                    className={styleDeleteFileOpasity}
-                    variant="outlined"
-                    color="secondary"
-                    startIcon={<DeleteIcon/>}
-                    style={{borderColor: red[500], color: '#fff'}}
-                    onClick={handleDelete}
-                >
-                    Delete
-                </Button>
+            {/*    <Button*/}
+            {/*        className={styleSelectFileOpasity}*/}
+            {/*        style={{borderColor: red[500], color: '#fff'}}*/}
+            {/*        variant="outlined"*/}
+            {/*        color="secondary"*/}
+            {/*        disabled={!selectedFile}*/}
+            {/*        onClick={handleUpload}*/}
+            {/*        startIcon={<CloudUploadIcon/>}*/}
+            {/*    >*/}
+            {/*        Sent*/}
+            {/*    </Button>*/}
+            {/*    <Button*/}
+            {/*        className={styleDeleteFileOpasity}*/}
+            {/*        variant="outlined"*/}
+            {/*        color="secondary"*/}
+            {/*        startIcon={<DeleteIcon/>}*/}
+            {/*        style={{borderColor: red[500], color: '#fff'}}*/}
+            {/*        onClick={handleDelete}*/}
+            {/*    >*/}
+            {/*        Delete*/}
+            {/*    </Button>*/}
             </div>
         </>
 

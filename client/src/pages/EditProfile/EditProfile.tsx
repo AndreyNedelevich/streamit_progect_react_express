@@ -34,10 +34,6 @@ const EditProfile = () => {
                         <h2 className="title_edit_profile">Edit profile</h2>
                         <div className='grid_user_edit_data'>
                             <EditProfileUser/>
-                            <div>
-                                <div className='edit_data'>{user?.userName}</div>
-                                <div className='edit_data'>{user?.age}</div>
-                            </div>
                         </div>
                     </div>
                     <PasswordUpdate setIsLoginRequest={setIsLoginRequest}/>

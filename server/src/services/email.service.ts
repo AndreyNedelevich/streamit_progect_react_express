@@ -43,7 +43,7 @@ class EmailService {
     this.transporter.use("compile", hbs(hbsOptions));
   }
 
-  public async sendMail(
+  public  sendMail(
     email: string,
     emailAction: EEmailActions,
     context: Record<string, string | number> = {}
@@ -59,7 +59,7 @@ class EmailService {
       context,
     };
 
-    return await this.transporter.sendMail(mailOptions);
+    return  this.transporter.sendMail(mailOptions);
   }
 }
 

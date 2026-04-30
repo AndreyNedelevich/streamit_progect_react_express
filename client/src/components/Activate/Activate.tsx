@@ -14,10 +14,11 @@ const Activate = () => {
     const dispatch = useAppDispatch();
 
     let {actionToken} = useParams();
-    console.log(actionToken);
+    console.log(actionToken , "actionToken")
 
     const activateFunction: any = useCallback(async (actionToken: string) => {
         try {
+            console.log(actionToken , "actionToken")
             await authService.activateAccaunt(actionToken)
             dispatch(userActions.getUserByToken())
             toast.success("Your account is activated!", {
@@ -37,10 +38,10 @@ const Activate = () => {
 
     useEffect(() => {
         activateFunction(actionToken)
-        const timer = setTimeout(() => {
-            navigate('/home')
-        }, 500);
-        return () => clearTimeout(timer);
+        // const timer = setTimeout(() => {
+        //     navigate('/home')
+        // }, 500);
+        // return () => clearTimeout(timer);
     }, [activateFunction, actionToken])
 
 

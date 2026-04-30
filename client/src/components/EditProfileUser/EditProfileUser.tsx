@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 
 import './EditProfileUser.css'
@@ -12,32 +12,58 @@ import {userActions} from "../../redux";
 import {IUserFromDB} from "../../interfaces";
 
 
+
 const EditProfileUser = () => {
 
     const {user} = useAppSelector(state => state.userReducer)
     const dispatch = useAppDispatch()
 
-
     const {
-        handleSubmit, register, reset,
-        formState: {errors}
-    } = useForm<Partial<IUserFromDB>>({mode: 'all', resolver: joiResolver(allValidators.editUser)});
-
+        handleSubmit,
+        register,
+        reset,
+        formState: { errors }
+    } = useForm<Partial<IUserFromDB>>({
+        mode: "all",
+        resolver: joiResolver(allValidators.editUser),
+    });
 
     const submitFunction: SubmitHandler<Partial<IUserFromDB>> = async (data: Partial<IUserFromDB>) => {
         const dto = {
             userId: user._id,
             dto: data
         }
-        const response = await dispatch(userActions.editUser(dto))
-        if (response.meta.requestStatus === 'fulfilled') {
-            toast.success("Data changed successfully", {
+
+        const isSame =
+            data.userName === user.userName &&
+            data.age === user.age;
+
+        if (isSame) {
+            toast.info("No changes detected", {
                 autoClose: 2000,
                 theme: "light",
             });
+        }else {
+            const response = await dispatch(userActions.editUser(dto))
+            if (response.meta.requestStatus === 'fulfilled') {
+                toast.success("Data changed successfully", {
+                    autoClose: 2000,
+                    theme: "light",
+                });
+            }
+            reset();
         }
-        reset();
     }
+
+
+    useEffect(() => {
+        if (user) {
+            reset({
+                userName: user.userName,
+                age: user.age,
+            });
+        }
+    }, [user, reset]);
 
 
     return (
