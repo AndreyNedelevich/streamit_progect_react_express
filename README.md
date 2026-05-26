@@ -35,7 +35,7 @@ Before running the application, create an `.env` file in the root directory with
 
 
 
-### MongoDB Configuration
+### ENV Configuration
 
 ```env
 MONGODB_URL="mongodb://127.0.0.1:27017/stremitdatabase?directConnection=true"
@@ -56,7 +56,45 @@ AWS_S3_ACL=public-read
 AWS_S3_URL=your AWS S3 URL
 ```
 
+## MongoDB Setup
 
+Before starting the project, make sure MongoDB is running.  
+Without MongoDB the server application will not work.
+
+### Docker Compose
+
+The `docker-compose.yml` file is located inside the `server` folder.
+
+Start MongoDB with:
+
+```bash
+cd server
+docker compose up -d
+```
+
+Check running containers:
+
+```bash
+docker ps
+```
+
+### Alternative: Run MongoDB Without Docker
+
+If you do not use Docker, you can install MongoDB locally.
+
+#### Start MongoDB locally
+
+After installing MongoDB, run:
+
+```bash
+mongod
+```
+
+MongoDB will start on the default port:
+
+```text
+mongodb://127.0.0.1:27017
+```
 
 ##  Running the project
 
